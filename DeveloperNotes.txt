@@ -4,3 +4,5 @@ For each entity
 	create Controller
 		add view and models to controller
 	create store
+
+Testing with github
