@@ -1,0 +1,33 @@
+Ext.define('KCCVBS.model.Workers', {
+    extend: 'Ext.data.Model',
+    fields: [
+                'WorkerKey',
+                'Active',
+                'WorkerTypeKey',
+                'WorkerType',
+                'DisplayName',
+                'Title',
+                'Address1',
+                'Address2',
+                'City',
+                'State',
+                'Zip',
+                'Phone',
+                'Extension',
+                'Mobile',
+                'Fax',
+                'Email',
+                'Notes',
+                'Monday',
+                'Tuesday',
+                'Wednesday',
+                'Thursday',
+                'Friday',
+                'Saturday',
+                'Sunday',
+                'CreateDate',
+                'CreatedBy',
+                'EditDate',
+                'EditedBy'
+            ]
+});

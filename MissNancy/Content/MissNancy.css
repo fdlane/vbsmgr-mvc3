@@ -1,0 +1,40 @@
+﻿.new-item
+{
+    background-image: url(icons/user_add.png) !important;
+}
+.delete-item
+{
+    background-image: url(icons/delete.png) !important;
+}
+.children
+{
+    background-image: url(icons/user.png) !important;
+}
+.classes
+{
+    background-image: url(icons/chaulkboard.png) !important;
+}
+.workers
+{
+    background-image: url(icons/workers.png) !important;
+}
+.settings
+{
+    background-image: url(icons/gear.png) !important;
+}
+.buses
+{
+    background-image: url(icons/buses.png) !important;
+}
+.routes
+{
+    background-image: url(icons/map.png) !important;
+}
+.locations
+{
+    background-image: url(icons/children.png) !important;
+}
+.neighborhoods
+{
+    background-image: url(icons/home.png) !important;
+}

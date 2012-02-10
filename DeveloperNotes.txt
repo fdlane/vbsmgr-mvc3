@@ -1,0 +1,6 @@
+For each entity
+	Create Model
+	Create View
+	create Controller
+		add view and models to controller
+	create store
