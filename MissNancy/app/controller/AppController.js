@@ -6,7 +6,7 @@
 
             // Add all your toolbar actions & navigation pane's actions...
             'navigation menuitem[action="children"]': {
-                click: function (butt, evt) {
+                click: function (butt, evt) { 
                     this.application.getController('Children').displayList();
                 }
             },
