@@ -1,6 +1,8 @@
-# MissNancy #
+MissNancy
+=========
 
-<h2 class="tagline">A port of a simple MS Access application</h2>
+A port of a simple MS Access application
+----------------------------------------
 
 MissNancy is pet project that ports a MS Access application that I wrote almost 10 years ago for my local church.  The church 
 has a HUGE Vacation Bible School event each year and needed a way to track the Children, Workers, Buses, Classes, and 
@@ -24,6 +26,6 @@ Some lessons learned from moving from the MS Access development to .Net/Javascri
 * Remember MS Access 'true' is '-1'
 * At least for me, development takes a lot longer...maybe I was this slow when I first started with Access too. *sigh
 
-This work was done for **Knoxville Christian Center**, see here - <http://knoxvillechristiancenter.org/> - for details about the church.
+This work was done for **Knoxville Christian Center**, see here - [link text](http://knoxvillechristiancenter.org) - for details about the church.
 
 Make sure you ask someone about Miss Nancy and her story....
