@@ -6,9 +6,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissNancy.Tests", "MissNancy.Tests\MissNancy.Tests.csproj", "{01EC4641-D6A8-4496-848E-71FDF1B3AA02}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{7994823B-09F1-4D13-BF61-F35E6B6F0EBB}"
-	ProjectSection(SolutionItems) = preProject
-		DeveloperNotes.txt = DeveloperNotes.txt
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
