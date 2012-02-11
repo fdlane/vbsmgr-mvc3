@@ -35,18 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ext.Net, Version=1.2.0.19755, Culture=neutral, PublicKeyToken=2e12ce3d0176cd87, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Ext.NET.1.2.0\lib\Ext.Net.dll</HintPath>
-    </Reference>
-    <Reference Include="Ext.Net.Utilities, Version=1.1.0.19751, Culture=neutral, PublicKeyToken=2c34ac34702a3c23, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Ext.NET.1.2.0\lib\Ext.Net.Utilities.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b9a188c8922137c6, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ext.NET.1.2.0\lib\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -143,8 +132,8 @@
     <Content Include="app\view\children\List.js" />
     <Content Include="app\view\classes\Edit.js" />
     <Content Include="app\view\classes\List.js" />
-    <Content Include="app\view\wokertype\Edit.js" />
-    <Content Include="app\view\wokertype\List.js" />
+    <Content Include="app\view\workertype\Edit.js" />
+    <Content Include="app\view\workertype\List.js" />
     <Content Include="app\view\location\Edit.js" />
     <Content Include="app\view\location\List.js" />
     <Content Include="app\view\menu\Navigation.js" />
