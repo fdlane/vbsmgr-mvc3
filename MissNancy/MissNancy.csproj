@@ -1384,11 +1384,7 @@
     <Content Include="Global.asax" />
     <Content Include="index.html" />
     <Content Include="MissNancy.Publish.xml" />
-    <Content Include="Views\Classes\Create.aspx" />
-    <Content Include="Views\Classes\Details.aspx" />
-    <Content Include="Views\Classes\Edit.aspx" />
-    <Content Include="Views\Classes\Index.aspx" />
-    <Content Include="Views\Classes\IndexExt.aspx" />
+    <Content Include="Views\Home\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1402,7 +1398,7 @@
     <Content Include="Views\Account\LogOn.aspx" />
     <Content Include="Views\Account\Register.aspx" />
     <Content Include="Views\Home\About.aspx" />
-    <Content Include="Views\Home\Index.aspx" />
+    <Content Include="Views\Home\IndexOrig.aspx" />
     <Content Include="Views\Shared\Error.aspx" />
     <Content Include="Views\Shared\LogOnUserControl.ascx" />
     <Content Include="Views\Shared\Site.Master" />

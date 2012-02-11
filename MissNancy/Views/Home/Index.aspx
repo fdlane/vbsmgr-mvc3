@@ -1,13 +1,14 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage" %>
+﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-    Home Page
-</asp:Content>
-
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: ViewBag.Message %></h2>
-    <p>
-        To meet Miss Nancy, please attend Knoxville Christian Center <a href="http://knoxvillechristiancenter.org/"
-            title="Knoxville Christian Center Website">http://knoxvillechristiancenter.org/</a>.
-    </p>
-</asp:Content>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>KCC VBS</title>
+    <link href="../../Content/MissNancy.css" rel="stylesheet" type="text/css" />
+    <link href="../../extjs/resources/css/ext-all.css" rel="stylesheet" type="text/css" />
+    <script src="../../extjs/ext-all-debug.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../../app.js"></script>
+</head>
+<body>
+</body>
+</html>

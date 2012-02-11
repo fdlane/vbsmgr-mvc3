@@ -11,7 +11,7 @@ namespace MissNancy.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to the Miss Nancy VBS Application";
+           // ViewBag.Message = "Welcome to the Miss Nancy VBS Application";
 
             return View();
         }
