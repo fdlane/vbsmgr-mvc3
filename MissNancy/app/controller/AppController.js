@@ -6,11 +6,11 @@
 
             // Add all your toolbar actions & navigation pane's actions...
             'navigation menuitem[action="children"]': {
-                click: function (butt, evt) { 
+                click: function (butt, evt) {
                     this.application.getController('Children').displayList();
                 }
             },
-             'navigation menuitem[action="workers"]': {
+            'navigation menuitem[action="workers"]': {
                 click: function (butt, evt) {
                     this.application.getController('Workers').displayList();
                 }
@@ -23,6 +23,11 @@
             'navigation menuitem[action="buses"]': {
                 click: function (butt, evt) {
                     this.application.getController('Buses').displayList();
+                }
+            },
+            'navigation menuitem[action="neighborhoods"]': {
+                click: function (butt, evt) {
+                    this.application.getController('Neighborhoods').displayList();
                 }
             }
         });

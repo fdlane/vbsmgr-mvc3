@@ -10,7 +10,8 @@ Ext.application({
                     'Classes',
                     'Workers',
                     'Children',
-                    'Buses'
+                    'Buses',
+                    'Neighborhoods'
                  ],
 
     launch: function () {

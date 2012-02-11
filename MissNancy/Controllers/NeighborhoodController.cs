@@ -7,16 +7,12 @@ using MissNancy.Data;
 
 namespace MissNancy.Controllers
 {
-    public class BusesController : Controller
+    public class NeighborhoodController : Controller
     {
-
-        //
-        // GET: /Buses/
-
         public JsonResult Get(int? start, int? limit)
         {
             var db = new PetaPoco.Database("MissNancy");
-            var data = db.Query<Bus>("WHERE Active <>0");
+            var data = db.Query<Neighborhood>("WHERE Active <>0");
 
             return Json(new
             {
@@ -26,7 +22,7 @@ namespace MissNancy.Controllers
         }
 
         [HttpPost]
-        public JsonResult Create(List<Bus> data)
+        public JsonResult Create(List<Neighborhood> data)
         {
             bool success = false;
             string message = "Create method failed";
@@ -39,7 +35,7 @@ namespace MissNancy.Controllers
                     {
                         item.CreateDate = DateTime.Now;
                         item.EditDate = DateTime.Now;
-                        db.Save("tblBuses", "BusKey", item);
+                        db.Save("tblNeighborhooda", "NeighborhoodKey", item);
                     }
 
                     success = true;
@@ -57,7 +53,7 @@ namespace MissNancy.Controllers
         }
 
         [HttpPost]
-        public JsonResult Update(IList<Bus> data)
+        public JsonResult Update(IList<Neighborhood> data)
         {
             bool success = false;
             string message = "no record found";
@@ -67,11 +63,11 @@ namespace MissNancy.Controllers
                 {
                     foreach (var item in data)
                     {
-                        var rec = db.SingleOrDefault<Bus>("WHERE BusKey = @0", item.BusKey);
+                        var rec = db.SingleOrDefault<Neighborhood>("WHERE NeighborhoodKey = @0", item.NeighborhoodKey);
 
                         rec = item;
                         rec.EditDate = DateTime.Now;
-                        db.Save("tblBuses", "BusKey", rec);
+                        db.Save("tblNeighborhooda", "NeighborhoodKey", rec);
 
                     }
 
@@ -88,7 +84,7 @@ namespace MissNancy.Controllers
             });
         }
 
-        public JsonResult Delete(IList<Bus> data)
+        public JsonResult Delete(IList<Neighborhood> data)
         {
             bool success = false;
             string message = "Delete method failed";
@@ -101,11 +97,11 @@ namespace MissNancy.Controllers
                     {
                         item.EditDate = DateTime.Now;
                         item.Active = false;
-                        db.Save("tblBuses", "BusKey", item);
+                        db.Save("tblNeighborhooda", "NeighborhoodKey", item);
                     }
 
                     success = true;
-                    message = "Bus(s) deleted successfully";
+                    message = "Neighborhood(s) deleted successfully";
                 }
             }
 

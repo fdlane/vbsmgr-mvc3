@@ -1,9 +1,10 @@
-For each entity
-	Create Model
-	Create View
-	create Controller
-		add view and models to controller (don't forget this, doh!)
-	create store
-Create server side controller
+For each entity do the following:
+	Create Model (singular 'User')
+	create views folder (in singular lowercase folder named of object 'user') 
+	Create Views (to start...Edit and List)
+	create Controller (plural 'Users')
+		add store, view, and model to controller (don't forget this, doh!)
+	create store (this is plural of object 'Users')
+Create server side controller (in singular form 'UserController.cs')
 Add action to menu item in Navigation
 Add navigation to appcontroller to display list

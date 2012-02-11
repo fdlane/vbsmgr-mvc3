@@ -5,7 +5,6 @@ using System.Text;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MissNancy.Data;
-using MissNancy.Services;
 using PetaPoco;
 
 namespace MissNancy.Tests.Services

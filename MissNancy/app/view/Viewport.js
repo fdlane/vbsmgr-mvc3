@@ -4,11 +4,7 @@
 Ext.define('KCCVBS.view.Viewport', {
     extend: 'Ext.container.Viewport',
     requires: [
-        'Ext.layout.container.Border',
-        'Ext.menu.Menu',
-        'KCCVBS.view.menu.Navigation',
-        'KCCVBS.view.classes.List',
-        'KCCVBS.view.workers.List'
+        'Ext.layout.container.Border'
     ],
 
     layout: 'border',

@@ -1,31 +1,31 @@
-Ext.define('KCCVBS.controller.Workers', {
+Ext.define('KCCVBS.controller.Neighborhoods', {
     extend: 'Ext.app.Controller',
 
-    stores: ['Workers'],
+    stores: ['Neighborhoods'],
 
-    models: ['Workers'],
+    models: ['Neighborhood'],
 
-    views: ['workers.Edit', 'workers.List'],
+    views: ['neighborhood.List', 'neighborhood.Edit'],
 
     refs: [
         {
-            ref: 'workersPanel',
-            selector: 'panel'
+            ref: 'panel',
+            selector: 'neighborhoodlist'
         }
     ],
 
     init: function () {
         this.control({
-            'workerslist dataview': {
+            'neighborhoodlist dataview': {
                 itemdblclick: this.editItem
             },
-            'workersedit button[action=save]': {
+            'neighborhoodedit button[action=save]': {
                 click: this.updateItem
             },
-            'workerslist button[action=new]': {
+            'neighborhoodlist button[action=new]': {
                 click: this.createItem
             },
-            'workerslist button[action=delete]': {
+            'neighborhoodlist button[action=delete]': {
                 click: this.deleteItem
             }
         });
@@ -33,17 +33,26 @@ Ext.define('KCCVBS.controller.Workers', {
 
     displayList: function () {
         // Create grid view and display...
-        console.log('Worker displayList clicked');
+        console.log('neighborhood displayList clicked');
         var view = Ext.getCmp('center');
         console.log(view);
         view.removeAll();
         view.add({
-            xtype: 'workerslist'
+            xtype: 'neighborhoodlist'
         });
     },
 
+    createItem: function () {
+        console.log('neighborhood createItem clicked');
+        var edit = Ext.create('KCCVBS.view.neighborhood.Edit').show();
+        var record = Ext.create('KCCVBS.model.Neighborhood');
+        record.set('Active', true);
+
+        edit.down('form').loadRecord(record);
+    },
+
     editItem: function (grid, record) {
-        var edit = Ext.create('KCCVBS.view.workers.Edit').show();
+        var edit = Ext.create('KCCVBS.view.neighborhood.Edit').show();
 
         edit.down('form').loadRecord(record);
     },
@@ -56,10 +65,10 @@ Ext.define('KCCVBS.controller.Workers', {
 
         record.set(values);
         win.close();
-        this.getWorkersStore().sync();
+        this.getBusesStore().sync();
     },
     deleteItem: function (button) {
-        Ext.MessageBox.confirm('Delete Worker', 'Are you sure you want to delete', function (confirmButton) {
+        Ext.MessageBox.confirm('Delete Neighborhood', 'Are you sure you want to delete', function (confirmButton) {
             if (confirmButton == 'yes') {
                 var grid = button.up('panel');
                 var store = grid.getStore();

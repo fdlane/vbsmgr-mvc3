@@ -56,11 +56,9 @@ Ext.define('KCCVBS.controller.Classes', {
         record.set('Active', true);
 
         edit.down('form').loadRecord(record);
-
-        // empty the store so workers from the previously viewed class don't show
+        
+        // empty the linking store so details items from the previously viewed item does not show
         this.getClassWorkerDetailsStore().loadData([], false);
-
-        this.getAgesStore().load();
     },
     editItem: function (grid, record) {
         var edit = Ext.create('KCCVBS.view.classes.Edit').show();
@@ -112,8 +110,6 @@ Ext.define('KCCVBS.controller.Classes', {
             }
 
         });
-
-
     },
     createWorkerDetails: function (button) {
         var grid = button.up('panel'),

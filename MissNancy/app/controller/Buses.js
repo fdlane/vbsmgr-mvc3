@@ -56,9 +56,8 @@ Ext.define('KCCVBS.controller.Buses', {
 
         edit.down('form').loadRecord(record);
 
-        // TODO this is not correct????
-        // empty the store so Item from the previously viewed item does not show
-        this.getBusesStore().loadData([], false);
+        // empty the linking store so details items from the previously viewed item does not show
+        this.getBusWorkerDetailsStore().loadData([], false);
     },
 
     editItem: function (grid, record) {

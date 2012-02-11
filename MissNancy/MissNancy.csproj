@@ -76,6 +76,7 @@
     <Compile Include="Controllers\ClassesController.cs" />
     <Compile Include="Controllers\AgesController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
+    <Compile Include="Controllers\NeighborhoodController.cs" />
     <Compile Include="Controllers\WorkersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -98,6 +99,7 @@
     <Content Include="app\controller\Classes.js" />
     <Content Include="app\controller\Children.js" />
     <Content Include="app\controller\Buses.js" />
+    <Content Include="app\controller\Neighborhoods.js" />
     <Content Include="app\controller\Workers.js" />
     <Content Include="app\controller\Users.js" />
     <Content Include="app\model\Classes.js" />
@@ -106,6 +108,7 @@
     <Content Include="app\model\Children.js" />
     <Content Include="app\model\Buses.js" />
     <Content Include="app\model\BusWorkerDetails.js" />
+    <Content Include="app\model\Neighborhood.js" />
     <Content Include="app\model\Locations.js" />
     <Content Include="app\model\Workers.js" />
     <Content Include="app\model\User.js" />
@@ -115,6 +118,7 @@
     <Content Include="app\store\Children.js" />
     <Content Include="app\store\Buses.js" />
     <Content Include="app\store\BusWorkerDetails.js" />
+    <Content Include="app\store\Neighborhoods.js" />
     <Content Include="app\store\Locations.js" />
     <Content Include="app\store\Workers.js" />
     <Content Include="app\store\Users.js" />
@@ -126,6 +130,8 @@
     <Content Include="app\view\classes\Edit.js" />
     <Content Include="app\view\classes\List.js" />
     <Content Include="app\view\menu\Navigation.js" />
+    <Content Include="app\view\neighborhood\Edit.js" />
+    <Content Include="app\view\neighborhood\List.js" />
     <Content Include="app\view\user\Edit.js" />
     <Content Include="app\view\user\List.js" />
     <Content Include="app\view\Viewport.js" />
@@ -170,6 +176,8 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="appTester.js" />
+    <Content Include="indexTester.html" />
     <Content Include="extjs\ext-all-debug-w-comments.js" />
     <Content Include="extjs\ext-all-debug.js" />
     <Content Include="extjs\ext-all-dev.js" />
