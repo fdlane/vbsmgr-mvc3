@@ -7,12 +7,12 @@ using MissNancy.Data;
 
 namespace MissNancy.Controllers
 {
-    public class AgeController : Controller
+    public class LocationController : Controller
     {
         public JsonResult Get(int? start, int? limit)
         {
             var db = new PetaPoco.Database("MissNancy");
-            var data = db.Query<Ages>("WHERE Active <>0");
+            var data = db.Query<Location>("WHERE Active <>0");
 
             return Json(new
             {
@@ -22,7 +22,7 @@ namespace MissNancy.Controllers
         }
 
         [HttpPost]
-        public JsonResult Create(List<Ages> data)
+        public JsonResult Create(List<Location> data)
         {
             bool success = false;
             string message = "Create method failed";
@@ -35,7 +35,7 @@ namespace MissNancy.Controllers
                     {
                         item.CreateDate = DateTime.Now;
                         item.EditDate = DateTime.Now;
-                        db.Save("tblAges", "AgeKey", item);
+                        db.Save("tblLocations", "LocationKey", item);
                     }
 
                     success = true;
@@ -53,7 +53,7 @@ namespace MissNancy.Controllers
         }
 
         [HttpPost]
-        public JsonResult Update(IList<Ages> data)
+        public JsonResult Update(IList<Location> data)
         {
             bool success = false;
             string message = "no record found";
@@ -63,11 +63,11 @@ namespace MissNancy.Controllers
                 {
                     foreach (var item in data)
                     {
-                        var rec = db.SingleOrDefault<Ages>("WHERE AgeKey = @0", item.AgeKey);
+                        var rec = db.SingleOrDefault<Location>("WHERE LocationKey = @0", item.LocationKey);
 
                         rec = item;
                         rec.EditDate = DateTime.Now;
-                        db.Save("tblAges", "AgeKey", rec);
+                        db.Save("tblLocations", "LocationKey", rec);
 
                     }
 
@@ -84,7 +84,7 @@ namespace MissNancy.Controllers
             });
         }
 
-        public JsonResult Delete(IList<Ages> data)
+        public JsonResult Delete(IList<Location> data)
         {
             bool success = false;
             string message = "Delete method failed";
@@ -97,11 +97,11 @@ namespace MissNancy.Controllers
                     {
                         item.EditDate = DateTime.Now;
                         item.Active = false;
-                        db.Save("tblAges", "AgeKey", item);
+                        db.Save("tblLocations", "LocationKey", item);
                     }
 
                     success = true;
-                    message = "Age(s) deleted successfully";
+                    message = "Location(s) deleted successfully";
                 }
             }
 

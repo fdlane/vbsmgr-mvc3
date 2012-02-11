@@ -1,34 +1,3 @@
-//var writer = new Ext.data.JsonWriter({
-//    type: 'json',
-//    encode: false,
-//    listful: true,
-//    writeAllFields: true,
-//    returnJson: true
-//});
-
-//var reader = new Ext.data.JsonReader({
-//    totalProperty: 'total',
-//    successProperty: 'success',
-//    idProperty: 'LocationKey',
-//    root: 'data',
-//    messageProperty: 'message'
-//});
-
-//var proxy = new Ext.data.HttpProxy({
-//    reader: reader,
-//    writer: writer,
-//    type: 'ajax',
-//    api: {
-//        read: '/Locations/Get',
-//        create: '/Locations/Create',
-//        update: '/Locations/Update',
-//        destroy: '/Locations/Delete'
-//    },
-//    headers: {
-//        'Content-Type': 'application/json; charset=UTF-8'
-//    }
-//});
-
 Ext.define('KCCVBS.store.Locations', {
     extend: 'Ext.data.Store',
     model: 'KCCVBS.model.Locations',
@@ -51,10 +20,10 @@ Ext.define('KCCVBS.store.Locations', {
         },
         type: 'ajax',
         api: {
-            read: '/Locations/Get',
-            create: '/Locations/Create',
-            update: '/Locations/Update',
-            destroy: '/Locations/Delete'
+            read: '/Location/Get',
+            create: '/Location/Create',
+            update: '/Location/Update',
+            destroy: '/Location/Delete'
         },
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'

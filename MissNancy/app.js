@@ -13,7 +13,8 @@ Ext.application({
                     'Buses',
                     'Neighborhoods',
                     'Routes',
-                    'Ages'
+                    'Ages',
+                    'Locations'
                  ],
 
     launch: function () {

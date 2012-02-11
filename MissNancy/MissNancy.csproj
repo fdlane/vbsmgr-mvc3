@@ -75,8 +75,9 @@
     <Compile Include="Controllers\ChildrenController.cs" />
     <Compile Include="Controllers\ClassesController.cs" />
     <Compile Include="Controllers\AgesController.cs" />
+    <Compile Include="Controllers\AgeController.cs" />
     <Compile Include="Controllers\RouteController.cs" />
-    <Compile Include="Controllers\LocationsController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\NeighborhoodController.cs" />
     <Compile Include="Controllers\WorkersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -100,6 +101,8 @@
     <Content Include="app\controller\Classes.js" />
     <Content Include="app\controller\Children.js" />
     <Content Include="app\controller\Buses.js" />
+    <Content Include="app\controller\Ages.js" />
+    <Content Include="app\controller\Locations.js" />
     <Content Include="app\controller\Routes.js" />
     <Content Include="app\controller\Neighborhoods.js" />
     <Content Include="app\controller\Workers.js" />
@@ -110,6 +113,7 @@
     <Content Include="app\model\Children.js" />
     <Content Include="app\model\Buses.js" />
     <Content Include="app\model\BusWorkerDetails.js" />
+    <Content Include="app\model\Age.js" />
     <Content Include="app\model\Route.js" />
     <Content Include="app\model\Neighborhood.js" />
     <Content Include="app\model\Locations.js" />
@@ -126,6 +130,8 @@
     <Content Include="app\store\Locations.js" />
     <Content Include="app\store\Workers.js" />
     <Content Include="app\store\Users.js" />
+    <Content Include="app\view\age\Edit.js" />
+    <Content Include="app\view\age\List.js" />
     <Content Include="app\view\buses\BusWorkerDetailsList.js" />
     <Content Include="app\view\buses\Edit.js" />
     <Content Include="app\view\buses\List.js" />
@@ -133,6 +139,8 @@
     <Content Include="app\view\children\List.js" />
     <Content Include="app\view\classes\Edit.js" />
     <Content Include="app\view\classes\List.js" />
+    <Content Include="app\view\location\Edit.js" />
+    <Content Include="app\view\location\List.js" />
     <Content Include="app\view\menu\Navigation.js" />
     <Content Include="app\view\neighborhood\Edit.js" />
     <Content Include="app\view\neighborhood\List.js" />
