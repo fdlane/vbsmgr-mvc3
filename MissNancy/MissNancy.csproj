@@ -1361,6 +1361,7 @@
     <Content Include="extjs\resources\themes\images\gray\window\window-default-sides.gif" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
+    <Content Include="MissNancy.Publish.xml" />
     <Content Include="Views\Classes\Create.aspx" />
     <Content Include="Views\Classes\Details.aspx" />
     <Content Include="Views\Classes\Edit.aspx" />
@@ -1386,6 +1387,8 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="data\updateUsers.json" />
+    <None Include="data\users.json" />
     <None Include="extjs\resources\sass\config.rb" />
     <None Include="extjs\resources\sass\ext-all-access.scss" />
     <None Include="extjs\resources\sass\ext-all-gray.scss" />
