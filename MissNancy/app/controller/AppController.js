@@ -29,6 +29,11 @@
                 click: function (butt, evt) {
                     this.application.getController('Neighborhoods').displayList();
                 }
+            },
+            'navigation menuitem[action="routes"]': {
+                click: function (butt, evt) {
+                    this.application.getController('Routes').displayList();
+                }
             }
         });
     }

@@ -75,6 +75,7 @@
     <Compile Include="Controllers\ChildrenController.cs" />
     <Compile Include="Controllers\ClassesController.cs" />
     <Compile Include="Controllers\AgesController.cs" />
+    <Compile Include="Controllers\RouteController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\NeighborhoodController.cs" />
     <Compile Include="Controllers\WorkersController.cs" />
@@ -99,6 +100,7 @@
     <Content Include="app\controller\Classes.js" />
     <Content Include="app\controller\Children.js" />
     <Content Include="app\controller\Buses.js" />
+    <Content Include="app\controller\Routes.js" />
     <Content Include="app\controller\Neighborhoods.js" />
     <Content Include="app\controller\Workers.js" />
     <Content Include="app\controller\Users.js" />
@@ -108,6 +110,7 @@
     <Content Include="app\model\Children.js" />
     <Content Include="app\model\Buses.js" />
     <Content Include="app\model\BusWorkerDetails.js" />
+    <Content Include="app\model\Route.js" />
     <Content Include="app\model\Neighborhood.js" />
     <Content Include="app\model\Locations.js" />
     <Content Include="app\model\Workers.js" />
@@ -118,6 +121,7 @@
     <Content Include="app\store\Children.js" />
     <Content Include="app\store\Buses.js" />
     <Content Include="app\store\BusWorkerDetails.js" />
+    <Content Include="app\store\Routes.js" />
     <Content Include="app\store\Neighborhoods.js" />
     <Content Include="app\store\Locations.js" />
     <Content Include="app\store\Workers.js" />
@@ -132,6 +136,8 @@
     <Content Include="app\view\menu\Navigation.js" />
     <Content Include="app\view\neighborhood\Edit.js" />
     <Content Include="app\view\neighborhood\List.js" />
+    <Content Include="app\view\route\Edit.js" />
+    <Content Include="app\view\route\List.js" />
     <Content Include="app\view\user\Edit.js" />
     <Content Include="app\view\user\List.js" />
     <Content Include="app\view\Viewport.js" />
