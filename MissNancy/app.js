@@ -14,7 +14,8 @@ Ext.application({
                     'Neighborhoods',
                     'Routes',
                     'Ages',
-                    'Locations'
+                    'Locations',
+                    'WorkerTypes'
                  ],
 
     launch: function () {
