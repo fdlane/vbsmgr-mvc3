@@ -6,33 +6,48 @@
 
             // Add all your toolbar actions & navigation pane's actions...
             'navigation menuitem[action="children"]': {
-                click: function (butt, evt) {
+                click: function (button, evt) {
                     this.application.getController('Children').displayList();
                 }
             },
             'navigation menuitem[action="workers"]': {
-                click: function (butt, evt) {
+                click: function (button, evt) {
                     this.application.getController('Workers').displayList();
                 }
             },
             'navigation menuitem[action="classes"]': {
-                click: function (butt, evt) {
+                click: function (button, evt) {
                     this.application.getController('Classes').displayList();
                 }
             },
             'navigation menuitem[action="buses"]': {
-                click: function (butt, evt) {
+                click: function (button, evt) {
                     this.application.getController('Buses').displayList();
                 }
             },
             'navigation menuitem[action="neighborhoods"]': {
-                click: function (butt, evt) {
+                click: function (button, evt) {
                     this.application.getController('Neighborhoods').displayList();
                 }
             },
             'navigation menuitem[action="routes"]': {
-                click: function (butt, evt) {
+                click: function (button, evt) {
                     this.application.getController('Routes').displayList();
+                }
+            },
+            'navigation menuitem[action="ages"]': {
+                click: function (button, evt) {
+                    this.application.getController('Ages').displayList();
+                }
+            },
+            'navigation menuitem[action="locations"]': {
+                click: function (button, evt) {
+                    this.application.getController('Locations').displayList();
+                }
+            },
+            'navigation menuitem[action="workertypes"]': {
+                click: function (button, evt) {
+                    this.application.getController('WorkerTypes').displayList();
                 }
             }
         });

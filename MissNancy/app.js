@@ -12,7 +12,8 @@ Ext.application({
                     'Children',
                     'Buses',
                     'Neighborhoods',
-                    'Routes'
+                    'Routes',
+                    'Ages'
                  ],
 
     launch: function () {
