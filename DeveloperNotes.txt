@@ -2,7 +2,8 @@ For each entity
 	Create Model
 	Create View
 	create Controller
-		add view and models to controller
+		add view and models to controller (don't forget this, doh!)
 	create store
-
-Testing with github
+Create server side controller
+Add action to menu item in Navigation
+Add navigation to appcontroller to display list

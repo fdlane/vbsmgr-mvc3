@@ -17,10 +17,16 @@ Ext.define('KCCVBS.controller.Workers', {
     init: function () {
         this.control({
             'workerslist dataview': {
-                itemdblclick: this.editWorkers
+                itemdblclick: this.editItem
             },
             'workersedit button[action=save]': {
-                click: this.updateWorkers
+                click: this.updateItem
+            },
+            'workerslist button[action=new]': {
+                click: this.createItem
+            },
+            'workerslist button[action=delete]': {
+                click: this.deleteItem
             }
         });
     },
@@ -36,13 +42,13 @@ Ext.define('KCCVBS.controller.Workers', {
         });
     },
 
-    editWorkers: function (grid, record) {
+    editItem: function (grid, record) {
         var edit = Ext.create('KCCVBS.view.workers.Edit').show();
 
         edit.down('form').loadRecord(record);
     },
 
-    updateWorkers: function (button) {
+    updateItem: function (button) {
         var win = button.up('window'),
             form = win.down('form'),
             record = form.getRecord(),

@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BusesController.cs" />
     <Compile Include="Controllers\ChildrenController.cs" />
     <Compile Include="Controllers\ClassesController.cs" />
     <Compile Include="Controllers\AgesController.cs" />
@@ -97,12 +98,15 @@
     <Content Include="app\controller\AppController.js" />
     <Content Include="app\controller\Classes.js" />
     <Content Include="app\controller\Children.js" />
+    <Content Include="app\controller\Buses.js" />
     <Content Include="app\controller\Workers.js" />
     <Content Include="app\controller\Users.js" />
     <Content Include="app\model\Classes.js" />
     <Content Include="app\model\Ages.js" />
     <Content Include="app\model\ClassWorkerDetails.js" />
     <Content Include="app\model\Children.js" />
+    <Content Include="app\model\Buses.js" />
+    <Content Include="app\model\BusWorkerDetails.js" />
     <Content Include="app\model\Locations.js" />
     <Content Include="app\model\Workers.js" />
     <Content Include="app\model\User.js" />
@@ -110,9 +114,14 @@
     <Content Include="app\store\Ages.js" />
     <Content Include="app\store\ClassWorkerDetails.js" />
     <Content Include="app\store\Children.js" />
+    <Content Include="app\store\Buses.js" />
+    <Content Include="app\store\BusWorkerDetails.js" />
     <Content Include="app\store\Locations.js" />
     <Content Include="app\store\Workers.js" />
     <Content Include="app\store\Users.js" />
+    <Content Include="app\view\buses\BusWorkerDetailsList.js" />
+    <Content Include="app\view\buses\Edit.js" />
+    <Content Include="app\view\buses\List.js" />
     <Content Include="app\view\children\Edit.js" />
     <Content Include="app\view\children\List.js" />
     <Content Include="app\view\classes\Edit.js" />

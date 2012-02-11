@@ -18,22 +18,22 @@ Ext.define('KCCVBS.controller.Classes', {
     init: function () {
         this.control({
             'classeslist dataview': {
-                itemdblclick: this.editClasses
+                itemdblclick: this.editItem
             },
             'classesedit button[action=save]': {
-                click: this.updateClasses
+                click: this.updateItem
             },
             'classeslist button[action=new]': {
-                click: this.createClass
+                click: this.createItem
             },
             'classeslist button[action=delete]': {
-                click: this.deleteClass
+                click: this.deleteItem
             },
             'classworkerdetailslist button[action=new]': {
-                click: this.createClassWorkerDetails
+                click: this.createWorkerDetails
             },
             'classworkerdetailslist button[action=delete]': {
-                click: this.deleteClassWorkerDetail
+                click: this.deleteWorkerDetail
             }
         });
     },
@@ -49,7 +49,7 @@ Ext.define('KCCVBS.controller.Classes', {
         });
     },
 
-    createClass: function () {
+    createItem: function () {
         console.log('Classes createClass clicked');
         var edit = Ext.create('KCCVBS.view.classes.Edit').show();
         var record = Ext.create('KCCVBS.model.Classes');
@@ -62,7 +62,7 @@ Ext.define('KCCVBS.controller.Classes', {
 
         this.getAgesStore().load();
     },
-    editClasses: function (grid, record) {
+    editItem: function (grid, record) {
         var edit = Ext.create('KCCVBS.view.classes.Edit').show();
 
         edit.down('form').loadRecord(record);
@@ -72,7 +72,7 @@ Ext.define('KCCVBS.controller.Classes', {
         this.getAgesStore().load();
 
     },
-    updateClasses: function (button) {
+    updateItem: function (button) {
         var win = button.up('window'),
             form = win.down('form'),
             record = form.getRecord(),
@@ -99,7 +99,7 @@ Ext.define('KCCVBS.controller.Classes', {
         win.close();
         this.getClassesStore().sync();
     },
-    deleteClass: function (button) {
+    deleteItem: function (button) {
         Ext.MessageBox.confirm('Delete Class', 'Are you sure you want to delete', function (confirmButton) {
             if (confirmButton == 'yes') {
                 var grid = button.up('panel');
@@ -115,7 +115,7 @@ Ext.define('KCCVBS.controller.Classes', {
 
 
     },
-    createClassWorkerDetails: function (button) {
+    createWorkerDetails: function (button) {
         var grid = button.up('panel'),
             store = grid.getStore();
 
@@ -128,8 +128,8 @@ Ext.define('KCCVBS.controller.Classes', {
         });
 
     },
-    deleteClassWorkerDetail: function (button) {
-        Ext.MessageBox.confirm('Unassign Class Worker', 'Are you sure you want to unassign Worker(s) from this Class?', function (confirmButton) {
+    deleteWorkerDetail: function (button) {
+        Ext.MessageBox.confirm('Unassign Worker', 'Are you sure you want to unassign Worker(s)?', function (confirmButton) {
             if (confirmButton == 'yes') {
                 var grid = button.up('panel');
                 var store = grid.getStore();

@@ -19,6 +19,11 @@
                 click: function (butt, evt) {
                     this.application.getController('Classes').displayList();
                 }
+            },
+            'navigation menuitem[action="buses"]': {
+                click: function (butt, evt) {
+                    this.application.getController('Buses').displayList();
+                }
             }
         });
     }

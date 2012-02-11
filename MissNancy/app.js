@@ -9,7 +9,8 @@ Ext.application({
                     'AppController',
                     'Classes',
                     'Workers',
-                    'Children'
+                    'Children',
+                    'Buses'
                  ],
 
     launch: function () {

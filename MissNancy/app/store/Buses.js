@@ -1,13 +1,13 @@
-Ext.define('KCCVBS.store.Classes', {
+Ext.define('KCCVBS.store.Buses', {
     extend: 'Ext.data.Store',
-    model: 'KCCVBS.model.Classes',
+    model: 'KCCVBS.model.Buses',
     autoLoad: true,
     paramsAsHash: true,
     proxy: {
         reader: {
             totalProperty: 'total',
             successProperty: 'success',
-            idProperty: 'ClassKey',
+            idProperty: 'BusesKey',
             root: 'data',
             messageProperty: 'message'
         },
@@ -16,15 +16,14 @@ Ext.define('KCCVBS.store.Classes', {
             encode: false,
             listful: true,
             writeAllFields: true,
-            allowSingle: false,
             returnJson: true
         },
         type: 'ajax',
         api: {
-            read: '/Classes/Get',
-            create: '/Classes/Create',
-            update: '/Classes/Update',
-            destroy: '/Classes/Delete'
+            read: '/Buses/Get',
+            create: '/Buses/Create',
+            update: '/Buses/Update',
+            destroy: '/Buses/Delete'
         },
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'
