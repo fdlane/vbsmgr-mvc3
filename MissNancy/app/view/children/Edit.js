@@ -160,16 +160,20 @@ Ext.define('KCCVBS.view.children.Edit', {
         ];
 
         this.buttons = [
-        {
-            text: 'Save',
-            action: 'save'
-        },
-        {
-            text: 'Cancel',
-            scope: this,
-            handler: this.close
-        }
-        ];
+                    {
+                        text: 'New',
+                        action: 'new'
+                    }, {
+                        xtype: 'tbfill'
+                    }, {
+                        text: 'Save',
+                        action: 'save'
+                    }, {
+                        text: 'Cancel',
+                        scope: this,
+                        handler: this.close
+                    }
+                ];
 
         this.callParent(arguments);
     }

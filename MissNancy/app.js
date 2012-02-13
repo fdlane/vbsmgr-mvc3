@@ -27,7 +27,7 @@ Ext.application({
             uncheckedValue: ''
         });
 
-        this.getController('Children').displayList();
+       // this.getController('Children').displayList();
     }
 });
 

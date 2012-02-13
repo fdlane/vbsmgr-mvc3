@@ -49,6 +49,8 @@ Ext.define('KCCVBS.view.location.Edit', {
             text: 'New',
             action: 'new'
         }, {
+            xtype: 'tbfill'
+        }, {
             text: 'Save',
             action: 'save'
         }, {

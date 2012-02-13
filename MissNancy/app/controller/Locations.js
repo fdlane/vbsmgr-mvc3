@@ -32,14 +32,18 @@ Ext.define('KCCVBS.controller.Locations', {
     },
 
     displayList: function () {
-        // Create grid view and display...
-        console.log('route displayList clicked');
-        var view = Ext.getCmp('center');
-        console.log(view);
-        view.removeAll();
-        view.add({
-            xtype: 'locationlist'
-        });
+        var tabs = Ext.getCmp('center');
+        var tab = tabs.down('#Locations');
+        if (!tab) {
+            tab = tabs.add({
+                id: 'Locations',
+                title: 'Locations',
+                xtype: 'locationlist'
+            });
+        }
+
+        tabs.setActiveTab(tab);
+
     },
 
     createItem: function () {

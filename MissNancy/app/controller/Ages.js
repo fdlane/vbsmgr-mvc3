@@ -32,14 +32,17 @@ Ext.define('KCCVBS.controller.Ages', {
     },
 
     displayList: function () {
-        // Create grid view and display...
-        console.log('age displayList clicked');
-        var view = Ext.getCmp('center');
-        console.log(view);
-        view.removeAll();
-        view.add({
-            xtype: 'agelist'
-        });
+        var tabs = Ext.getCmp('center');
+        var tab = tabs.down('#Age');
+        if (!tab) {
+            tab = tabs.add({
+                id: 'Age',
+                title: 'Age',
+                xtype: 'agelist'
+            });
+        }
+
+        tabs.setActiveTab(tab);
     },
 
     createItem: function () {

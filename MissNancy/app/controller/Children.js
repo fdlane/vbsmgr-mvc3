@@ -32,14 +32,17 @@ Ext.define('KCCVBS.controller.Children', {
     },
 
     displayList: function () {
-        // Create grid view and display...
-        console.log('Children displayList clicked');
-        var view = Ext.getCmp('center');
-        console.log(view);
-        view.removeAll();
-        view.add({
-            xtype: 'childrenlist'
-        });
+      var tabs = Ext.getCmp('center');
+      var tab = tabs.down('#Children');
+      if (!tab) {
+        tab = tabs.add({
+                id: 'Children',
+                title: 'Children',
+                xtype: 'childrenlist'
+            });
+        }
+        
+        tabs.setActiveTab(tab);
     },
 
     createItem: function () {

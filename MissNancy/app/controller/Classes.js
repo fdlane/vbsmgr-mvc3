@@ -39,14 +39,18 @@ Ext.define('KCCVBS.controller.Classes', {
     },
 
     displayList: function () {
-        // Create grid view and display...
-        console.log('Classes displayList clicked');
-        var view = Ext.getCmp('center');
-        console.log(view);
-        view.removeAll();
-        view.add({
-            xtype: 'classeslist'
-        });
+        var tabs = Ext.getCmp('center');
+        var tab = tabs.down('#Classes');
+        if (!tab) {
+            tab = tabs.add({
+                id: 'Classes',
+                title: 'Classes',
+                xtype: 'classeslist'
+            });
+        }
+
+        tabs.setActiveTab(tab);
+
     },
 
     createItem: function () {
@@ -56,7 +60,7 @@ Ext.define('KCCVBS.controller.Classes', {
         record.set('Active', true);
 
         edit.down('form').loadRecord(record);
-        
+
         // empty the linking store so details items from the previously viewed item does not show
         this.getClassWorkerDetailsStore().loadData([], false);
     },

@@ -48,7 +48,7 @@ Ext.define('KCCVBS.view.classes.Edit', {
                 ,
                 forceSelection: true,
                 queryMode: 'local',
-                selectOnFocus:true
+                selectOnFocus: true
             },
             {
                 xtype: 'combo',
@@ -94,16 +94,21 @@ Ext.define('KCCVBS.view.classes.Edit', {
         ];
 
         this.buttons = [
-        {
-            text: 'Save',
-            action: 'save'
-        },
-        {
-            text: 'Cancel',
-            scope: this,
-            handler: this.close
-        }
-        ];
+                    {
+                        text: 'New',
+                        action: 'new'
+                    }, {
+                        xtype: 'tbfill'
+                    },
+                    {
+                        text: 'Save',
+                        action: 'save'
+                    }, {
+                        text: 'Cancel',
+                        scope: this,
+                        handler: this.close
+                    }
+                ];
 
         this.callParent(arguments);
     }

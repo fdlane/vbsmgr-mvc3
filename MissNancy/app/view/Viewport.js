@@ -24,7 +24,14 @@ Ext.define('KCCVBS.view.Viewport', {
 
     }, {
         id: 'center',
-        region: 'center'
+        region: 'center',
+        xtype: 'tabpanel',
+        items: [
+        {
+            title: 'Home',
+            html: 'Put a Welcome page here...'
+        }
+    ]
     }]
 
 });

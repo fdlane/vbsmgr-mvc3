@@ -32,14 +32,19 @@ Ext.define('KCCVBS.controller.Workers', {
     },
 
     displayList: function () {
-        // Create grid view and display...
-        console.log('Worker displayList clicked');
-        var view = Ext.getCmp('center');
-        console.log(view);
-        view.removeAll();
-        view.add({
-            xtype: 'workerslist'
-        });
+
+        var tabs = Ext.getCmp('center');
+        var tab = tabs.down('#Workers');
+        if (!tab) {
+            tab = tabs.add({
+                id: 'Workers',
+                title: 'Workers',
+                xtype: 'workerslist'
+            });
+        }
+
+        tabs.setActiveTab(tab);
+
     },
 
     editItem: function (grid, record) {

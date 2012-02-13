@@ -18,7 +18,7 @@ Ext.define('KCCVBS.view.menu.Navigation', {
         text: 'Classes',
         iconCls: 'classes',
         action: 'classes'
-      
+
     }, {
         text: 'Buses',
         iconCls: 'buses',

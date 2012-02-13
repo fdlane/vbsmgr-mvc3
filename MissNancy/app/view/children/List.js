@@ -22,6 +22,22 @@ Ext.define('KCCVBS.view.children.List', {
                     iconCls: 'delete-item',
                     text: 'Delete',
                     action: 'delete'
+                }, {
+                    xtype: 'splitbutton',
+                    text: 'More',
+                    menu: {
+                        xtype: 'menu',
+                        plain: false,
+                        items: [
+                                { text: 'Mark as attended Monday', action: 'monday' },
+                                { text: 'Mark as attended Tuesday', action: 'tuesday' },
+                                { text: 'Mark as attended Wednesday', action: 'wednesday' },
+                                { text: 'Mark as attended Thursday', action: 'thursday' },
+                                { text: 'Mark as attended Friday', action: 'friday' },
+                                { text: 'Mark as attended Saturday', action: 'saturday' },
+                                { text: 'Mark as attended Sunday', action: 'sunday' }
+                            ]
+                    }
                 }
             ];
 

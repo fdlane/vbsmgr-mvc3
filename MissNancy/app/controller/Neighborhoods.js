@@ -32,14 +32,17 @@ Ext.define('KCCVBS.controller.Neighborhoods', {
     },
 
     displayList: function () {
-        // Create grid view and display...
-        console.log('neighborhood displayList clicked');
-        var view = Ext.getCmp('center');
-        console.log(view);
-        view.removeAll();
-        view.add({
-            xtype: 'neighborhoodlist'
-        });
+        var tabs = Ext.getCmp('center');
+        var tab = tabs.down('#Neighborhoods');
+        if (!tab) {
+            tab = tabs.add({
+                id: 'Neighborhoods',
+                title: 'Neighborhoods',
+                xtype: 'neighborhoodlist'
+            });
+        }
+
+        tabs.setActiveTab(tab);
     },
 
     createItem: function () {

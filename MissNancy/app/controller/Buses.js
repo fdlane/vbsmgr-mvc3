@@ -38,14 +38,18 @@ Ext.define('KCCVBS.controller.Buses', {
     },
 
     displayList: function () {
-        // Create grid view and display...
-        console.log('Buses displayList clicked');
-        var view = Ext.getCmp('center');
-        console.log(view);
-        view.removeAll();
-        view.add({
-            xtype: 'buseslist'
-        });
+
+        var tabs = Ext.getCmp('center');
+        var tab = tabs.down('#Buses');
+        if (!tab) {
+            tab = tabs.add({
+                id: 'Buses',
+                title: 'Buses',
+                xtype: 'buseslist'
+            });
+        }
+
+        tabs.setActiveTab(tab);
     },
 
     createItem: function () {
