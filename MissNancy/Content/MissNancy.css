@@ -1,4 +1,15 @@
-﻿.new-item
+﻿#header {
+    background : #7F99BE url(images/layout-browser-hd-bg.gif) repeat-x scroll center center; 
+    border     : solid 1px #122A59;
+}
+
+.api-title {
+	color       : #fff;
+	font-size   : 16px;
+	font-weight : normal;
+	padding     : 5px 10px;
+}
+.new-item
 {
     background-image: url(icons/user_add.png) !important;
 }
