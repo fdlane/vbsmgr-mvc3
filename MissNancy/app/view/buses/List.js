@@ -12,15 +12,13 @@ Ext.define('KCCVBS.view.buses.List', {
             checkOnly: true
         });
 
-
         this.tbar = [
                         {
                             iconCls: 'new-item',
                             text: 'New',
                             action: 'new',
                             pressed: true
-                        },
-                        {
+                        }, {
                             iconCls: 'delete-item',
                             text: 'Delete',
                             action: 'delete'
@@ -28,15 +26,46 @@ Ext.define('KCCVBS.view.buses.List', {
                     ];
 
         this.columns = [
-        { header: 'Rte Num', dataIndex: 'RouteDisplay', flex: 1 },
-        { header: 'Painted #', dataIndex: 'BusNumber', flex: 1 },
-        { header: 'Bus Driver', dataIndex: 'BusDriverKey', flex: 1 },
-        { header: 'Captain', dataIndex: 'BusCaptainKey', flex: 1 },
-        { header: 'Phone', dataIndex: 'BusMobilePhone', flex: 1 },
-        { header: 'Capacity', dataIndex: 'BusCapacity', flex: 1 },
-        { header: 'Current', dataIndex: 'Current', flex: 1 },
-        { header: 'Active', dataIndex: 'Active', flex: 1 }
-    ];
+                        {
+                            header: 'Rte Num',
+                            dataIndex: 'RouteDisplay',
+                            width: 75
+                        }, {
+                            header: 'Painted #',
+                            dataIndex: 'BusNumber',
+                            width: 75
+                        }, {
+                            header: 'Bus Driver',
+                            dataIndex: 'BusDriverKey',
+                            width: 150
+                        }, {
+                            header: 'Captain',
+                            dataIndex: 'BusCaptainKey',
+                            width: 150
+                        }, {
+                            header: 'Phone',
+                            dataIndex: 'BusMobilePhone',
+                            width: 100
+                        }, {
+                            xtype: 'numbercolumn',
+                            align: 'right',
+                            format: '0',
+                            header: 'Capacity',
+                            dataIndex: 'BusCapacity',
+                            width: 60
+                        }, {
+                            xtype: 'numbercolumn',
+                            align: 'right',
+                            format: '0',
+                            header: 'Current',
+                            dataIndex: 'Current',
+                            width: 60
+                        }, {
+                            xtype: 'columnactive',
+                            dataIndex: 'Active',
+                            flex: 1
+                        }
+                ];
 
         this.callParent(arguments);
     }

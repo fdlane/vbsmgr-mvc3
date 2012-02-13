@@ -12,37 +12,87 @@ Ext.define('KCCVBS.view.children.List', {
             checkOnly: true
         });
 
-
         this.tbar = [
-                        {
-                            iconCls: 'new-item',
-                            text: 'New',
-                            action: 'new',
-                            pressed: true
-                        },
-                        {
-                            iconCls: 'delete-item',
-                            text: 'Delete',
-                            action: 'delete'
-                        }
-                    ];
+                {
+                    iconCls: 'new-item',
+                    text: 'New',
+                    action: 'new',
+                    pressed: true
+                }, {
+                    iconCls: 'delete-item',
+                    text: 'Delete',
+                    action: 'delete'
+                }
+            ];
 
         this.columns = [
-        { header: 'Last Name', dataIndex: 'LastName', flex: 1 },
-        { header: 'First Name', dataIndex: 'FirstName', flex: 1 },
-        { header: 'Phone', dataIndex: 'Phone', flex: 1 },
-        { header: 'Age', dataIndex: 'Age', flex: 1 },
-        { header: 'Route', dataIndex: 'Route', flex: 1 },
-        { header: 'Class', dataIndex: 'ClassDisplay', flex: 1 },
-        { header: 'M', dataIndex: 'Monday', flex: 1 },
-        { header: 'T', dataIndex: 'Tuesday', flex: 1 },
-        { header: 'W', dataIndex: 'Wednesday', flex: 1 },
-        { header: 'T', dataIndex: 'Thursday', flex: 1 },
-        { header: 'F', dataIndex: 'Friday', flex: 1 },
-        { header: 'S', dataIndex: 'Saturday', flex: 1 },
-        { header: 'S', dataIndex: 'Sunday', flex: 1 },        
-        { header: 'Active', dataIndex: 'Active', flex: 1 }
-    ];
+                {
+                    header: 'Last Name',
+                    dataIndex: 'LastName',
+                    width: 100
+                }, {
+                    header: 'First Name',
+                    dataIndex: 'FirstName',
+                    width: 100
+                }, {
+                    header: 'Phone',
+                    dataIndex: 'Phone',
+                    width: 100
+                }, {
+                    header: 'Age',
+                    dataIndex: 'Age',
+                    width: 50
+                }, {
+                    header: 'Route',
+                    dataIndex: 'Route',
+                    width: 50
+                }, {
+                    header: 'Class',
+                    dataIndex: 'ClassDisplay',
+                    width: 100
+                }, {
+                    xtype: 'columnattendance',
+                    header: 'M',
+                    dataIndex: 'Monday',
+                    width: 30
+
+                }, {
+                    xtype: 'columnattendance',
+                    header: 'T',
+                    dataIndex: 'Tuesday',
+                    width: 30
+                }, {
+                    xtype: 'columnattendance',
+                    header: 'W',
+                    dataIndex: 'Wednesday',
+                    width: 30
+                }, {
+                    xtype: 'columnattendance',
+                    header: 'T',
+                    dataIndex: 'Thursday',
+                    width: 30
+                }, {
+                    xtype: 'columnattendance',
+                    header: 'F',
+                    dataIndex: 'Friday',
+                    width: 30
+                }, {
+                    xtype: 'columnattendance',
+                    header: 'S',
+                    dataIndex: 'Saturday',
+                    width: 30
+                }, {
+                    xtype: 'columnattendance',
+                    header: 'S',
+                    dataIndex: 'Sunday',
+                    width: 30
+                },
+                {
+                    xtype: 'columnactive',
+                    dataIndex: 'Active',
+                    flex: 1
+                }
+            ];
 
         this.callParent(arguments);
     }

@@ -11,16 +11,14 @@ Ext.define('KCCVBS.view.age.List', {
         this.selModel = Ext.create('Ext.selection.CheckboxModel', {
             checkOnly: true
         });
-
-
+                       
         this.tbar = [
                         {
                             iconCls: 'new-item',
                             text: 'New',
                             action: 'new',
                             pressed: true
-                        },
-                        {
+                        }, {
                             iconCls: 'delete-item',
                             text: 'Delete',
                             action: 'delete'
@@ -29,10 +27,23 @@ Ext.define('KCCVBS.view.age.List', {
 
         this.columns = [
 
-                    { header: 'Age', dataIndex: 'Age', flex: 1 },
-                    { header: 'Color Value', dataIndex: 'Color', flex: 1 },
-                    { header: 'Color Display', dataIndex: 'Color', flex: 1 },
-                    { header: 'Active', dataIndex: 'Active', flex: 1 }
+                    {
+                        header: 'Age',
+                        dataIndex: 'Age',
+                        width: 100
+                    }, {
+                        header: 'Color Value',
+                        dataIndex: 'Color',
+                        width: 100
+                    }, {
+                        header: 'Color Display',
+                        dataIndex: 'Color',
+                        width: 100
+                    }, {
+                        xtype: 'columnactive',
+                        dataIndex: 'Active',
+                        flex: 1
+                    }
                 ];
 
         this.callParent(arguments);

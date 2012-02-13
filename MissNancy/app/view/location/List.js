@@ -12,15 +12,13 @@ Ext.define('KCCVBS.view.location.List', {
             checkOnly: true
         });
 
-
         this.tbar = [
                         {
                             iconCls: 'new-item',
                             text: 'New',
                             action: 'new',
                             pressed: true
-                        },
-                        {
+                        }, {
                             iconCls: 'delete-item',
                             text: 'Delete',
                             action: 'delete'
@@ -28,10 +26,16 @@ Ext.define('KCCVBS.view.location.List', {
                     ];
 
         this.columns = [
-
-                    { header: 'Location', dataIndex: 'LocationDisplay', flex: 1 },
-                    { header: 'Active', dataIndex: 'Active', flex: 1 }
-                ];
+                        {
+                            header: 'Location',
+                            dataIndex: 'LocationDisplay',
+                            width: 150
+                        }, {
+                            xtype: 'columnactive',
+                            dataIndex: 'Active',
+                            flex: 1
+                        }
+                    ];
 
         this.callParent(arguments);
     }

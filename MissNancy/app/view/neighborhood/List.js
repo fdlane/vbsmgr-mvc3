@@ -12,15 +12,13 @@ Ext.define('KCCVBS.view.neighborhood.List', {
             checkOnly: true
         });
 
-
         this.tbar = [
                         {
                             iconCls: 'new-item',
                             text: 'New',
                             action: 'new',
                             pressed: true
-                        },
-                        {
+                        }, {
                             iconCls: 'delete-item',
                             text: 'Delete',
                             action: 'delete'
@@ -28,13 +26,35 @@ Ext.define('KCCVBS.view.neighborhood.List', {
                     ];
 
         this.columns = [
-        { header: 'Neighborhood', dataIndex: 'NeighborhoodDisplay', flex: 1 },
-        { header: 'Type', dataIndex: 'NeighborhoodTypeKey', flex: 1 },
-        { header: 'Route', dataIndex: 'RouteKey', flex: 1 },
-        { header: 'Bus', dataIndex: 'BusKey', flex: 1 },
-        { header: 'Current', dataIndex: 'Current', flex: 1 },
-        { header: 'Active', dataIndex: 'Active', flex: 1 }
-    ];
+                        {
+                            header: 'Neighborhood',
+                            dataIndex: 'NeighborhoodDisplay',
+                            width: 150
+                        }, {
+                            header: 'Type',
+                            dataIndex: 'NeighborhoodTypeKey',
+                            width: 100
+                        }, {
+                            header: 'Route',
+                            dataIndex: 'RouteKey',
+                            width: 75
+                        }, {
+                            header: 'Bus',
+                            dataIndex: 'BusKey',
+                            width: 150
+                        }, {
+                            xtype: 'numbercolumn',
+                            align: 'right',
+                            format: '0',
+                            header: 'Current',
+                            dataIndex: 'Current',
+                            width: 60
+                        }, {
+                            xtype: 'columnactive',
+                            dataIndex: 'Active',
+                            flex: 1
+                        }
+                    ];
 
         this.callParent(arguments);
     }

@@ -14,33 +14,77 @@ Ext.define('KCCVBS.view.workers.List', {
 
 
         this.tbar = [
-                        {
-                            iconCls: 'new-item',
-                            text: 'New',
-                            action: 'new',
-                            pressed: true
-                        },
-                        {
-                            iconCls: 'delete-item',
-                            text: 'Delete',
-                            action: 'delete'
-                        }
-                    ];
+                {
+                    iconCls: 'new-item',
+                    text: 'New',
+                    action: 'new',
+                    pressed: true
+                }, {
+                    iconCls: 'delete-item',
+                    text: 'Delete',
+                    action: 'delete'
+                }
+            ];
 
         this.columns = [
-        { header: 'Display Name', dataIndex: 'DisplayName', flex: 1 },
-        { header: 'Phone', dataIndex: 'Phone', flex: 1 },
-        { header: 'Mobile', dataIndex: 'Mobile', flex: 1 },
-        { header: 'M', dataIndex: 'Monday', flex: 1 },
-        { header: 'T', dataIndex: 'Tuesday', flex: 1 },
-        { header: 'W', dataIndex: 'Wednesday', flex: 1 },
-        { header: 'T', dataIndex: 'Thursday', flex: 1 },
-        { header: 'F', dataIndex: 'Friday', flex: 1 },
-        { header: 'S', dataIndex: 'Saturday', flex: 1 },
-        { header: 'S', dataIndex: 'Sunday', flex: 1 },
-        { header: 'Type', dataIndex: 'WorkerTypeDisplay', flex: 1 },
-        { header: 'Active', dataIndex: 'Active', flex: 1 }
-    ];
+                {
+                    header: 'Display Name',
+                    dataIndex: 'DisplayName',
+                    width: 150
+                }, {
+                    header: 'Phone',
+                    dataIndex: 'Phone',
+                    width: 100
+                }, {
+                    header: 'Mobile',
+                    dataIndex: 'Mobile',
+                    width: 100
+                }, {
+                    xtype: 'columnattendance',
+                    header: 'M',
+                    dataIndex: 'Monday',
+                    width: 30
+                }, {
+                    xtype: 'columnattendance',
+                    header: 'T',
+                    dataIndex: 'Tuesday',
+                    width: 30
+                }, {
+                    xtype: 'columnattendance',
+                    header: 'W',
+                    dataIndex: 'Wednesday',
+                    width: 30
+                }, {
+                    xtype: 'columnattendance',
+                    header: 'T',
+                    dataIndex: 'Thursday',
+                    width: 30
+                }, {
+                    xtype: 'columnattendance',
+                    header: 'F',
+                    dataIndex: 'Friday',
+                    width: 30
+                }, {
+                    xtype: 'columnattendance',
+                    header: 'S',
+                    dataIndex: 'Saturday',
+                    width: 30
+                }, {
+                    xtype: 'columnattendance',
+                    header: 'S',
+                    dataIndex: 'Sunday',
+                    width: 30
+                }, {
+                    xtype: 'columnattendance',
+                    header: 'Type',
+                    dataIndex: 'WorkerTypeDisplay',
+                    width: 150
+                }, {
+                    xtype: 'columnactive',
+                    dataIndex: 'Active',
+                    flex: 1
+                }
+        ];
 
         this.callParent(arguments);
     }

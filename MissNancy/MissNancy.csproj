@@ -132,6 +132,8 @@
     <Content Include="app\view\children\List.js" />
     <Content Include="app\view\classes\Edit.js" />
     <Content Include="app\view\classes\List.js" />
+    <Content Include="app\view\shared\ColumnActive.js" />
+    <Content Include="app\view\shared\ColumnAttendance.js" />
     <Content Include="app\view\workertype\Edit.js" />
     <Content Include="app\view\workertype\List.js" />
     <Content Include="app\view\location\Edit.js" />
@@ -147,6 +149,8 @@
     <Content Include="app\view\classes\ClassWorkerDetailsList.js" />
     <Content Include="app\view\workers\Edit.js" />
     <Content Include="app\view\workers\List.js" />
+    <Content Include="Content\icons\bullet_green.png" />
+    <Content Include="Content\icons\bullet_red.png" />
     <Content Include="Content\icons\buses.png" />
     <Content Include="Content\icons\chaulkboard.png" />
     <Content Include="Content\icons\children.png" />
@@ -154,6 +158,7 @@
     <Content Include="Content\icons\gear.png" />
     <Content Include="Content\icons\home.png" />
     <Content Include="Content\icons\map.png" />
+    <Content Include="Content\icons\tick.png" />
     <Content Include="Content\icons\user.png" />
     <Content Include="Content\icons\user_add.png" />
     <Content Include="Content\icons\workers.png" />

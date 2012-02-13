@@ -15,7 +15,7 @@ namespace MissNancy.Controllers
         public JsonResult Get(int? start, int? limit)
         {
             var db = new PetaPoco.Database("MissNancy");
-            var data = db.Query<Children>("WHERE NeighborhoodKey = 188 AND Active <>0");
+            var data = db.Query<Children>("WHERE NeighborhoodKey = 188 AND Active <>0 or ChildrenKey = 4");
 
             return Json(new
             {

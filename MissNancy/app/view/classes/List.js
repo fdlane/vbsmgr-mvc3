@@ -22,27 +22,51 @@ Ext.define('KCCVBS.view.classes.List', {
         });
 
         this.tbar = [
-                        {
-                            iconCls: 'new-item',
-                            text: 'New',
-                            action: 'new',
-                            pressed: true
-                        },
-                        {
-                            iconCls: 'delete-item',
-                            text: 'Delete',
-                            action: 'delete'
-                        }
-                    ];
+                {
+                    iconCls: 'new-item',
+                    text: 'New',
+                    action: 'new',
+                    pressed: true
+                }, {
+                    iconCls: 'delete-item',
+                    text: 'Delete',
+                    action: 'delete'
+                }
+            ];
 
         this.columns = [
-            { header: 'Class', dataIndex: 'ClassDisplay', flex: 1 },
-            { header: 'Master Teacher', dataIndex: 'MasterTeacher', flex: 1 },
-            { header: 'Location', dataIndex: 'Location', flex: 1 },
-            { header: 'Ages', dataIndex: 'Ages', flex: 1 },
-            { header: 'Phone', dataIndex: 'Phone', flex: 1 },
-            { header: 'Current', dataIndex: 'Current', flex: 1 },
-            { header: 'Active', dataIndex: 'Active', flex: 1 }
+            {
+                header: 'Class',
+                dataIndex: 'ClassDisplay',
+                width: 150
+            }, {
+                header: 'Master Teacher',
+                dataIndex: 'MasterTeacher',
+                width: 150
+            }, {
+                header: 'Location',
+                dataIndex: 'Location',
+                width: 150
+            }, {
+                header: 'Ages',
+                dataIndex: 'Ages',
+                width: 50
+            }, {
+                header: 'Phone',
+                dataIndex: 'Phone',
+                width: 100
+            }, {
+                xtype: 'numbercolumn',
+                align: 'right',
+                format: '0',
+                header: 'Current',
+                dataIndex: 'Current',
+                width: 60
+            }, {
+                xtype: 'columnactive',
+                dataIndex: 'Active',
+                flex: 1
+            }
         ];
 
         this.callParent(arguments);

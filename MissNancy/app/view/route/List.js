@@ -19,8 +19,7 @@ Ext.define('KCCVBS.view.route.List', {
                             text: 'New',
                             action: 'new',
                             pressed: true
-                        },
-                        {
+                        }, {
                             iconCls: 'delete-item',
                             text: 'Delete',
                             action: 'delete'
@@ -29,15 +28,43 @@ Ext.define('KCCVBS.view.route.List', {
 
         this.columns = [
 
-                    { header: 'Route', dataIndex: 'RouteDisplay', flex: 1 },
-                    { header: 'Bus #', dataIndex: 'BusKey', flex: 1 },
-                    { header: 'Bus Driver', dataIndex: 'RouteKey', flex: 1 },
-                    { header: 'Driver Phone', dataIndex: 'BusKey', flex: 1 },
-                    { header: 'Captian', dataIndex: 'BusCaptainKey', flex: 1 },
-                    { header: 'Captian Phone', dataIndex: 'BusKey', flex: 1 },
-                    { header: 'Current', dataIndex: 'Current', flex: 1 },
-                    { header: 'Active', dataIndex: 'Active', flex: 1 }
-                ];
+                        {
+                            header: 'Route',
+                            dataIndex: 'RouteDisplay',
+                            width: 150
+                        }, {
+                            header: 'Bus #',
+                            dataIndex: 'BusKey',
+                            width: 75
+                        }, {
+                            header: 'Bus Driver',
+                            dataIndex: 'RouteKey',
+                            width: 150
+                        }, {
+                            header: 'Driver Phone',
+                            dataIndex: 'BusKey',
+                            width: 100
+                        }, {
+                            header: 'Captian',
+                            dataIndex: 'BusCaptainKey',
+                            width: 150
+                        }, {
+                            header: 'Captian Phone',
+                            dataIndex: 'BusKey',
+                            width: 100
+                        }, {
+                            xtype: 'numbercolumn',
+                            align: 'right',
+                            format: '0',
+                            header: 'Current',
+                            dataIndex: 'Current',
+                            width: 60
+                        }, {
+                            xtype: 'columnactive',
+                            dataIndex: 'Active',
+                            flex: 1
+                        }
+                    ];
 
         this.callParent(arguments);
     }
