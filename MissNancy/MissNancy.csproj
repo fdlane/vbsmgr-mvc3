@@ -162,6 +162,8 @@
     <Content Include="Content\icons\user.png" />
     <Content Include="Content\icons\user_add.png" />
     <Content Include="Content\icons\workers.png" />
+    <Content Include="Content\icons\i_heart_vbs_opt.png" />
+    <Content Include="Content\icons\layout-browser-hd-bg.gif" />
     <Content Include="Content\MissNancy.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
