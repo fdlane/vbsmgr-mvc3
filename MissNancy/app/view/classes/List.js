@@ -65,7 +65,7 @@ Ext.define('KCCVBS.view.classes.List', {
             }, {
                 xtype: 'columnactive',
                 dataIndex: 'Active',
-                flex: 1
+                width: 50
             }
         ];
 

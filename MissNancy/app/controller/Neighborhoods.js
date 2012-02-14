@@ -38,7 +38,8 @@ Ext.define('KCCVBS.controller.Neighborhoods', {
             tab = tabs.add({
                 id: 'Neighborhoods',
                 title: 'Neighborhoods',
-                xtype: 'neighborhoodlist'
+                xtype: 'neighborhoodlist',
+                closable: true
             });
         }
 

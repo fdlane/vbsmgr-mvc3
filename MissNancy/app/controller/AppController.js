@@ -38,6 +38,11 @@
                     this.application.getController('Routes').displayList();
                 }
             },
+            'navigation menuitem[action="reports"]': {
+                click: function (button, evt) {
+                    this.application.getController('Reports').displayList();
+                }
+            },
             'navigation menuitem[action="ages"]': {
                 click: function (button, evt) {
                     this.application.getController('Ages').displayList();

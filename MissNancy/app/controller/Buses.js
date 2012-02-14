@@ -45,7 +45,8 @@ Ext.define('KCCVBS.controller.Buses', {
             tab = tabs.add({
                 id: 'Buses',
                 title: 'Buses',
-                xtype: 'buseslist'
+                xtype: 'buseslist',
+                closable: true
             });
         }
 

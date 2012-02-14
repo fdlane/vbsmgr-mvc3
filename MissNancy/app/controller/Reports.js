@@ -1,44 +1,45 @@
-Ext.define('KCCVBS.controller.Locations', {
+Ext.define('KCCVBS.controller.Reports', {
     extend: 'Ext.app.Controller',
 
-    stores: ['Locations'],
+    stores: ['Routes'],
 
-    models: ['Locations'],
+    models: ['Route'],
 
-    views: ['location.List', 'location.Edit'],
+    views: ['report.BusRoster'],
 
     refs: [
         {
             ref: 'panel',
-            selector: 'locationlist'
+            selector: 'busroster'
         }
     ],
 
     init: function () {
         this.control({
-            'locationlist dataview': {
+            'routelist dataview': {
                 itemdblclick: this.editItem
             },
-            'locatonedit button[action=save]': {
+            'routeedit button[action=save]': {
                 click: this.updateItem
             },
-            'locationlist button[action=new]': {
+            'routelist button[action=new]': {
                 click: this.createItem
             },
-            'locationlist button[action=delete]': {
+            'routelist button[action=delete]': {
                 click: this.deleteItem
             }
         });
     },
 
     displayList: function () {
+        console.log('asdf');
         var tabs = Ext.getCmp('center');
-        var tab = tabs.down('#Locations');
+        var tab = tabs.down('#Reports');
         if (!tab) {
             tab = tabs.add({
-                id: 'Locations',
-                title: 'Locations',
-                xtype: 'locationlist',
+                id: 'Reports',
+                title: 'Reports',
+                xtype: 'agel',
                 closable: true
             });
         }
@@ -48,16 +49,16 @@ Ext.define('KCCVBS.controller.Locations', {
     },
 
     createItem: function () {
-        console.log('location createItem clicked');
-        var edit = Ext.create('KCCVBS.view.location.Edit').show();
-        var record = Ext.create('KCCVBS.model.Locations');
+        console.log('route createItem clicked');
+        var edit = Ext.create('KCCVBS.view.route.Edit').show();
+        var record = Ext.create('KCCVBS.model.Route');
         record.set('Active', true);
 
         edit.down('form').loadRecord(record);
     },
 
     editItem: function (grid, record) {
-        var edit = Ext.create('KCCVBS.view.location.Edit').show();
+        var edit = Ext.create('KCCVBS.view.route.Edit').show();
 
         edit.down('form').loadRecord(record);
     },
@@ -70,10 +71,10 @@ Ext.define('KCCVBS.controller.Locations', {
 
         record.set(values);
         win.close();
-        this.getLocationsStore().sync();
+        this.getRoutesStore().sync();
     },
     deleteItem: function (button) {
-        Ext.MessageBox.confirm('Delete Location', 'Are you sure you want to delete', function (confirmButton) {
+        Ext.MessageBox.confirm('Delete Route', 'Are you sure you want to delete', function (confirmButton) {
             if (confirmButton == 'yes') {
                 var grid = button.up('panel');
                 var store = grid.getStore();

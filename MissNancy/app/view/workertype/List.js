@@ -33,7 +33,7 @@ Ext.define('KCCVBS.view.workertype.List', {
                         }, {
                             xtype: 'columnactive',
                             dataIndex: 'Active',
-                            flex: 1
+                            width: 50
                         }
                     ];
 

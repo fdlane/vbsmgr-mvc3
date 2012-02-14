@@ -33,6 +33,10 @@ Ext.define('KCCVBS.view.menu.Navigation', {
         iconCls: 'routes',
         action: 'routes'
     }, {
+        text: 'Reports',
+        iconCls: 'reports',
+        action: 'reports'
+    }, {
         text: 'Ages',
         iconCls: 'settings',
         action: 'ages'

@@ -92,6 +92,7 @@
     <Content Include="app\controller\Children.js" />
     <Content Include="app\controller\Buses.js" />
     <Content Include="app\controller\Ages.js" />
+    <Content Include="app\controller\Reports.js" />
     <Content Include="app\controller\WorkerTypes.js" />
     <Content Include="app\controller\Locations.js" />
     <Content Include="app\controller\Routes.js" />
@@ -132,6 +133,7 @@
     <Content Include="app\view\children\List.js" />
     <Content Include="app\view\classes\Edit.js" />
     <Content Include="app\view\classes\List.js" />
+    <Content Include="app\view\report\BusRoster.js" />
     <Content Include="app\view\shared\ColumnActive.js" />
     <Content Include="app\view\shared\ColumnAttendance.js" />
     <Content Include="app\view\workertype\Edit.js" />
@@ -158,6 +160,7 @@
     <Content Include="Content\icons\gear.png" />
     <Content Include="Content\icons\home.png" />
     <Content Include="Content\icons\map.png" />
+    <Content Include="Content\icons\report.png" />
     <Content Include="Content\icons\tick.png" />
     <Content Include="Content\icons\user.png" />
     <Content Include="Content\icons\user_add.png" />

@@ -39,7 +39,8 @@ Ext.define('KCCVBS.controller.Routes', {
             tab = tabs.add({
                 id: 'Routes',
                 title: 'Routes',
-                xtype: 'routelist'
+                xtype: 'routelist',
+                closable: true
             });
         }
 

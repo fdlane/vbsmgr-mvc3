@@ -42,7 +42,7 @@ Ext.define('KCCVBS.view.age.List', {
                     }, {
                         xtype: 'columnactive',
                         dataIndex: 'Active',
-                        flex: 1
+                        width: 50
                     }
                 ];
 

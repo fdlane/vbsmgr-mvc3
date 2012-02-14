@@ -38,7 +38,8 @@ Ext.define('KCCVBS.controller.Children', {
         tab = tabs.add({
                 id: 'Children',
                 title: 'Children',
-                xtype: 'childrenlist'
+                xtype: 'childrenlist',
+                closable: true
             });
         }
         

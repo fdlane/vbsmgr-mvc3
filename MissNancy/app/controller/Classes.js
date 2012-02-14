@@ -45,7 +45,8 @@ Ext.define('KCCVBS.controller.Classes', {
             tab = tabs.add({
                 id: 'Classes',
                 title: 'Classes',
-                xtype: 'classeslist'
+                xtype: 'classeslist',
+                closable: true
             });
         }
 

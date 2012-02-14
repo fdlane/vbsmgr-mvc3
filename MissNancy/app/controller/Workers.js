@@ -39,7 +39,8 @@ Ext.define('KCCVBS.controller.Workers', {
             tab = tabs.add({
                 id: 'Workers',
                 title: 'Workers',
-                xtype: 'workerslist'
+                xtype: 'workerslist',
+                closable: true
             });
         }
 

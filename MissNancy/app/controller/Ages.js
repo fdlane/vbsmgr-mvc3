@@ -38,7 +38,8 @@ Ext.define('KCCVBS.controller.Ages', {
             tab = tabs.add({
                 id: 'Age',
                 title: 'Age',
-                xtype: 'agelist'
+                xtype: 'agelist',
+                closable: true
             });
         }
 
