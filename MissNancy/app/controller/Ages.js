@@ -44,6 +44,7 @@ Ext.define('KCCVBS.controller.Ages', {
         }
 
         tabs.setActiveTab(tab);
+        
     },
 
     createItem: function () {

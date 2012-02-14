@@ -20,14 +20,14 @@ Ext.application({
 
     launch: function () {
 
-        //        // We don't want the default 'on' value for submission
-        //        // causes grief on the backend.
+        // We don't want the default 'on' value for submission
+        // causes grief on the backend.
         Ext.override(Ext.form.field.Checkbox, {
             inputValue: true,
             uncheckedValue: ''
         });
 
-       // this.getController('Children').displayList();
+        // this.getController('Children').displayList();
     }
 });
 

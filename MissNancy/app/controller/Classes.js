@@ -120,9 +120,14 @@ Ext.define('KCCVBS.controller.Classes', {
         var grid = button.up('panel'),
             store = grid.getStore();
 
-        store.insert(0, {});
+        var editor = Ext.getCmp('#monkey');
+        console.log(editor);
+        editor.stopEditing();
 
-        var editor = grid.getView().getPlugin()[0];
+        store.insert(0, {});
+        grid.getView().refresh();
+        grid.getSelectionModel().selectedRow(0);
+
         editor.startEditByPosistion({
             row: 0,
             column: 1

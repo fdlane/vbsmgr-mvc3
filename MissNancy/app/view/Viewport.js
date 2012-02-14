@@ -26,6 +26,11 @@ Ext.define('KCCVBS.view.Viewport', {
         id: 'center',
         region: 'center',
         xtype: 'tabpanel',
+        listeners: {
+            tabchange: function (tab, newCard) {
+                newCard.doLayout();
+            } 
+        },
         items: [
         {
             title: 'Home',

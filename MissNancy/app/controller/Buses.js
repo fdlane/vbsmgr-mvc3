@@ -51,6 +51,7 @@ Ext.define('KCCVBS.controller.Buses', {
         }
 
         tabs.setActiveTab(tab);
+        
     },
 
     createItem: function () {

@@ -8,24 +8,28 @@ Ext.define('KCCVBS.view.classes.ClassWorkerDetailsList', {
     alias: 'widget.classworkerdetailslist',
     store: 'ClassWorkerDetails',
     header: false,
+    requires: [
+        'Ext.grid.plugin.CellEditing'
+    ],
 
     initComponent: function () {
 
         this.selModel = Ext.create('Ext.selection.CheckboxModel', {
             checkOnly: true
         });
-        
-        this.tbar = [{
-            iconCls: 'new-item',
-            text: 'Assign',
-            action: 'new',
-            pressed: true
-        },
-        {
-            iconCls: 'delete-item',
-            text: 'Unassign',
-            action: 'delete'
-        }];
+
+        this.tbar = [
+                {
+                    iconCls: 'new-item',
+                    text: 'Assign',
+                    action: 'new',
+                    pressed: true
+                }, {
+                    iconCls: 'delete-item',
+                    text: 'Unassign',
+                    action: 'delete'
+                }
+            ];
 
         this.plugins = Ext.create('Ext.grid.plugin.CellEditing', {
             clicksToEdit: 1

@@ -44,22 +44,21 @@ Ext.define('KCCVBS.controller.Children', {
         }
         
         tabs.setActiveTab(tab);
+   
     },
 
     createItem: function () {
-        console.log('Children createItem clicked');
+
         var edit = Ext.create('KCCVBS.view.children.Edit').show();
         var record = Ext.create('KCCVBS.model.Children');
         record.set('Active', true);
 
         edit.down('form').loadRecord(record);
 
-        // empty the store so workers from the previously viewed class don't show
-        this.getChildrenStore().loadData([], false);
     },
 
     editItem: function (grid, record) {
-     console.log('Children editItem clicked');
+
         var view = Ext.getCmp('center');
         var edit = Ext.create('KCCVBS.view.children.Edit').show();
 
@@ -67,7 +66,7 @@ Ext.define('KCCVBS.controller.Children', {
     },
 
     updateItem: function (button) {
-      console.log('Children updateItem clicked');
+     
         var win = button.up('window'),
             form = win.down('form'),
             record = form.getRecord(),

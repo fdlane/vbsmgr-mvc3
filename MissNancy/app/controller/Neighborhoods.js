@@ -44,6 +44,7 @@ Ext.define('KCCVBS.controller.Neighborhoods', {
         }
 
         tabs.setActiveTab(tab);
+        
     },
 
     createItem: function () {
