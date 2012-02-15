@@ -26,10 +26,15 @@ Ext.define('KCCVBS.view.Viewport', {
         id: 'center',
         region: 'center',
         xtype: 'tabpanel',
+        //      This did not correct the issue of disappearing toolbars
+        //        layoutOnTabChange: true,
+        //        deferredRender: false,
+
+        // This did work
         listeners: {
             tabchange: function (tab, newCard) {
                 newCard.doLayout();
-            } 
+            }
         },
         items: [
         {

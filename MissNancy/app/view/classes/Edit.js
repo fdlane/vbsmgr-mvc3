@@ -77,8 +77,7 @@ Ext.define('KCCVBS.view.classes.Edit', {
             {
                 xtype: 'textareafield',
                 name: 'Notes',
-                fieldLabel: 'Notes'
-                ,
+                fieldLabel: 'Notes',
                 grow: true,
                 anchor: '99%'
             },

@@ -77,9 +77,13 @@ Ext.define('KCCVBS.controller.Classes', {
     },
     updateItem: function (button) {
         var win = button.up('window'),
-            form = win.down('form'),
+            form = win.down('form').getForm(),
             record = form.getRecord(),
             values = form.getValues();
+
+        if (!form.isValid()) {
+            return;
+        };
 
         record.set(values);
         //have seen this too, but wasn't working last time i looked at it
@@ -120,18 +124,8 @@ Ext.define('KCCVBS.controller.Classes', {
         var grid = button.up('panel'),
             store = grid.getStore();
 
-        var editor = Ext.getCmp('#monkey');
-        console.log(editor);
-        editor.stopEditing();
-
         store.insert(0, {});
-        grid.getView().refresh();
-        grid.getSelectionModel().selectedRow(0);
-
-        editor.startEditByPosistion({
-            row: 0,
-            column: 1
-        });
+        var editor = grid.getPlugin('workerCellEditing').startEditByPosition({ row: 0, column: 1 });
 
     },
     deleteWorkerDetail: function (button) {

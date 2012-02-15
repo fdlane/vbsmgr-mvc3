@@ -31,20 +31,29 @@ Ext.define('KCCVBS.view.classes.ClassWorkerDetailsList', {
                 }
             ];
 
+        // added the pluginId so the controller can call getPlugin()
         this.plugins = Ext.create('Ext.grid.plugin.CellEditing', {
-            clicksToEdit: 1
+            clicksToEdit: 1,
+            pluginId: 'workerCellEditing'
         });
 
         this.columns = [
-            { header: 'ClassWorkerKey', dataIndex: 'ClassWorkerKey', flex: 1, hidden: true },
-            { header: 'Class Worker',
+            {
+                header: 'ClassWorkerKey',
+                dataIndex: 'ClassWorkerKey',
+                flex: 1,
+                hidden: true
+            }, {
+                header: 'Class Worker',
                 dataIndex: 'WorkerKey',
                 flex: 1,
-                editor: { xtype: 'combo',
+                editor: {
+                    xtype: 'combo',
                     store: 'Workers',
+                    typeAhead: true, 
                     displayField: 'DisplayName',
                     valueField: 'WorkerKey',
-                    mode: 'local',
+                    queryMode: 'local',
                     listClass: 'x-combo-list-small'
                 },
                 renderer: function (value) {
@@ -58,9 +67,15 @@ Ext.define('KCCVBS.view.classes.ClassWorkerDetailsList', {
                     });
                     return display;
                 }
-            },
-            { header: 'Phone', dataIndex: 'Phone', flex: 1 },
-            { header: 'Mobile', dataIndex: 'Mobile', flex: 1 }
+            }, {
+                header: 'Phone',
+                dataIndex: 'Phone',
+                flex: 1
+            }, {
+                header: 'Mobile',
+                dataIndex: 'Mobile',
+                flex: 1
+            }
         ];
 
         this.callParent(arguments);
