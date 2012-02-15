@@ -51,7 +51,7 @@ Ext.define('KCCVBS.controller.Buses', {
         }
 
         tabs.setActiveTab(tab);
-        
+
     },
 
     createItem: function () {
@@ -87,12 +87,7 @@ Ext.define('KCCVBS.controller.Buses', {
             store = grid.getStore();
 
         store.insert(0, {});
-
-        var editor = grid.getView().getPlugin()[0];
-        editor.startEditByPosistion({
-            row: 0,
-            column: 1
-        });
+        var editor = grid.getPlugin('workerCellEditing2').startEditByPosition({ row: 0, column: 1 });
 
     },
     deleteWorkerDetail: function (button) {

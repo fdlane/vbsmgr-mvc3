@@ -8,13 +8,16 @@ Ext.define('KCCVBS.view.buses.BusWorkerDetailsList', {
     alias: 'widget.busworkerdetailslist',
     store: 'BusWorkerDetails',
     header: false,
+    requires: [
+        'Ext.grid.plugin.CellEditing'
+    ],
 
     initComponent: function () {
 
         this.selModel = Ext.create('Ext.selection.CheckboxModel', {
             checkOnly: true
         });
-        
+
         this.tbar = [{
             iconCls: 'new-item',
             text: 'Assign',
@@ -28,7 +31,8 @@ Ext.define('KCCVBS.view.buses.BusWorkerDetailsList', {
         }];
 
         this.plugins = Ext.create('Ext.grid.plugin.CellEditing', {
-            clicksToEdit: 1
+            clicksToEdit: 1,
+            pluginId: 'workerCellEditing2'
         });
 
         this.columns = [
@@ -36,11 +40,13 @@ Ext.define('KCCVBS.view.buses.BusWorkerDetailsList', {
             { header: 'Bus Worker',
                 dataIndex: 'WorkerKey',
                 flex: 1,
-                editor: { xtype: 'combo',
+                editor: {
+                    xtype: 'combo',
                     store: 'Workers',
+                    typeAhead: true,
                     displayField: 'DisplayName',
                     valueField: 'WorkerKey',
-                    mode: 'local',
+                    queryMode: 'local',
                     listClass: 'x-combo-list-small'
                 },
                 renderer: function (value) {
