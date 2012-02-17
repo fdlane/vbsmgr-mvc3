@@ -4,6 +4,10 @@ Ext.define('KCCVBS.store.Buses', {
     autoLoad: true,
     paramsAsHash: true,
     proxy: {
+        // this is to get active only records
+        extraParams: {
+            activeOnly: true
+        },
         reader: {
             totalProperty: 'total',
             successProperty: 'success',
@@ -20,7 +24,7 @@ Ext.define('KCCVBS.store.Buses', {
         },
         type: 'ajax',
         api: {
-            read: '/Buses/Get',
+            read: '/Buses/GetPaged',
             create: '/Buses/Create',
             update: '/Buses/Update',
             destroy: '/Buses/Delete'

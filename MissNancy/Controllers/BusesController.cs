@@ -13,15 +13,15 @@ namespace MissNancy.Controllers
         //
         // GET: /Buses/
 
-        public JsonResult Get(int? start, int? limit)
+        public JsonResult GetPaged(int page, int limit, Boolean activeOnly)
         {
-            var db = new PetaPoco.Database("MissNancy");
-            var data = db.Query<Bus>("WHERE Active <>0");
+
+            var data = new Bus().GetPaged(page, limit, activeOnly);
 
             return Json(new
             {
-                total = data.Count(),
-                data = data,
+                total = data.TotalItems,
+                data = data.Items,
             }, JsonRequestBehavior.AllowGet);
         }
 

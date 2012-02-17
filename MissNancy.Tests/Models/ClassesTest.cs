@@ -7,20 +7,20 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MissNancy.Data;
 using PetaPoco;
 
-namespace MissNancy.Tests.Services
+namespace MissNancy.Tests.Models
 {
     [TestClass]
-    public class ClassServiceTest
+    public class ClassesTest
     {
         string _connectionStringName;
         Database db = new Database("MissNancy");
 
-        public ClassServiceTest()
+        public ClassesTest()
         {
         }
 
         //TODO follow petapoca test fitures patturn from his tests
-        public ClassServiceTest(string connectionStringName)
+        public ClassesTest(string connectionStringName)
         {
             _connectionStringName = connectionStringName;
         }

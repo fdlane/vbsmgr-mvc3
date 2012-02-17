@@ -21,7 +21,7 @@ Ext.define('KCCVBS.controller.Children', {
             },
             'childrenedit button[action=save]': {
                 click: this.updateItem
-            },             
+            },
             'childrenlist button[action=new]': {
                 click: this.createItem
             },
@@ -32,19 +32,19 @@ Ext.define('KCCVBS.controller.Children', {
     },
 
     displayList: function () {
-      var tabs = Ext.getCmp('center');
-      var tab = tabs.down('#Children');
-      if (!tab) {
-        tab = tabs.add({
+        var tabs = Ext.getCmp('center');
+        var tab = tabs.down('#Children');
+        if (!tab) {
+            tab = tabs.add({
                 id: 'Children',
                 title: 'Children',
                 xtype: 'childrenlist',
                 closable: true
             });
         }
-        
+
         tabs.setActiveTab(tab);
-   
+
     },
 
     createItem: function () {
@@ -66,7 +66,7 @@ Ext.define('KCCVBS.controller.Children', {
     },
 
     updateItem: function (button) {
-     
+
         var win = button.up('window'),
             form = win.down('form'),
             record = form.getRecord(),
@@ -76,7 +76,7 @@ Ext.define('KCCVBS.controller.Children', {
         win.close();
         this.getChildrenStore().sync();
     },
-    
+
     deleteItem: function (button) {
         Ext.MessageBox.confirm('Delete Class', 'Are you sure you want to delete', function (confirmButton) {
             if (confirmButton == 'yes') {
@@ -90,6 +90,6 @@ Ext.define('KCCVBS.controller.Children', {
             }
 
         });
-    },
+    }
 });
 

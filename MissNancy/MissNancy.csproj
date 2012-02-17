@@ -77,6 +77,10 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Classes.cs" />
     <Compile Include="Models\ClassWorkerDetails.cs" />
+    <Compile Include="Models\BusWorkerDetails.cs" />
+    <Compile Include="Models\Bus.cs" />
+    <Compile Include="Models\Children.cs" />
+    <Compile Include="Models\Route.cs" />
     <Compile Include="Models\Generated\Database.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

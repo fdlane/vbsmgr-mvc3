@@ -67,6 +67,16 @@ Ext.define('KCCVBS.view.buses.List', {
                         }
                 ];
 
+        this.dockedItems = [{
+            xtype: 'pagingtoolbar',
+            pageSize: 5,
+            store: 'Buses',
+            dock: 'bottom',
+            displayInfo: true,
+            emptyMsg: 'No data to display'
+        }
+       ];
+
         this.callParent(arguments);
     }
 });

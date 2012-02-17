@@ -102,13 +102,22 @@ Ext.define('KCCVBS.view.children.List', {
                     header: 'S',
                     dataIndex: 'Sunday',
                     width: 30
-                },
-                {
+                }, {
                     xtype: 'columnactive',
                     dataIndex: 'Active',
                     width: 50
                 }
             ];
+
+        this.dockedItems = [{
+            xtype: 'pagingtoolbar',
+            pageSize: 5,
+            store: 'Children',
+            dock: 'bottom',
+            displayInfo: true,
+            emptyMsg: 'No data to display'
+        }
+       ];
 
         this.callParent(arguments);
     }

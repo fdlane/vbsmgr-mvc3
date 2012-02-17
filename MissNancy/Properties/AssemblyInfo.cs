@@ -33,3 +33,7 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+
+// http://www.heartysoft.com/ASPNET-MVC-Unit-Testing-JsonResult-Returning-Anonymous-Types
+// for testing jsonresults
+[assembly: InternalsVisibleTo("MissNancy.Tests")]  

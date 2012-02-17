@@ -38,7 +38,7 @@ Ext.define('KCCVBS.view.route.List', {
                             width: 75
                         }, {
                             header: 'Bus Driver',
-                            dataIndex: 'RouteKey',
+                            dataIndex: 'BusDriver',
                             width: 150
                         }, {
                             header: 'Driver Phone',

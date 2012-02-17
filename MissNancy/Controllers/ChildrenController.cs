@@ -12,18 +12,20 @@ namespace MissNancy.Controllers
         //
         // GET: /Children/
 
-        public JsonResult Get(int? start, int? limit)
+        public JsonResult GetPaged(int page, int limit, Boolean activeOnly)
         {
-            var db = new PetaPoco.Database("MissNancy");
-            var data = db.Query<Children>("WHERE NeighborhoodKey = 188 AND Active <>0 or ChildrenKey = 4");
+            //var db = new PetaPoco.Database("MissNancy");
+            //var data = db.Query<Children>("WHERE NeighborhoodKey = 188 AND Active <>0 or ChildrenKey = 4");
+
+            var data = new Children().GetPaged(page, limit, activeOnly);
 
             return Json(new
             {
-                total = data.Count(),
-                data = data,
+                total = data.TotalItems,
+                data = data.Items,
             }, JsonRequestBehavior.AllowGet);
         }
-        
+
         [HttpPost]
         public JsonResult Create(List<Classes> data)
         {
@@ -40,7 +42,7 @@ namespace MissNancy.Controllers
                         item.EditDate = DateTime.Now;
                         db.Save("tblClasses", "ClassKey", item);
 
-                        if (item.ClassWorkerDetails !=null)
+                        if (item.ClassWorkerDetails != null)
                         {
                             foreach (var detailRecord in item.ClassWorkerDetails)
                             {

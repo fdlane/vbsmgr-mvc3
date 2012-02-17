@@ -22,7 +22,7 @@ namespace MissNancy.Tests.Controllers
             ViewResult result = controller.Index() as ViewResult;
 
             // Assert
-            Assert.AreEqual("Welcome to ASP.NET MVC!", result.ViewBag.Message);
+            Assert.AreEqual("Welcome to the Miss Nancy VBS Application", result.ViewBag.Message);
         }
 
         [TestMethod]
