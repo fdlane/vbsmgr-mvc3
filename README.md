@@ -1,8 +1,10 @@
 MissNancy
+=========
 
-***** The project is being developement and is not ready for release.
+**The project is being developement and is not ready for release.**
 
 A port of a simple MS Access application
+----------------------------------------
 
 MissNancy is a pet project that ports a MS Access application that I wrote almost 10 years ago for my local church.  The church has a HUGE Vacation Bible School event each year and needed a way to track the Children, Workers, Buses, Classes, and Neighborhoods.  The application was originally written in MS Access because I needed to build it very quickly, app was mostly data entry, and all the users were located in the same office space/network.
 
@@ -25,5 +27,4 @@ Some lessons learned from moving from the MS Access development to .Net/Javascri
 
 This work was done for **Knoxville Christian Center**, see here - http://knoxvillechristiancenter.org - for details about the church.
 
-<<<<<<< HEAD
 Make sure you ask someone about Miss Nancy and her story....
