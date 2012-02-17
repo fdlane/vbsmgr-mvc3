@@ -9,7 +9,7 @@ MissNancy is a pet project that ports a MS Access application that I wrote almos
 I used the following in this project:
 
 * PetaPoco
-* ExtJ4
+* ExtJs4
 * Only the layers that I absolutely needed
 * MVC 3  
 
