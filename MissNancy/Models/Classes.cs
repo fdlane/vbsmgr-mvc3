@@ -3,11 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MissNancy.Data;
+using PetaPoco;
 
 namespace MissNancy.Data
 {
     public partial class Classes : MissNancyDB.Record<Classes>
     {
+
+        private Database db;
+
+        public Classes()
+        {
+            db = MissNancyDB.GetInstance();
+        }
+
+   
+        public Page<Classes> GetPaged(int page, int limit, Boolean activeOnly)
+        {
+
+            var data = db.Page<Classes>(page, limit, "WHERE (abs(Active) = 1) OR (abs(Active) = @0) ORDER BY ClassDisplay", activeOnly);
+            return data;
+        }
+
         // The display value of for the MasterTeacherKey
         [PetaPoco.ResultColumn]
         public string MasterTeacher
@@ -60,5 +77,6 @@ namespace MissNancy.Data
 
         [PetaPoco.ResultColumn]
         public IList<ClassWorkerDetail> ClassWorkerDetails { get; set; }
+        
     }
 }

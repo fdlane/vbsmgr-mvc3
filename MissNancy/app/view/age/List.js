@@ -46,7 +46,7 @@ Ext.define('KCCVBS.view.age.List', {
                     }
                 ];
 
-        this.callParent(arguments);
+       this.callParent(arguments);
     }
 });
 

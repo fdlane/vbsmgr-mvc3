@@ -50,7 +50,6 @@ Ext.define('KCCVBS.controller.Workers', {
 
     editItem: function (grid, record) {
         var edit = Ext.create('KCCVBS.view.workers.Edit').show();
-
         edit.down('form').loadRecord(record);
     },
 

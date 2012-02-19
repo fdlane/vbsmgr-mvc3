@@ -9,15 +9,14 @@ namespace MissNancy.Controllers
 {
     public class AgeController : Controller
     {
-        public JsonResult Get(int? start, int? limit)
+        public JsonResult Get(Boolean activeOnly)
         {
-            var db = new PetaPoco.Database("MissNancy");
-            var data = db.Query<Ages>("WHERE Active <>0");
+            var data = new Ages().Get(activeOnly);
 
             return Json(new
             {
-                total = data.Count(),
-                data = data,
+                total = data.Count,
+                data = data
             }, JsonRequestBehavior.AllowGet);
         }
 

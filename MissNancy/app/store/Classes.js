@@ -4,6 +4,9 @@ Ext.define('KCCVBS.store.Classes', {
     autoLoad: true,
     paramsAsHash: true,
     proxy: {
+        extraParams: {
+            activeOnly: true
+        },
         reader: {
             totalProperty: 'total',
             successProperty: 'success',
@@ -21,7 +24,7 @@ Ext.define('KCCVBS.store.Classes', {
         },
         type: 'ajax',
         api: {
-            read: '/Classes/Get',
+            read: '/Classes/GetPaged',
             create: '/Classes/Create',
             update: '/Classes/Update',
             destroy: '/Classes/Delete'

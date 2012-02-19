@@ -102,6 +102,16 @@ Ext.define('KCCVBS.view.workers.List', {
                 }
         ];
 
+        this.dockedItems = [{
+            xtype: 'pagingtoolbar',
+            pageSize: 5,
+            store: 'Workers',
+            dock: 'bottom',
+            displayInfo: true,
+            emptyMsg: 'No data to display'
+        }
+       ];
+
         this.callParent(arguments);
     }
 });

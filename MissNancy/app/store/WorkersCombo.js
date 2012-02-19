@@ -1,13 +1,16 @@
-Ext.define('KCCVBS.store.Ages', {
+Ext.define('KCCVBS.store.WorkersCombo', {
     extend: 'Ext.data.Store',
-    model: 'KCCVBS.model.Age',
-    autoLoad: true,
+    model: 'KCCVBS.model.Workers',
+    autoLoad: false,
     paramsAsHash: true,
     proxy: {
+        extraParams: {
+            activeOnly: true
+        },
         reader: {
             totalProperty: 'total',
             successProperty: 'success',
-            idProperty: 'AgeKey',
+            idProperty: 'WorkerKey',
             root: 'data',
             messageProperty: 'message'
         },
@@ -20,10 +23,7 @@ Ext.define('KCCVBS.store.Ages', {
         },
         type: 'ajax',
         api: {
-            read: '/Ages/Get',
-            create: '/Ages/Create',
-            update: '/Ages/Update',
-            destroy: '/Ages/Delete'
+            read: '/Worker/GetPaged'
         },
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'

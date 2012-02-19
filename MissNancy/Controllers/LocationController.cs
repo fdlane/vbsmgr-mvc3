@@ -9,10 +9,9 @@ namespace MissNancy.Controllers
 {
     public class LocationController : Controller
     {
-        public JsonResult Get(int? start, int? limit)
+        public JsonResult Get(Boolean activeOnly)
         {
-            var db = new PetaPoco.Database("MissNancy");
-            var data = db.Query<Location>("WHERE Active <>0");
+            var data = new Location().Get(activeOnly);
 
             return Json(new
             {

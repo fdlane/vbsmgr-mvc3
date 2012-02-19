@@ -25,7 +25,7 @@ Ext.define('KCCVBS.view.classes.ClassWorkerDetailsList', {
                     action: 'new',
                     pressed: true
                 }, {
-                    iconCls: 'delete-item',
+                    iconCls: 'unassign-item',
                     text: 'Unassign',
                     action: 'delete'
                 }

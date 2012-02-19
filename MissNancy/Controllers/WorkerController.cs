@@ -7,7 +7,7 @@ using MissNancy.Data;
 
 namespace MissNancy.Controllers
 {
-    public class WorkersController : Controller
+    public class WorkerController : Controller
     {
         //
         // GET: /Classes/
@@ -27,19 +27,28 @@ namespace MissNancy.Controllers
 
             return View(classes);
         }
-        public JsonResult Get(int? start, int? limit)
+
+        public JsonResult GetPaged(String query, int page, int limit, Boolean activeOnly)
         {
-            var db = new PetaPoco.Database("MissNancy");
-            var workers = db.Query<Worker>("WHERE Active <> 0");
+            var data = new Worker().GetPaged(query, page, limit, activeOnly);
 
             return Json(new
             {
-                total = workers.Count(),
-                data = workers,
+                total = data.TotalItems,
+                data = data.Items,
             }, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult Get(Boolean activeOnly)
+        {
+            var data = new Worker().Get(activeOnly);
 
+            return Json(new
+            {
+                total = data.Count(),
+                data = data,
+            }, JsonRequestBehavior.AllowGet);
+        }
 
         [HttpPost]
         public JsonResult Update(Classes data)
@@ -51,7 +60,7 @@ namespace MissNancy.Controllers
                 using (var db = new PetaPoco.Database("MissNancy"))
                 {
                     var rec = db.SingleOrDefault<Classes>("WHERE ClassKey = @0", data.ClassKey);
-                    rec.ClassDisplay = data.ClassDisplay;              
+                    rec.ClassDisplay = data.ClassDisplay;
                     db.Save("tblClasses", "ClassKey", rec);
                     success = true;
                     message = "Update method called successfully";

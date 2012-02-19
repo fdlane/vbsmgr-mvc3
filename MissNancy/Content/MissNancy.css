@@ -11,9 +11,13 @@
 }
 .new-item
 {
-    background-image: url(icons/user_add.png) !important;
+    background-image: url(icons/add.png) !important;
 }
 .delete-item
+{
+    background-image: url(icons/bin_closed.png) !important;
+}
+.unassign-item
 {
     background-image: url(icons/delete.png) !important;
 }

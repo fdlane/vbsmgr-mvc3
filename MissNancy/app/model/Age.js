@@ -3,7 +3,6 @@ Ext.define('KCCVBS.model.Age', {
     fields: [
                 'AgeKey',
                 'Active',
-                'BusCaptianKey',
                 'Age',
                 'Color',
                 'Notes',

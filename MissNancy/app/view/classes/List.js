@@ -1,9 +1,3 @@
-/// <reference path="../../../extjs/ext-all-dev.js" />
-
-//var sm = Ext.create('Ext.selection.CheckboxModel', {
-//    checkOnly: true
-//});
-
 // Tried to follow the guys advice
 // http: //stackoverflow.com/questions/6871594/best-practices-concerning-initcomponent-in-ext-define
 // and this guys...better use of Ext.apply...

@@ -69,7 +69,7 @@
     <Compile Include="Controllers\RouteController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\NeighborhoodController.cs" />
-    <Compile Include="Controllers\WorkersController.cs" />
+    <Compile Include="Controllers\WorkerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -80,6 +80,9 @@
     <Compile Include="Models\BusWorkerDetails.cs" />
     <Compile Include="Models\Bus.cs" />
     <Compile Include="Models\Children.cs" />
+    <Compile Include="Models\Ages.cs" />
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\Worker.cs" />
     <Compile Include="Models\Route.cs" />
     <Compile Include="Models\Generated\Database.cs">
       <AutoGen>True</AutoGen>
@@ -104,7 +107,7 @@
     <Content Include="app\controller\Workers.js" />
     <Content Include="app\controller\Users.js" />
     <Content Include="app\model\Classes.js" />
-    <Content Include="app\model\Ages.js" />
+    <Content Include="app\model\AgesToDelete.js" />
     <Content Include="app\model\ClassWorkerDetails.js" />
     <Content Include="app\model\Children.js" />
     <Content Include="app\model\Buses.js" />
@@ -122,6 +125,7 @@
     <Content Include="app\store\Children.js" />
     <Content Include="app\store\Buses.js" />
     <Content Include="app\store\BusWorkerDetails.js" />
+    <Content Include="app\store\WorkersCombo.js" />
     <Content Include="app\store\WorkerTypes.js" />
     <Content Include="app\store\Routes.js" />
     <Content Include="app\store\Neighborhoods.js" />
@@ -155,6 +159,8 @@
     <Content Include="app\view\classes\ClassWorkerDetailsList.js" />
     <Content Include="app\view\workers\Edit.js" />
     <Content Include="app\view\workers\List.js" />
+    <Content Include="Content\icons\add.png" />
+    <Content Include="Content\icons\bin_closed.png" />
     <Content Include="Content\icons\bullet_green.png" />
     <Content Include="Content\icons\bullet_red.png" />
     <Content Include="Content\icons\buses.png" />

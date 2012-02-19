@@ -4,6 +4,9 @@ Ext.define('KCCVBS.store.Workers', {
     autoLoad: true,
     paramsAsHash: true,
     proxy: {
+        extraParams: {
+            activeOnly: true
+        },
         reader: {
             totalProperty: 'total',
             successProperty: 'success',
@@ -20,10 +23,10 @@ Ext.define('KCCVBS.store.Workers', {
         },
         type: 'ajax',
         api: {
-            read: '/Workers/Get',
-            create: '/Workers/Create',
-            update: '/Workers/Update',
-            destroy: '/Workers/Delete'
+            read: '/Worker/GetPaged',
+            create: '/Worker/Create',
+            update: '/Worker/Update',
+            destroy: '/Worker/Delete'
         },
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'

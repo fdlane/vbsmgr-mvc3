@@ -1,7 +1,7 @@
 Ext.define('KCCVBS.controller.Classes', {
     extend: 'Ext.app.Controller',
 
-    stores: ['Classes', 'Ages', 'Locations', 'Workers', 'ClassWorkerDetails'],
+    stores: ['Classes', 'Ages', 'Locations', 'Workers', 'WorkersCombo', 'ClassWorkerDetails'],
 
     models: ['Classes'],
 
@@ -66,13 +66,24 @@ Ext.define('KCCVBS.controller.Classes', {
         this.getClassWorkerDetailsStore().loadData([], false);
     },
     editItem: function (grid, record) {
+
         var edit = Ext.create('KCCVBS.view.classes.Edit').show();
 
-        edit.down('form').loadRecord(record);
+        //load the combo store with the current master teacher, so the loadRecord works
+        this.getWorkersComboStore().loadData([
+                {
+                    WorkerKey: record.data.MasterTeacherKey,
+                    DisplayName: record.data.MasterTeacher
+                }
+            ], false);
 
-        //reload it with the current workers
+        // empty the linking store so details items from the previously viewed item does not show
+        this.getClassWorkerDetailsStore().loadData([], false);
+
+        //reload it with the workers currently assigned to this class
         this.getClassWorkerDetailsStore().load({ params: { ClassKey: record.data.ClassKey} });
-        this.getAgesStore().load();
+
+        edit.down('form').loadRecord(record);
 
     },
     updateItem: function (button) {

@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Controllers\BusControllerTest.cs" />
     <Compile Include="Controllers\ChildrenControllerTest.cs" />
+    <Compile Include="Controllers\WorkerControllerTest.cs" />
     <Compile Include="Models\BusTest.cs" />
     <Compile Include="Models\RouteTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -3,7 +3,7 @@ Ext.define('KCCVBS.controller.Ages', {
 
     stores: ['Ages'],
 
-    models: ['Ages'],
+    models: ['Age'],
 
     views: ['age.List', 'age.Edit'],
 
@@ -73,7 +73,7 @@ Ext.define('KCCVBS.controller.Ages', {
         this.getAgesStore().sync();
     },
     deleteItem: function (button) {
-        Ext.MessageBox.confirm('Delete Ages', 'Are you sure you want to delete', function (confirmButton) {
+        Ext.MessageBox.confirm('Delete Age', 'Are you sure you want to delete', function (confirmButton) {
             if (confirmButton == 'yes') {
                 var grid = button.up('panel');
                 var store = grid.getStore();

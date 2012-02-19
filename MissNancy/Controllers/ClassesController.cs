@@ -40,6 +40,17 @@ namespace MissNancy.Controllers
             }, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult GetPaged(int page, int limit, Boolean activeOnly)
+        {
+            var data = new Classes().GetPaged(page, limit, activeOnly);
+
+            return Json(new
+            {
+                total = data.TotalItems,
+                data = data.Items,
+            }, JsonRequestBehavior.AllowGet);
+        }
+
         public JsonResult GetWorkers(int? classKey)
         {
             var db = new PetaPoco.Database("MissNancy");
@@ -159,7 +170,7 @@ namespace MissNancy.Controllers
                         item.EditDate = DateTime.Now;
                         db.Save("tblClasses", "ClassKey", item);
 
-                        if (item.ClassWorkerDetails !=null)
+                        if (item.ClassWorkerDetails != null)
                         {
                             foreach (var detailRecord in item.ClassWorkerDetails)
                             {

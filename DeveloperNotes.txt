@@ -9,3 +9,5 @@ Add action to menu item in Navigation
 Add navigation to appcontroller to display list
 Add Controller to app.js
 Create server side controller (in singular form 'UserController.cs')
+
+Need to add a Sort column to tables.  User may want a different sort order than alpha on display value

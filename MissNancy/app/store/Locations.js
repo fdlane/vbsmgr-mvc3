@@ -4,6 +4,9 @@ Ext.define('KCCVBS.store.Locations', {
     autoLoad: true,
     paramsAsHash: true,
     proxy: {
+        extraParams: {
+            activeOnly: true
+        },
         reader: {
             totalProperty: 'total',
             successProperty: 'success',
@@ -16,6 +19,7 @@ Ext.define('KCCVBS.store.Locations', {
             encode: false,
             listful: true,
             writeAllFields: true,
+            allowSingle: false,
             returnJson: true
         },
         type: 'ajax',
