@@ -1,12 +1,12 @@
 MissNancy
 =========
 
-**The project is being developement and is not ready for release.**
+**The project under developement and is not ready for release.**
 
 A port of a simple MS Access application
 ----------------------------------------
 
-MissNancy is a pet project that ports a MS Access application that I wrote almost 10 years ago for my local church.  The church has a HUGE Vacation Bible School event each year and needed a way to track the Children, Workers, Buses, Classes, and Neighborhoods.  The application was originally written in MS Access because I needed to build it very quickly, app was mostly data entry, and all the users were located in the same office space/network.
+MissNancy is a pet project that ports a MS Access application (written almost 10 years ago for my local church) to a Web app.  The church has a HUGE Vacation Bible School event each year and needed a way to track the Children, Workers, Buses, Classes, and Neighborhoods.  The application was originally written in MS Access because I needed to build it very quickly, app was mostly data entry, and all the users were located in the same office space/network.
 
 I used the following in this project:
 
