@@ -20,6 +20,9 @@ Ext.define('KCCVBS.controller.Classes', {
             'classeslist dataview': {
                 itemdblclick: this.editItem
             },
+            'classesedit button[action=newFromEdit]': {
+                click: this.createItem
+            },
             'classesedit button[action=save]': {
                 click: this.updateItem
             },
@@ -29,11 +32,11 @@ Ext.define('KCCVBS.controller.Classes', {
             'classeslist button[action=delete]': {
                 click: this.deleteItem
             },
-            'classworkerdetailslist button[action=new]': {
-                click: this.createWorkerDetails
-            },
             'classworkerdetailslist button[action=delete]': {
                 click: this.deleteWorkerDetail
+            },
+            'classworkerdetailslist combo[action=new]': {
+                select: this.createWorkerDetails
             }
         });
     },
@@ -54,8 +57,12 @@ Ext.define('KCCVBS.controller.Classes', {
 
     },
 
-    createItem: function () {
-        console.log('Classes createClass clicked');
+    createItem: function (button) {
+
+        if (button.action == 'newFromEdit') {
+            this.updateItem(button);
+        }
+
         var edit = Ext.create('KCCVBS.view.classes.Edit').show();
         var record = Ext.create('KCCVBS.model.Classes');
         record.set('Active', true);
@@ -64,6 +71,10 @@ Ext.define('KCCVBS.controller.Classes', {
 
         // empty the linking store so details items from the previously viewed item does not show
         this.getClassWorkerDetailsStore().loadData([], false);
+
+        //set focus to speed data entry
+        edit.query('#fistInput')[0].focus(true, 10);
+
     },
     editItem: function (grid, record) {
 
@@ -97,8 +108,6 @@ Ext.define('KCCVBS.controller.Classes', {
         };
 
         record.set(values);
-        //have seen this too, but wasn't working last time i looked at it
-        // form.updateRecord(record);
 
         var store = this.getClassWorkerDetailsStore();
         var classWorkerDetails = [];
@@ -131,12 +140,14 @@ Ext.define('KCCVBS.controller.Classes', {
 
         });
     },
-    createWorkerDetails: function (button) {
-        var grid = button.up('panel'),
+    createWorkerDetails: function (combo) {
+        console.log('selected' + combo.getValue());
+        var grid = combo.up('panel'),
             store = grid.getStore();
 
-        store.insert(0, {});
-        var editor = grid.getPlugin('workerCellEditing').startEditByPosition({ row: 0, column: 1 });
+        store.insert(0, { WorkerKey: combo.getValue(), DisplayName: combo.getRawValue() });
+        combo.reset();
+        // var editor = grid.getPlugin('workerCellEditing').startEditByPosition({ row: 0, column: 1 });
 
     },
     deleteWorkerDetail: function (button) {

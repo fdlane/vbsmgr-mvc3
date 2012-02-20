@@ -7,7 +7,7 @@ Ext.define('KCCVBS.view.menu.Navigation', {
 
     //renderTo: Ext.getBody(),  // usually rendered by it's containing component
     items: [{
-        text: 'Children  (11)',
+        text: 'Children',
         iconCls: 'children',
         action: 'children'
     }, {

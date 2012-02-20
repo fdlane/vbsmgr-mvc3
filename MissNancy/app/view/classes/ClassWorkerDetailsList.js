@@ -20,10 +20,24 @@ Ext.define('KCCVBS.view.classes.ClassWorkerDetailsList', {
 
         this.tbar = [
                 {
-                    iconCls: 'new-item',
-                    text: 'Assign',
+                    xtype: 'combo',
+                    name: 'MasterTeacherKey',
+                    //   fieldLabel: 'Assign Workers',
+                    emptyText: "Start typing Worker's Last Name here",
+                    store: Ext.create('KCCVBS.store.WorkersCombo'),
+                    displayField: 'DisplayName',
+                    valueField: 'WorkerKey',
+                    queryMode: 'remote',
+                    minChars: 2,
+                    hideTrigger: true,
+                    forceSelection: true,
+                    selectOnFocus: true,
+                    typeAhead: true,
                     action: 'new',
-                    pressed: true
+                    width: 240
+
+                }, {
+                    xtype: 'tbseparator'
                 }, {
                     iconCls: 'unassign-item',
                     text: 'Unassign',
@@ -45,28 +59,28 @@ Ext.define('KCCVBS.view.classes.ClassWorkerDetailsList', {
                 hidden: true
             }, {
                 header: 'Class Worker',
-                dataIndex: 'WorkerKey',
-                flex: 1,
-                editor: {
-                    xtype: 'combo',
-                    store: 'Workers',
-                    typeAhead: true, 
-                    displayField: 'DisplayName',
-                    valueField: 'WorkerKey',
-                    queryMode: 'local',
-                    listClass: 'x-combo-list-small'
-                },
-                renderer: function (value) {
-                    var display = value;
-                    var store = Ext.data.StoreManager.get('Workers');
-                    store.each(function (rec) {
-                        if (rec.get('WorkerKey') === value) {
-                            display = rec.get('DisplayName');
-                            return false;
-                        }
-                    });
-                    return display;
-                }
+                dataIndex: 'DisplayName',
+                flex: 1
+                //                editor: {
+                //                    xtype: 'combo',
+                //                    store: 'Workers',
+                //                    typeAhead: true,
+                //                    displayField: 'DisplayName',
+                //                    valueField: 'WorkerKey',
+                //                    queryMode: 'local',
+                //                    listClass: 'x-combo-list-small'
+                //                },
+                //                renderer: function (value) {
+                //                    var display = value;
+                //                    var store = Ext.data.StoreManager.get('Workers');
+                //                    store.each(function (rec) {
+                //                        if (rec.get('WorkerKey') === value) {
+                //                            display = rec.get('DisplayName');
+                //                            return false;
+                //                        }
+                //                    });
+                //                    return display;
+                //                }
             }, {
                 header: 'Phone',
                 dataIndex: 'Phone',

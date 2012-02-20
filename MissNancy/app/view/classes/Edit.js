@@ -4,7 +4,7 @@ Ext.define('KCCVBS.view.classes.Edit', {
 
     requires: ['Ext.form.Panel'],
 
-    title: 'Edit Class',
+    title: 'Add/Edit Class',
     layout: 'fit',
     autoShow: true,
     autoheight: true,
@@ -31,8 +31,10 @@ Ext.define('KCCVBS.view.classes.Edit', {
                         fieldLabel: 'Active'
                     }, {
                         xtype: 'textfield',
+                        itemId: 'fistInput',
                         name: 'ClassDisplay',
-                        fieldLabel: 'Class Display'
+                        fieldLabel: 'Class Display',
+                        emptyText: 'Name of Class'
                     }, {
                         xtype: 'combo',
                         name: 'AgeKey',
@@ -64,7 +66,7 @@ Ext.define('KCCVBS.view.classes.Edit', {
                         xtype: 'combo',
                         name: 'MasterTeacherKey',
                         fieldLabel: 'Master Teacher',
-                        emptyText: 'Please select...',
+                        emptyText: 'Type Last Name...',
                         store: 'WorkersCombo',
                         displayField: 'DisplayName',
                         valueField: 'WorkerKey',
@@ -79,13 +81,13 @@ Ext.define('KCCVBS.view.classes.Edit', {
                         xtype: 'textareafield',
                         name: 'Notes',
                         fieldLabel: 'Notes',
-                        grow: true,
+                        grow: false,
                         anchor: '99%'
                     }, {
                         xtype: 'classworkerdetailslist',
                         name: 'ClassWorkerDetailsList',
                         fieldLabel: 'Class Workers',
-                        height: 200,
+                        height: 220,
                         padding: '5px'
                     }
                 ]
@@ -95,7 +97,7 @@ Ext.define('KCCVBS.view.classes.Edit', {
         this.buttons = [
                     {
                         text: 'New',
-                        action: 'new'
+                        action: 'newFromEdit'
                     }, {
                         xtype: 'tbfill'
                     }, {
