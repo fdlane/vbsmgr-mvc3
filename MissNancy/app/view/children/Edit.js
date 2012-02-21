@@ -14,7 +14,7 @@ Ext.define('KCCVBS.view.children.Edit', {
     initComponent: function () {
         this.items = [{
             xtype: 'form',
-            padding: '5 5 0 5',
+            bodyPadding: 10,
             border: false,
             style: 'background-color: #fff;',
 
