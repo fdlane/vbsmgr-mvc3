@@ -9,6 +9,18 @@ namespace MissNancy.Controllers
 {
     public class NeighborhoodController : Controller
     {
+
+        public JsonResult GetPaged(String query, int page, int limit, Boolean activeOnly)
+        {
+            var data = new Neighborhood().GetPaged(query, page, limit, activeOnly);
+
+            return Json(new
+            {
+                total = data.TotalItems,
+                data = data.Items,
+            }, JsonRequestBehavior.AllowGet);
+        }
+
         public JsonResult Get(int? start, int? limit)
         {
             var db = new PetaPoco.Database("MissNancy");

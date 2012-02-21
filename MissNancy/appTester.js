@@ -6,15 +6,14 @@ Ext.application({
 
     controllers: [
                     'AppController',
-                    'Classes',
-                    'Workers'
+                    'Children'
                  ],
 
-    views: ['shared.ColumnActive', 'shared.ColumnAttendance', 'classes.List', 'classes.Edit'],
+    views: ['children.Edit'],
 
-    models: ['Classes'],
+    models: ['Children', 'Neighborhoods'],
 
-    stores: ['Classes'],
+    stores: ['Children', 'Neighborhoods'],
 
     launch: function () {
 
@@ -29,13 +28,10 @@ Ext.application({
             layout: 'fit',
             items: [
                 {
-                    xtype: 'classeslist'
-
+                    xtype: 'childrenedit'
                 }
             ]
         });
-
-
     }
 });
 

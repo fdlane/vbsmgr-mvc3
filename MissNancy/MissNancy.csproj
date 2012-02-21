@@ -81,6 +81,7 @@
     <Compile Include="Models\Bus.cs" />
     <Compile Include="Models\Children.cs" />
     <Compile Include="Models\Ages.cs" />
+    <Compile Include="Models\Neighborhood.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Worker.cs" />
     <Compile Include="Models\Route.cs" />
@@ -125,6 +126,8 @@
     <Content Include="app\store\Children.js" />
     <Content Include="app\store\Buses.js" />
     <Content Include="app\store\BusWorkerDetails.js" />
+    <Content Include="app\store\NeighborhoodsCombo.js" />
+    <Content Include="app\store\GradesCompleted.js" />
     <Content Include="app\store\WorkersCombo.js" />
     <Content Include="app\store\WorkerTypes.js" />
     <Content Include="app\store\Routes.js" />

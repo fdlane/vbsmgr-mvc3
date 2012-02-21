@@ -4,7 +4,7 @@ Ext.define('KCCVBS.view.classes.Edit', {
 
     requires: ['Ext.form.Panel'],
 
-    title: 'Add/Edit Class',
+    title: 'Class Add/Edit',
     layout: 'fit',
     autoShow: true,
     autoheight: true,
