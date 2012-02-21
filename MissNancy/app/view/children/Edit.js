@@ -42,24 +42,19 @@ Ext.define('KCCVBS.view.children.Edit', {
                 selectOnFocus: true,
                 typeAhead: true
             }, {
-
                 xtype: 'fieldcontainer',
-                layout: 'hbox',
-                combineErrors: true,
-                msgTarget: 'side',
                 fieldLabel: 'First/Last Name',
-                defaults: {
-                    hideLabel: true
-                },
+                layout: 'hbox',
                 items: [{
                     xtype: 'textfield',
                     name: 'FirstName',
-                    fieldLabel: 'First Name',
-                    margins: '0 5 0 0'
+                    width: 150
+                }, {
+                    xtype: 'splitter'
                 }, {
                     xtype: 'textfield',
                     name: 'LastName',
-                    fieldLabel: 'Last Name'
+                    flex: 1
                 }]
             }, {
                 xtype: 'textfield',
@@ -70,72 +65,89 @@ Ext.define('KCCVBS.view.children.Edit', {
                 name: 'Address2',
                 fieldLabel: 'Address 2'
             }, {
-
                 xtype: 'fieldcontainer',
                 layout: 'hbox',
-                combineErrors: true,
-                msgTarget: 'side',
                 fieldLabel: 'City/ST/Zip',
-                defaults: {
-                    hideLabel: true
-                },
                 items: [{
                     xtype: 'textfield',
                     width: 150,
-                    name: 'City',
-                    fieldLabel: 'City',
-                    margins: '0 5 0 0'
+                    name: 'City'
+                }, {
+                    xtype: 'splitter'
                 }, {
                     xtype: 'textfield',
                     width: 30,
-                    name: 'State',
-                    fieldLabel: 'State',
-                    margins: '0 5 0 0'
+                    name: 'State'
+
+                }, {
+                    xtype: 'splitter'
                 }, {
                     xtype: 'textfield',
                     name: 'Zip',
-                    fieldLabel: 'Zip'
+                    flex: 1
                 }]
             }, {
                 xtype: 'textfield',
                 name: 'Parent',
                 fieldLabel: 'Parent/Gardian'
             }, {
-                xtype: 'combo',
-                name: 'GradeCompleted',
-                fieldLabel: 'Grade Completed',
-                emptyText: 'Please select...',
-                store: 'GradesCompleted',
-                displayField: 'value',
-                forceSelection: true,
-                queryMode: 'local'
+                xtype: 'fieldcontainer',
+                layout: 'hbox',
+                items: [{
+                    xtype: 'combo',
+                    name: 'GradeCompleted',
+                    fieldLabel: 'Grade Completed',
+                    emptyText: 'Please select...',
+                    store: 'GradesCompleted',
+                    displayField: 'value',
+                    forceSelection: true,
+                    queryMode: 'local'
+                }, {
+                    xtype: 'splitter'
+                }, {
+                    xtype: 'textfield',
+                    labelWidth: 50,
+                    name: 'Phone',
+                    fieldLabel: 'Phone'
+                }]
             }, {
-                xtype: 'textfield',
-                name: 'Phone',
-                fieldLabel: 'Phone'
+                xtype: 'fieldcontainer',
+                layout: 'hbox',
+                items: [{
+                    xtype: 'textfield',
+                    name: 'Age',
+                    fieldLabel: 'Age'
+                }, {
+                    xtype: 'splitter'
+                }, {
+                    xtype: 'combo',
+                    name: 'AgeKey',
+                    fieldLabel: 'Age Group',
+                    labelWidth: 75,
+                    emptyText: 'Please select...',
+                    store: 'Ages',
+                    displayField: 'Age',
+                    valueField: 'AgeKey',
+                    forceSelection: true,
+                    queryMode: 'local',
+                    width: 175
+                }]
             }, {
-                xtype: 'textfield',
-                name: 'Age',
-                fieldLabel: 'Age'
-            }, {
-                xtype: 'combo',
-                name: 'AgeKey',
-                fieldLabel: 'Age Group',
-                emptyText: 'Please select...',
-                store: 'Ages',
-                displayField: 'Age',
-                valueField: 'AgeKey',
-                forceSelection: true,
-                queryMode: 'local'
-            }, {
-                xtype: 'textfield',
-                name: 'Mobile',
-                fieldLabel: 'Mobile'
-            }, {
-                xtype: 'textfield',
-                name: 'Email',
-                fieldLabel: 'Email',
-                vtype: 'email'
+                xtype: 'fieldcontainer',
+                layout: 'hbox',
+                items: [{
+                    xtype: 'textfield',
+                    name: 'Mobile',
+                    fieldLabel: 'Mobile'
+                }, {
+                    xtype: 'splitter'
+                }, {
+                    xtype: 'textfield',
+                    name: 'Email',
+                    fieldLabel: 'Email',
+                    labelWidth: 75,
+                    vtype: 'email'
+                }]
             }, {
                 xtype: 'textareafield',
                 name: 'SpecialNeeds',
