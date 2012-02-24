@@ -146,11 +146,19 @@ Ext.define('KCCVBS.controller.Classes', {
         });
     },
     createWorkerDetails: function (combo) {
-        console.log('selected' + combo.getValue());
         var grid = combo.up('panel'),
             store = grid.getStore();
 
-        store.insert(0, { WorkerKey: combo.getValue(), DisplayName: combo.getRawValue() });
+        var record = combo.getStore().getById(combo.getValue());
+
+        store.insert(0, {
+            WorkerKey: record.data.WorkerKey,
+            DisplayName: record.data.DisplayName,
+            Phone: record.data.Phone,
+            Mobile: record.data.Mobile
+        });
+
+        // reset the combo to so the user can enter another worker
         combo.reset();
         // var editor = grid.getPlugin('workerCellEditing').startEditByPosition({ row: 0, column: 1 });
 

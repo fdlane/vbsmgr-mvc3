@@ -1,5 +1,6 @@
 Ext.define('KCCVBS.model.Route', {
     extend: 'Ext.data.Model',
+    idProperty: 'RouteKey',
     fields: [
                 'RouteKey',
                 'Active',

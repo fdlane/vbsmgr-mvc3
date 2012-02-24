@@ -1,5 +1,6 @@
 Ext.define('KCCVBS.model.Buses', {
     extend: 'Ext.data.Model',
+    idProperty: 'BusKey',
     fields: [
                 'BusKey',
                 'Active',

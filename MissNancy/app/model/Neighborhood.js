@@ -1,5 +1,6 @@
 Ext.define('KCCVBS.model.Neighborhood', {
     extend: 'Ext.data.Model',
+    idProperty: 'NeighborhoodKey',
     fields: [
                 'NeighborhoodKey',
                 'Active',

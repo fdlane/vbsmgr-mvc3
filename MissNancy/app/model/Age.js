@@ -1,5 +1,6 @@
 Ext.define('KCCVBS.model.Age', {
     extend: 'Ext.data.Model',
+    idProperty: 'AgeKey',
     fields: [
                 'AgeKey',
                 'Active',

@@ -1,9 +1,10 @@
 Ext.define('KCCVBS.model.WorkerType', {
     extend: 'Ext.data.Model',
+    idProperty: 'WorkerTypeKey',
     fields: [
                 'WorkerTypeKey',
                 'Active',
-                'WorkerTypeDisplay',           
+                'WorkerTypeDisplay',
                 'Notes',
                 'CreateDate',
                 'CreatedBy',
