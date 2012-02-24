@@ -39,7 +39,7 @@ Ext.define('KCCVBS.view.Viewport', {
         items: [
         {
             title: 'Home',
-            html: 'Put a Welcome page here...'
+            html: '<center><h1>Giant Vacation Bible School</h1></br>Monday, June 04, 2012, 07:00</br>To </br>Friday, June 08, 2012</center>'
         }
     ]
     }]
