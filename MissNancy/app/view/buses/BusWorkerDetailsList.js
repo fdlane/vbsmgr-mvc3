@@ -21,8 +21,7 @@ Ext.define('KCCVBS.view.buses.BusWorkerDetailsList', {
         this.tbar = [{
             iconCls: 'new-item',
             text: 'Assign',
-            action: 'new',
-            pressed: true
+            action: 'new'
         },
         {
             iconCls: 'delete-item',

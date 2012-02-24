@@ -28,8 +28,8 @@ Ext.define('KCCVBS.view.classes.Edit', {
                 name: 'Active',
                 fieldLabel: 'Active'
             }, {
-                xtype: 'textfield',
                 itemId: 'fistInput',
+                xtype: 'textfield',
                 name: 'ClassDisplay',
                 fieldLabel: 'Class Display',
                 emptyText: 'Name of Class'

@@ -19,6 +19,9 @@ Ext.define('KCCVBS.controller.Children', {
             'childrenlist dataview': {
                 itemdblclick: this.editItem
             },
+            'childrenedit button[action=newFromEdit]': {
+                click: this.createItem
+            },
             'childrenedit button[action=save]': {
                 click: this.updateItem
             },
@@ -47,7 +50,12 @@ Ext.define('KCCVBS.controller.Children', {
 
     },
 
-    createItem: function () {
+    createItem: function (button) {
+
+        // if user press New on the edit form, save the current record first
+        if (button.action == 'newFromEdit') {
+            this.updateItem(button);
+        }
 
         var edit = Ext.create('KCCVBS.view.children.Edit').show();
         var record = Ext.create('KCCVBS.model.Children');
@@ -55,12 +63,16 @@ Ext.define('KCCVBS.controller.Children', {
 
         edit.down('form').loadRecord(record);
 
+        //set focus to speed data entry
+        edit.query('#fistInput')[0].focus(true, 10);
+
     },
 
     editItem: function (grid, record) {
 
         var view = Ext.getCmp('center');
         var edit = Ext.create('KCCVBS.view.children.Edit').show();
+        this.getNeighborhoodsComboStore().load({ params: { key: record.data.NeighborhoodKey} });
 
         edit.down('form').loadRecord(record);
     },
@@ -68,17 +80,29 @@ Ext.define('KCCVBS.controller.Children', {
     updateItem: function (button) {
 
         var win = button.up('window'),
-            form = win.down('form'),
+            form = win.down('form').getForm(),
             record = form.getRecord(),
             values = form.getValues();
 
+        if (!form.isValid()) {
+            return;
+        };
+
         record.set(values);
+
+        // check if this is a newly created record and insert into the store
+        if (record.phantom) {
+            this.getChildrenStore().insert(0, record);
+        }
+
         win.close();
+
+        // save to the server
         this.getChildrenStore().sync();
     },
 
     deleteItem: function (button) {
-        Ext.MessageBox.confirm('Delete Class', 'Are you sure you want to delete', function (confirmButton) {
+        Ext.MessageBox.confirm('Delete Selected', 'Are you sure you want to delete', function (confirmButton) {
             if (confirmButton == 'yes') {
                 var grid = button.up('panel');
                 var store = grid.getStore();

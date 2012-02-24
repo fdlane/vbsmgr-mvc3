@@ -9,16 +9,28 @@ namespace MissNancy.Controllers
 {
     public class NeighborhoodController : Controller
     {
-
-        public JsonResult GetPaged(String query, int page, int limit, Boolean activeOnly)
-        {
-            var data = new Neighborhood().GetPaged(query, page, limit, activeOnly);
-
-            return Json(new
+        public JsonResult GetPaged(String key, String query, int page, int limit, Boolean activeOnly)
+        {   
+            // TODO look into this approach http://haacked.com/archive/2008/08/29/how-a-method-becomes-an-action.aspx
+            //  ok, this may be weird, but can't overload these methods
+            if (null != key)
             {
-                total = data.TotalItems,
-                data = data.Items,
-            }, JsonRequestBehavior.AllowGet);
+                var data = new Neighborhood().GetById(key);
+                return Json(new
+                {
+                    data = data,
+                }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                var data = new Neighborhood().GetPaged(query, page, limit, activeOnly);
+
+                return Json(new
+                {
+                    total = data.TotalItems,
+                    data = data.Items,
+                }, JsonRequestBehavior.AllowGet);
+            }
         }
 
         public JsonResult Get(int? start, int? limit)

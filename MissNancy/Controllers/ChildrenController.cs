@@ -9,14 +9,9 @@ namespace MissNancy.Controllers
 {
     public class ChildrenController : Controller
     {
-        //
-        // GET: /Children/
 
         public JsonResult GetPaged(int page, int limit, Boolean activeOnly)
         {
-            //var db = new PetaPoco.Database("MissNancy");
-            //var data = db.Query<Children>("WHERE NeighborhoodKey = 188 AND Active <>0 or ChildrenKey = 4");
-
             var data = new Children().GetPaged(page, limit, activeOnly);
 
             return Json(new
@@ -27,7 +22,7 @@ namespace MissNancy.Controllers
         }
 
         [HttpPost]
-        public JsonResult Create(List<Classes> data)
+        public JsonResult Create(List<Children> data)
         {
             bool success = false;
             string message = "Create method failed";
@@ -40,17 +35,7 @@ namespace MissNancy.Controllers
                     {
                         item.CreateDate = DateTime.Now;
                         item.EditDate = DateTime.Now;
-                        db.Save("tblClasses", "ClassKey", item);
-
-                        if (item.ClassWorkerDetails != null)
-                        {
-                            foreach (var detailRecord in item.ClassWorkerDetails)
-                            {
-                                //item should now have a ClassKey from the Database
-                                detailRecord.ClassKey = item.ClassKey;
-                                db.Save("tblClassWorkerDetails", "ClassWorkerKey", detailRecord);
-                            }
-                        }
+                        db.Save("tblChildren", "ChildrenKey", item);
                     }
 
                     success = true;
@@ -68,7 +53,7 @@ namespace MissNancy.Controllers
         }
 
         [HttpPost]
-        public JsonResult Update(IList<Classes> data)
+        public JsonResult Update(IList<Children> data)
         {
             bool success = false;
             string message = "no record found";
@@ -78,38 +63,11 @@ namespace MissNancy.Controllers
                 {
                     foreach (var item in data)
                     {
-                        var rec = db.SingleOrDefault<Classes>("WHERE ClassKey = @0", item.ClassKey);
+                        var rec = db.SingleOrDefault<Children>("WHERE ChildrenKey = @0", item.ChildrenKey);
 
-                        rec.Active = item.Active;
-                        rec.AgeKey = item.AgeKey;
-                        rec.LocationKey = item.LocationKey;
-                        rec.MasterTeacherKey = item.MasterTeacherKey;
-                        rec.ClassDisplay = item.ClassDisplay;
-                        rec.Notes = item.Notes;
+                        rec = item;
                         rec.EditDate = DateTime.Now;
-                        db.Save("tblClasses", "ClassKey", rec);
-
-                        // this is a new Class, just insert all the records
-                        if (item.ClassKey == 0)
-                        {
-                            foreach (var detailRecord in item.ClassWorkerDetails)
-                            {
-                                //rec should now hava a ClassKey from the database
-                                detailRecord.ClassKey = rec.ClassKey;
-                                db.Save("tblClassWorkerDetails", "ClassWorkerKey", detailRecord);
-                            }
-                        }
-                        else // this is an existing Class, handle modifications done be the user
-                        {
-                            if (item.ClassWorkerDetails != null)
-                            {
-                                foreach (var detailRecord in item.ClassWorkerDetails)
-                                {
-                                    detailRecord.ClassKey = rec.ClassKey;
-                                    db.Save("tblClassWorkerDetails", "ClassWorkerKey", detailRecord);
-                                }
-                            }
-                        }
+                        db.Save("tblChildren", "ChildrenKey", rec);
                     }
 
                     success = true;
@@ -125,7 +83,7 @@ namespace MissNancy.Controllers
             });
         }
 
-        public JsonResult Delete(IList<Classes> data)
+        public JsonResult Delete(IList<Children> data)
         {
             bool success = false;
             string message = "Delete method failed";
@@ -136,16 +94,14 @@ namespace MissNancy.Controllers
                 {
                     foreach (var item in data)
                     {
+                        // just doing a soft delete of these items
                         item.EditDate = DateTime.Now;
                         item.Active = false;
-                        db.Save("tblClasses", "ClassKey", item);
-
-                        db.Delete<ClassWorkerDetail>("WHERE ClassKey = @0", item.ClassKey);
-
+                        db.Save("tblChildren", "ChildrenKey", item);
                     }
 
                     success = true;
-                    message = "Class(s) deleted successfully";
+                    message = "Deleted successfully";
                 }
             }
 

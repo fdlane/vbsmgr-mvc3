@@ -16,8 +16,7 @@ Ext.define('KCCVBS.view.children.List', {
                 {
                     iconCls: 'new-item',
                     text: 'New',
-                    action: 'new',
-                    pressed: true
+                    action: 'new'
                 }, {
                     iconCls: 'delete-item',
                     text: 'Delete',

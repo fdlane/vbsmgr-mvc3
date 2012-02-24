@@ -46,10 +46,10 @@ Ext.define('KCCVBS.view.classes.ClassWorkerDetailsList', {
             ];
 
         // added the pluginId so the controller can call getPlugin()
-        this.plugins = Ext.create('Ext.grid.plugin.CellEditing', {
-            clicksToEdit: 1,
-            pluginId: 'workerCellEditing'
-        });
+//        this.plugins = Ext.create('Ext.grid.plugin.CellEditing', {
+//            clicksToEdit: 1,
+//            pluginId: 'workerCellEditing'
+//        });
 
         this.columns = [
             {

@@ -59,6 +59,7 @@ Ext.define('KCCVBS.controller.Classes', {
 
     createItem: function (button) {
 
+        // if user press New on the edit form, save the current record first
         if (button.action == 'newFromEdit') {
             this.updateItem(button);
         }
@@ -109,6 +110,7 @@ Ext.define('KCCVBS.controller.Classes', {
 
         record.set(values);
 
+        // Let's get all the related records from the grid
         var store = this.getClassWorkerDetailsStore();
         var classWorkerDetails = [];
 
@@ -123,11 +125,14 @@ Ext.define('KCCVBS.controller.Classes', {
         if (record.phantom) {
             this.getClassesStore().insert(0, record);
         }
+
         win.close();
+
+        // save to the server
         this.getClassesStore().sync();
     },
     deleteItem: function (button) {
-        Ext.MessageBox.confirm('Delete Class', 'Are you sure you want to delete', function (confirmButton) {
+        Ext.MessageBox.confirm('Delete Selected', 'Are you sure you want to delete', function (confirmButton) {
             if (confirmButton == 'yes') {
                 var grid = button.up('panel');
                 var store = grid.getStore();

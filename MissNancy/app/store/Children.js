@@ -20,6 +20,7 @@ Ext.define('KCCVBS.store.Children', {
             encode: false,
             listful: true,
             writeAllFields: true,
+            allowSingle: false,   // !Important, this makes it always a list to the server
             returnJson: true
         },
         type: 'ajax',

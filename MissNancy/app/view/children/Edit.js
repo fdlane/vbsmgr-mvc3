@@ -28,6 +28,7 @@ Ext.define('KCCVBS.view.children.Edit', {
                 name: 'Active',
                 fieldLabel: 'Active'
             }, {
+                itemId: 'fistInput',
                 xtype: 'combo',
                 name: 'NeighborhoodKey',
                 fieldLabel: 'Neighborhood',
@@ -166,7 +167,7 @@ Ext.define('KCCVBS.view.children.Edit', {
 
         this.buttons = [{
             text: 'New',
-            action: 'new'
+            action: 'newFromEdit'
         }, {
             xtype: 'tbfill'
         }, {

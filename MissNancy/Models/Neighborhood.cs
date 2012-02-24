@@ -22,6 +22,11 @@ namespace MissNancy.Data
             return data;
         }
 
+        public Neighborhood GetById(string key)
+        {
+            return db.SingleOrDefault<Neighborhood>("SELECT * FROM tblNeighborhoods WHERE NeighborhoodKey = @0", key);
+        }
+
         public Page<Neighborhood> GetPaged(string query, int page, int limit, Boolean activeOnly)
         {
             var sql = PetaPoco.Sql.Builder
@@ -33,7 +38,7 @@ namespace MissNancy.Data
                 query += "%";
                 sql = PetaPoco.Sql.Builder
                         .Append("WHERE ((abs(Active) = 1 OR abs(Active) = @0)", activeOnly)
-                        .Append("AND (NeighborhoodDisplay LIKE @0))", query)
+                        .Append("AND (NeighborhoodDisplay like @0))", query)
                         .Append("ORDER BY NeighborhoodDisplay");
             }
 
