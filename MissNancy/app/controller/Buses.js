@@ -125,6 +125,8 @@ Ext.define('KCCVBS.controller.Buses', {
         }
 
         win.close();
+
+        // save to the server and refresh so grid picks up foreignkey displays
         this.getBusesStore().sync().load();
     },
     deleteItem: function (button) {

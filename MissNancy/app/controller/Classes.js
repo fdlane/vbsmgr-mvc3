@@ -127,8 +127,8 @@ Ext.define('KCCVBS.controller.Classes', {
 
         win.close();
 
-        // save to the server
-        this.getClassesStore().sync();
+        // save to the server and refresh so grid picks up foreignkey displays
+        this.getClassesStore().sync().load();
     },
     deleteItem: function (button) {
         Ext.MessageBox.confirm('Delete Selected', 'Are you sure you want to delete', function (confirmButton) {

@@ -7,11 +7,14 @@ Ext.define('KCCVBS.model.Neighborhood', {
                 'NeighborhoodTypeKey',
                 'RouteKey',
                 'NeighborhoodCode',
-                'NeighborhoodDisplay',                
+                'NeighborhoodDisplay',
                 'Notes',
                 'CreateDate',
                 'CreatedBy',
                 'EditDate',
-                'EditedBy'
+                'EditedBy',
+                'TypeDisplay',
+                'RouteDisplay',
+                'BusDisplay'
             ]
 });

@@ -28,7 +28,7 @@ Ext.define('KCCVBS.view.classes.Edit', {
                 name: 'Active',
                 fieldLabel: 'Active'
             }, {
-                itemId: 'fistInput',
+                itemId: 'fistInput',  // using this to denote the first field for focus
                 xtype: 'textfield',
                 name: 'ClassDisplay',
                 fieldLabel: 'Class Display',

@@ -46,5 +46,50 @@ namespace MissNancy.Data
 
             return data;
         }
+
+        // The display value of for the Type
+        [PetaPoco.ResultColumn]
+        public string TypeDisplay
+        {
+            get
+            {
+                var sql = PetaPoco.Sql.Builder
+                    .Append("SELECT TypeDisplay FROM tblNeighborhoodTypes ")
+                    .Append("WHERE NeighborhoodTypeKey=@0", this.NeighborhoodTypeKey);
+
+                return db.ExecuteScalar<string>(sql);
+            }
+        }
+
+        // The display value of for the Route
+        [PetaPoco.ResultColumn]
+        public string RouteDisplay
+        {
+            get
+            {
+                var sql = PetaPoco.Sql.Builder
+                    .Append("SELECT RouteDisplay FROM tblRoutes ")
+                    .Append("WHERE RouteKey=@0", this.RouteKey);
+
+                return db.ExecuteScalar<string>(sql);
+            }
+        }
+
+        // The display value of for the Bus
+        [PetaPoco.ResultColumn]
+        public string BusDisplay
+        {
+            get
+            {
+                var sql = PetaPoco.Sql.Builder
+                    .Append("SELECT tblBuses.BusDisplay")
+                    .Append("FROM tblNeighborhoods INNER JOIN")
+                    .Append("tblRoutes ON tblNeighborhoods.RouteKey = tblRoutes.RouteKey INNER JOIN")
+                    .Append("tblBuses ON tblRoutes.BusKey = tblBuses.BusKey")
+                    .Append("WHERE tblRoutes.RouteKey = @0", this.RouteKey);
+
+                return db.ExecuteScalar<string>(sql);
+            }
+        }
     }
 }
