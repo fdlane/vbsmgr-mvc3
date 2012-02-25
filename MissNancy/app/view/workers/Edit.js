@@ -28,13 +28,14 @@ Ext.define('KCCVBS.view.workers.Edit', {
                 name: 'Active',
                 fieldLabel: 'Active'
             }, {
+                itemId: 'fistInput',
                 xtype: 'combo',
-                name: 'NeighborhoodKey',
-                fieldLabel: 'Neighborhood',
+                name: 'WorkerTypeKey',
+                fieldLabel: 'Worker Type',
                 emptyText: 'Please select...',
-                store: 'Ages',
-                displayField: 'Age',
-                valueField: 'AgeKey',
+                store: 'WorkerTypes',
+                displayField: 'WorkerTypeDisplay',
+                valueField: 'WorkerTypeKey',
                 forceSelection: true,
                 queryMode: 'local',
                 selectOnFocus: true
@@ -105,7 +106,9 @@ Ext.define('KCCVBS.view.workers.Edit', {
 
         this.buttons = [{
             text: 'New',
-            action: 'new'
+            action: 'newFromEdit'
+        }, {
+            xtype: 'tbfill'
         }, {
             text: 'Save',
             action: 'save'

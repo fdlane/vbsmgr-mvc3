@@ -32,7 +32,7 @@ Ext.define('KCCVBS.view.children.Edit', {
                 xtype: 'combo',
                 name: 'NeighborhoodKey',
                 fieldLabel: 'Neighborhood',
-                emptyText: 'Please select...',
+                emptyText: 'Type first letters of Neig...',
                 store: 'NeighborhoodsCombo',
                 displayField: 'NeighborhoodDisplay',
                 valueField: 'NeighborhoodKey',
