@@ -6,14 +6,14 @@ Ext.application({
 
     controllers: [
                     'AppController',
-                    'Children'
+                    'Buses'
                  ],
 
-    views: ['children.Edit'],
+    views: ['buses.List','buses.Edit'],
 
-    models: ['Children', 'Neighborhoods'],
+    models: ['Buses', 'Workers'],
 
-    stores: ['Children', 'Neighborhoods'],
+    stores: ['Buses', 'WorkersCombo'],
 
     launch: function () {
 
@@ -28,7 +28,7 @@ Ext.application({
             layout: 'fit',
             items: [
                 {
-                    xtype: 'childrenedit'
+                    xtype: 'buseslist'
                 }
             ]
         });

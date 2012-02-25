@@ -30,12 +30,12 @@ Ext.define('KCCVBS.controller.Buses', {
             },
             'buseslist button[action=delete]': {
                 click: this.deleteItem
-            },
-            'busworkerdetailslist button[action=new]': {
-                click: this.createWorkerDetails
-            },
+            },         
             'busworkerdetailslist button[action=delete]': {
                 click: this.deleteWorkerDetail
+            },
+            'busworkerdetailslist combo[action=new]': {
+                select: this.createWorkerDetails
             }
         });
     },
@@ -57,7 +57,7 @@ Ext.define('KCCVBS.controller.Buses', {
 
     },
 
-    createItem: function () {
+    createItem: function (button) {
         // if user press New on the edit form, save the current record first
         if (button.action == 'newFromEdit') {
             this.updateItem(button);
@@ -121,11 +121,11 @@ Ext.define('KCCVBS.controller.Buses', {
 
         // check if this is a newly created record and insert into the store
         if (record.phantom) {
-            this.getWorkersStore().insert(0, record);
+            this.getBusesStore().insert(0, record);
         }
 
         win.close();
-        this.getBusesStore().sync();
+        this.getBusesStore().sync().load();
     },
     deleteItem: function (button) {
         Ext.MessageBox.confirm('Delete Selected', 'Are you sure you want to delete', function (confirmButton) {
@@ -141,7 +141,7 @@ Ext.define('KCCVBS.controller.Buses', {
 
         });
     },
-    createWorkerDetails: function (button) {
+    createWorkerDetails: function (combo) {
         var grid = combo.up('panel'),
             store = grid.getStore();
 

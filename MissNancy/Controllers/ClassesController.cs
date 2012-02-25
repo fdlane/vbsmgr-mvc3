@@ -76,26 +76,27 @@ namespace MissNancy.Controllers
                     {
                         var rec = db.SingleOrDefault<Classes>("WHERE ClassKey = @0", item.ClassKey);
 
-                        rec.Active = item.Active;
-                        rec.AgeKey = item.AgeKey;
-                        rec.LocationKey = item.LocationKey;
-                        rec.MasterTeacherKey = item.MasterTeacherKey;
-                        rec.ClassDisplay = item.ClassDisplay;
-                        rec.Notes = item.Notes;
+                        //rec.Active = item.Active;
+                        //rec.AgeKey = item.AgeKey;
+                        //rec.LocationKey = item.LocationKey;
+                        //rec.MasterTeacherKey = item.MasterTeacherKey;
+                        //rec.ClassDisplay = item.ClassDisplay;
+                        //rec.Notes = item.Notes;
+                        rec = item;
                         rec.EditDate = DateTime.Now;
                         db.Save("tblClasses", "ClassKey", rec);
 
-                        // this is a new Class, just insert all the records
+                        // this is a new item, just insert all the records
                         if (item.ClassKey == 0)
                         {
                             foreach (var detailRecord in item.ClassWorkerDetails)
                             {
-                                //rec should now hava a ClassKey from the database
+                                //rec should now hava a Key from the database
                                 detailRecord.ClassKey = rec.ClassKey;
                                 db.Save("tblClassWorkerDetails", "ClassWorkerKey", detailRecord);
                             }
                         }
-                        else // this is an existing Class, handle modifications done be the user
+                        else // this is an existing item, handle modifications done be the user
                         {
                             if (item.ClassWorkerDetails != null)
                             {

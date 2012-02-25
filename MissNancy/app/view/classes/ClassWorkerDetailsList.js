@@ -40,11 +40,6 @@ Ext.define('KCCVBS.view.classes.ClassWorkerDetailsList', {
         }];
 
         this.columns = [{
-            header: 'ClassWorkerKey',
-            dataIndex: 'ClassWorkerKey',
-            flex: 1,
-            hidden: true
-        }, {
             header: 'Class Worker',
             dataIndex: 'DisplayName',
             flex: 1

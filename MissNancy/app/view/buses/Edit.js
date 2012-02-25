@@ -28,12 +28,13 @@ Ext.define('KCCVBS.view.buses.Edit', {
                 name: 'Active',
                 fieldLabel: 'Active'
             }, {
+                itemId: 'fistInput',  // using this to denote the first field for focus
                 xtype: 'textfield',
-                name: 'BusNumber',
+                name: 'BusDisplay',
                 fieldLabel: 'Painted Number'
             }, {
                 xtype: 'textfield',
-                name: 'RouteNumber',
+                name: 'BusNumber',
                 fieldLabel: 'Route Number'
             }, {
                 xtype: 'textfield',
@@ -61,7 +62,7 @@ Ext.define('KCCVBS.view.buses.Edit', {
                 xtype: 'textareafield',
                 name: 'Notes',
                 fieldLabel: 'Notes',
-                grow: true,
+                grow: false,
                 anchor: '99%'
             }, {
                 xtype: 'busworkerdetailslist',
@@ -74,7 +75,7 @@ Ext.define('KCCVBS.view.buses.Edit', {
 
         this.buttons = [{
             text: 'New',
-            action: 'new'
+            action: 'newFromEdit'
         }, {
             xtype: 'tbfill'
         }, {

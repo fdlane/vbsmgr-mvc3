@@ -17,7 +17,7 @@ Ext.define('KCCVBS.view.buses.BusWorkerDetailsList', {
 
         this.tbar = [{
             xtype: 'combo',
-            name: 'WorkerKey',           
+            name: 'WorkerKey',
             emptyText: "Start typing Worker's Last Name here",
             store: Ext.create('KCCVBS.store.WorkersCombo'),
             displayField: 'DisplayName',
@@ -40,13 +40,8 @@ Ext.define('KCCVBS.view.buses.BusWorkerDetailsList', {
         }];
 
         this.columns = [{
-            header: 'BusWorkerKey',
-            dataIndex: 'BusWorkerKey',
-            flex: 1,
-            hidden: false
-        }, {
             header: 'Bus Worker',
-            dataIndex: 'WorkerKey',
+            dataIndex: 'DisplayName',
             flex: 1
         }, {
             header: 'Phone',

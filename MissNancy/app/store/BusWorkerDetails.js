@@ -1,13 +1,13 @@
 Ext.define('KCCVBS.store.BusWorkerDetails', {
     extend: 'Ext.data.Store',
-    model: 'KCCVBS.model.ClassWorkerDetails',
+    model: 'KCCVBS.model.BusWorkerDetails',
     autoLoad: false,
     paramsAsHash: true,
     proxy: {
         reader: {
             totalProperty: 'total',
             successProperty: 'success',
-            idProperty: 'ClassWorkerKey',
+            idProperty: 'BusWorkerKey',
             root: 'data',
             messageProperty: 'message'
         },
@@ -22,7 +22,7 @@ Ext.define('KCCVBS.store.BusWorkerDetails', {
         type: 'ajax',
         api: {
             read: '/Buses/GetWorkers',
-            destroy: '/Buses/DeleteClassWorker'
+            destroy: '/Buses/DeleteBusWorker'
         },
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'

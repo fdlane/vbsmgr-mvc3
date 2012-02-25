@@ -17,7 +17,21 @@ namespace MissNancy.Data
             db = MissNancyDB.GetInstance();
         }
 
-        // The display value of for the MasterTeacherKey
+        // The display value of for the Route
+        [PetaPoco.ResultColumn]
+        public string RouteDisplay
+        {
+            get
+            {
+                var sql = PetaPoco.Sql.Builder
+                    .Append("SELECT RouteDisplay FROM tblRoutes ")
+                    .Append("WHERE BusKey=@0", this.BusKey);
+
+                return db.ExecuteScalar<string>(sql);
+            }
+        }
+
+        // The display value of for the BusDriverKey
         [PetaPoco.ResultColumn]
         public string BusDriver
         {
@@ -26,6 +40,22 @@ namespace MissNancy.Data
                 var sql = PetaPoco.Sql.Builder
                     .Append("SELECT DisplayName FROM tblWorkers ")
                     .Append("WHERE WorkerKey=@0", this.BusDriverKey);
+
+                return db.ExecuteScalar<string>(sql);
+            }
+        }
+
+        // The display value of for the Captain
+        [PetaPoco.ResultColumn]
+        public string Captain
+        {
+            get
+            {
+                var sql = PetaPoco.Sql.Builder
+                    .Append("SELECT tblWorkers.DisplayName FROM tblBuses INNER JOIN ")
+                    .Append("tblRoutes ON tblBuses.BusKey = tblRoutes.BusKey INNER JOIN")
+                    .Append("tblWorkers ON tblRoutes.BusCaptainKey = tblWorkers.WorkerKey")
+                    .Append("WHERE tblBuses.BusKey=@0", this.BusKey);
 
                 return db.ExecuteScalar<string>(sql);
             }
