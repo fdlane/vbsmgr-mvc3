@@ -4,7 +4,7 @@ Ext.define('KCCVBS.view.location.Edit', {
 
     requires: ['Ext.form.Panel'],
 
-    title: 'Edit Location',
+    title: 'Location Add/Edit',
     layout: 'fit',
     autoShow: true,
     autoheight: true,

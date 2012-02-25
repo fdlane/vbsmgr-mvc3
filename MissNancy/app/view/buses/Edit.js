@@ -4,7 +4,7 @@ Ext.define('KCCVBS.view.buses.Edit', {
 
     requires: ['Ext.form.Panel'],
 
-    title: 'Edit Bus',
+    title: 'Bus Add/Edit',
     layout: 'fit',
     autoShow: true,
     autoheight: true,

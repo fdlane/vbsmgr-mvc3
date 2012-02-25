@@ -4,7 +4,7 @@ Ext.define('KCCVBS.view.neighborhood.Edit', {
 
     requires: ['Ext.form.Panel'],
 
-    title: 'Edit Neighborhood',
+    title: 'Neighborhood Add/Edit',
     layout: 'fit',
     autoShow: true,
     autoheight: true,

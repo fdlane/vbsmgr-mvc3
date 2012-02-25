@@ -4,7 +4,7 @@ Ext.define('KCCVBS.view.age.Edit', {
 
     requires: ['Ext.form.Panel'],
 
-    title: 'Edit Age',
+    title: 'Age Add/Edit',
     layout: 'fit',
     autoShow: true,
     autoheight: true,

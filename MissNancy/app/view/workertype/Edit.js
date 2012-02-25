@@ -4,7 +4,7 @@ Ext.define('KCCVBS.view.workertype.Edit', {
 
     requires: ['Ext.form.Panel'],
 
-    title: 'Edit Worker Type',
+    title: 'Worker Type Add/Edit',
     layout: 'fit',
     autoShow: true,
     autoheight: true,

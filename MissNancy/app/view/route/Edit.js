@@ -4,7 +4,7 @@ Ext.define('KCCVBS.view.route.Edit', {
 
     requires: ['Ext.form.Panel'],
 
-    title: 'Edit Route',
+    title: 'Route Add/Edit',
     layout: 'fit',
     autoShow: true,
     autoheight: true,
