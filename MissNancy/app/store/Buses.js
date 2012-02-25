@@ -20,6 +20,7 @@ Ext.define('KCCVBS.store.Buses', {
             encode: false,
             listful: true,
             writeAllFields: true,
+            allowSingle: false,
             returnJson: true
         },
         type: 'ajax',

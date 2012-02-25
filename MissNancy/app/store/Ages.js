@@ -16,6 +16,7 @@ Ext.define('KCCVBS.store.Ages', {
             encode: false,
             listful: true,
             writeAllFields: true,
+            allowSingle: false,
             returnJson: true
         },
         type: 'ajax',

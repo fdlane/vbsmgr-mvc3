@@ -74,7 +74,6 @@ Ext.define('KCCVBS.view.classes.Edit', {
                 forceSelection: true,
                 selectOnFocus: true,
                 typeAhead: true
-
             }, {
                 xtype: 'textareafield',
                 name: 'Notes',

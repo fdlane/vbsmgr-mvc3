@@ -19,7 +19,7 @@ Ext.define('KCCVBS.store.Workers', {
             encode: false,
             listful: true,
             writeAllFields: true,
-            allowSingle: false,
+            allowSingle: false,   // !Important, this makes it always a list to the server
             returnJson: true
         },
         type: 'ajax',
