@@ -1,7 +1,7 @@
 Ext.define('KCCVBS.controller.Buses', {
     extend: 'Ext.app.Controller',
 
-    stores: ['Buses', 'BusWorkerDetails'],
+    stores: ['Buses', 'Workers', 'WorkersCombo', 'BusWorkerDetails'],
 
     models: ['Buses', 'BusWorkerDetails'],
 
@@ -18,6 +18,9 @@ Ext.define('KCCVBS.controller.Buses', {
         this.control({
             'buseslist dataview': {
                 itemdblclick: this.editItem
+            },
+            'busesedit button[action=newFromEdit]': {
+                click: this.createItem
             },
             'busesedit button[action=save]': {
                 click: this.updateItem
@@ -55,12 +58,19 @@ Ext.define('KCCVBS.controller.Buses', {
     },
 
     createItem: function () {
-        console.log('Busses createItem clicked');
+        // if user press New on the edit form, save the current record first
+        if (button.action == 'newFromEdit') {
+            this.updateItem(button);
+        }
+
         var edit = Ext.create('KCCVBS.view.buses.Edit').show();
         var record = Ext.create('KCCVBS.model.Buses');
         record.set('Active', true);
 
         edit.down('form').loadRecord(record);
+
+        //set focus to speed data entry
+        edit.query('#fistInput')[0].focus(true, 10);
 
         // empty the linking store so details items from the previously viewed item does not show
         this.getBusWorkerDetailsStore().loadData([], false);
@@ -69,25 +79,84 @@ Ext.define('KCCVBS.controller.Buses', {
     editItem: function (grid, record) {
         var edit = Ext.create('KCCVBS.view.buses.Edit').show();
 
+        //load the combo store with the current master teacher, so the loadRecord works
+        this.getWorkersComboStore().loadData([
+                {
+                    WorkerKey: record.data.BusDriverKey,
+                    DisplayName: record.data.BusDriver
+                }
+            ], false);
+
+        // empty the linking store so details items from the previously viewed item does not show
+        this.getBusWorkerDetailsStore().loadData([], false);
+
+        //reload it with the workers currently assigned to this class
+        this.getBusWorkerDetailsStore().load({ params: { BusKey: record.data.BusKey} });
+
         edit.down('form').loadRecord(record);
     },
 
     updateItem: function (button) {
         var win = button.up('window'),
-            form = win.down('form'),
+            form = win.down('form').getForm(),
             record = form.getRecord(),
             values = form.getValues();
 
+        if (!form.isValid()) {
+            return;
+        };
+
         record.set(values);
+
+        // Let's get all the related records from the grid
+        var store = this.getBusWorkerDetailsStore();
+        var busWorkerDetails = [];
+
+        var workers = store.getRange();    
+        for (var i = 0; i < workers.length; i++) {
+            busWorkerDetails.push(workers[i].data);
+        }
+
+        record.set('BusWorkerDetails', busWorkerDetails);
+
+        // check if this is a newly created record and insert into the store
+        if (record.phantom) {
+            this.getWorkersStore().insert(0, record);
+        }
+
         win.close();
         this.getBusesStore().sync();
     },
+    deleteItem: function (button) {
+        Ext.MessageBox.confirm('Delete Selected', 'Are you sure you want to delete', function (confirmButton) {
+            if (confirmButton == 'yes') {
+                var grid = button.up('panel');
+                var store = grid.getStore();
+                Ext.each(grid.getView().getSelectionModel().getSelection(), function (record) {
+                    store.remove(record);
+                });
+
+                store.sync();
+            }
+
+        });
+    },
     createWorkerDetails: function (button) {
-        var grid = button.up('panel'),
+        var grid = combo.up('panel'),
             store = grid.getStore();
 
-        store.insert(0, {});
-        var editor = grid.getPlugin('workerCellEditing2').startEditByPosition({ row: 0, column: 1 });
+        var record = combo.getStore().getById(combo.getValue());
+
+        store.insert(0, {
+            WorkerKey: record.data.WorkerKey,
+            DisplayName: record.data.DisplayName,
+            Phone: record.data.Phone,
+            Mobile: record.data.Mobile
+        });
+
+        // reset the combo to so the user can enter another worker
+        combo.reset();
+        // var editor = grid.getPlugin('workerCellEditing').startEditByPosition({ row: 0, column: 1 });
 
     },
     deleteWorkerDetail: function (button) {

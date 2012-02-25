@@ -5,7 +5,7 @@ Ext.define('KCCVBS.controller.Classes', {
 
     models: ['Classes'],
 
-    views: ['classes.Edit', 'classes.List', 'classes.ClassWorkerDetailsList', 'menu.Navigation'],
+    views: ['classes.Edit', 'classes.List', 'classes.ClassWorkerDetailsList'],
 
     refs: [
 
@@ -55,8 +55,7 @@ Ext.define('KCCVBS.controller.Classes', {
 
         tabs.setActiveTab(tab);
 
-    },
-
+    },  
     createItem: function (button) {
 
         // if user press New on the edit form, save the current record first

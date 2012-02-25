@@ -1,7 +1,7 @@
 ﻿Ext.define('KCCVBS.controller.AppController', {
     extend: 'Ext.app.Controller',
 
-    views: ['shared.ColumnActive', 'shared.ColumnAttendance'],
+    views: ['menu.Navigation','shared.ColumnActive', 'shared.ColumnAttendance'],
 
     init: function () {
 

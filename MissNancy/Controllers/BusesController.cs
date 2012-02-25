@@ -9,19 +9,26 @@ namespace MissNancy.Controllers
 {
     public class BusesController : Controller
     {
-
-        //
-        // GET: /Buses/
-
         public JsonResult GetPaged(int page, int limit, Boolean activeOnly)
         {
-
             var data = new Bus().GetPaged(page, limit, activeOnly);
 
             return Json(new
             {
                 total = data.TotalItems,
                 data = data.Items,
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetWorkers(int? busKey)
+        {
+            var db = new PetaPoco.Database("MissNancy");
+            var workers = db.Query<BusWorkerDetail>("SELECT tblBusWorkerDetails.BusWorkerKey, tblBusWorkerDetails.BusKey, tblBusWorkerDetails.WorkerKey, tblBusWorkerDetails.CreateDate, tblBusWorkerDetails.CreatedBy, tblBusWorkerDetails.EditDate, tblBusWorkerDetails.EditedBy, tblWorkers.DisplayName, tblWorkers.Phone, tblWorkers.Mobile FROM tblBusWorkerDetails INNER JOIN tblWorkers ON tblBusWorkerDetails.WorkerKey = tblWorkers.WorkerKey WHERE tblBusWorkerDetails.BusKey = @0", busKey);
+
+            return Json(new
+            {
+                total = workers.Count(),
+                data = workers,
             }, JsonRequestBehavior.AllowGet);
         }
 

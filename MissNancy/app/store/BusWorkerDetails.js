@@ -21,8 +21,8 @@ Ext.define('KCCVBS.store.BusWorkerDetails', {
         },
         type: 'ajax',
         api: {
-            read: '/Classes/GetWorkers',
-            destroy: '/Classes/DeleteClassWorker'
+            read: '/Buses/GetWorkers',
+            destroy: '/Buses/DeleteClassWorker'
         },
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'
