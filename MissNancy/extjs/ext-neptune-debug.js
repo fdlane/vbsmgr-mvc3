@@ -13,7 +13,7 @@ Ext license terms. Public redistribution is prohibited.
 
 For early licensing, please contact us at licensing@sencha.com
 
-Build date: 2012-01-25 03:11:22 (293e284c08c6be1f089d04f63fce48aa8215ebcb)
+Build date: 2012-02-21 23:18:31 (3a639ae9dd5443bffbde7bec9922e6fb07a923a8)
 */
 
 
@@ -393,7 +393,8 @@ Ext.define('Ext.Neptune.panel.Header', {
             ruleStyle,
             rule,
             style,
-            ui;
+            ui,
+            tempEl;
 
         me.indicateDragCls = me.baseCls + '-draggable';
         me.title = me.title || '&#160;';
@@ -442,6 +443,10 @@ Ext.define('Ext.Neptune.panel.Header', {
             rule = Ext.util.CSS.getRule(ruleStyle);
             if (rule) {
                 style = rule.style;
+            }else {
+                
+                style = (tempEl = Ext.getBody().createChild({style: 'position:absolute', cls: me.baseCls + '-text-' + ui})).getStyles('fontFamily', 'fontWeight', 'fontSize', 'color');
+                tempEl.remove();
             }
             if (style) {
                 Ext.apply(me.textConfig, {
@@ -762,7 +767,7 @@ Ext.define('Ext.Neptune.tree.Panel', {
                 xtype    : 'treecolumn',
                 text     : 'Name',
                 width    : Ext.isIE6 ? null : 10000,
-                dataIndex: me.displayField         
+                dataIndex: me.displayField
             }];
         }
 
