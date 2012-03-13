@@ -209,15 +209,13 @@
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="appTester.js" />
-    <Content Include="extjs\ext-all-debug-w-comments.js" />
     <Content Include="extjs\ext-all-debug.js" />
-    <Content Include="extjs\ext-all-dev.js" />
     <Content Include="extjs\ext-all.js" />
-    <Content Include="extjs\ext-debug.js" />
-    <Content Include="extjs\ext-neptune-debug-w-comments.js" />
-    <Content Include="extjs\ext-neptune-debug.js" />
-    <Content Include="extjs\ext-neptune.js" />
     <Content Include="extjs\ext.js" />
+    <Content Include="indexTester.html" />
+    <Content Include="Global.asax" />
+    <Content Include="index.html" />
+    <Content Include="MissNancy.Publish.xml" />
     <Content Include="extjs\resources\css\ext-all-access-debug.css" />
     <Content Include="extjs\resources\css\ext-all-access.css" />
     <Content Include="extjs\resources\css\ext-all-debug.css" />
@@ -1464,10 +1462,6 @@
     <Content Include="extjs\resources\themes\images\neptune\valid.gif" />
     <Content Include="extjs\resources\themes\images\neptune\WYSIWYG.png" />
     <Content Include="extjs\resources\themes\stylesheets\neptune\default\accessories\readme.txt" />
-    <Content Include="indexTester.html" />
-    <Content Include="Global.asax" />
-    <Content Include="index.html" />
-    <Content Include="MissNancy.Publish.xml" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -1491,6 +1485,12 @@
   <ItemGroup>
     <None Include="data\updateUsers.json" />
     <None Include="data\users.json" />
+    <None Include="Models\Generated\Database.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Database.cs</LastGenOutput>
+    </None>
+    <None Include="Models\Generated\PetaPoco.Core.ttinclude" />
+    <None Include="Models\Generated\PetaPoco.Generator.ttinclude" />
     <None Include="extjs\resources\sass\.sass-cache\084835bc2350a7b91122620a8540fd51fddebd95\_contrast.scssc" />
     <None Include="extjs\resources\sass\.sass-cache\17246b5853e6411bd51edb7f917476a1e02878ed\_boundlist.scssc" />
     <None Include="extjs\resources\sass\.sass-cache\17246b5853e6411bd51edb7f917476a1e02878ed\_btn-group.scssc" />
@@ -1844,12 +1844,6 @@
     <None Include="extjs\resources\themes\stylesheets\neptune\default\_widgets.scss" />
     <None Include="extjs\resources\themes\templates\resources\sass\config.rb" />
     <None Include="extjs\resources\themes\templates\resources\sass\my-ext-theme.scss" />
-    <None Include="Models\Generated\Database.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Database.cs</LastGenOutput>
-    </None>
-    <None Include="Models\Generated\PetaPoco.Core.ttinclude" />
-    <None Include="Models\Generated\PetaPoco.Generator.ttinclude" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
