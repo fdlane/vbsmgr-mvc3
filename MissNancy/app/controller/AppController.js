@@ -1,7 +1,7 @@
 ﻿Ext.define('KCCVBS.controller.AppController', {
     extend: 'Ext.app.Controller',
 
-    views: ['menu.Navigation','shared.ColumnActive', 'shared.ColumnAttendance'],
+    views: ['menu.Navigation', 'shared.ColumnActive', 'shared.ColumnAttendance'],
 
     init: function () {
 
@@ -51,6 +51,11 @@
             'navigation menuitem[action="locations"]': {
                 click: function (button, evt) {
                     this.application.getController('Locations').displayList();
+                }
+            },
+            'navigation menuitem[action="neighborhoodtypes"]': {
+                click: function (button, evt) {
+                    this.application.getController('NeighborhoodTypes').displayList();
                 }
             },
             'navigation menuitem[action="workertypes"]': {

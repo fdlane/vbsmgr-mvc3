@@ -18,12 +18,10 @@ Ext.define('KCCVBS.view.menu.Navigation', {
         text: 'Classes',
         iconCls: 'classes',
         action: 'classes'
-
     }, {
         text: 'Buses',
         iconCls: 'buses',
         action: 'buses'
-
     }, {
         text: 'Neighborhoods',
         iconCls: 'neighborhoods',
@@ -45,11 +43,14 @@ Ext.define('KCCVBS.view.menu.Navigation', {
         iconCls: 'settings',
         action: 'locations'
     }, {
+        text: 'Neighborhood Types',
+        iconCls: 'settings',
+        action: 'neighborhoodtypes'
+    }, {
         text: 'Worker Types',
         iconCls: 'settings',
         action: 'workertypes'
     }]
-
 });
 
 

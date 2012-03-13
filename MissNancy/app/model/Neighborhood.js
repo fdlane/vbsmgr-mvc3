@@ -15,6 +15,7 @@ Ext.define('KCCVBS.model.Neighborhood', {
                 'EditedBy',
                 'TypeDisplay',
                 'RouteDisplay',
-                'BusDisplay'
+                'BusDisplay',
+                'Current'
             ]
 });

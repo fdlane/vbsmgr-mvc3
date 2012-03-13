@@ -91,5 +91,22 @@ namespace MissNancy.Data
                 return db.ExecuteScalar<string>(sql);
             }
         }
+
+        // the current number of children assigned to this Neighborhood
+        [PetaPoco.ResultColumn]
+        public string Current
+        {
+            get
+            {
+                var sql = PetaPoco.Sql.Builder
+                    .Append("SELECT Count(tblChildren.ChildrenKey)")
+                    .Append("FROM tblChildren")
+                    .Append("WHERE tblChildren.Active Not Like 0")
+                    .Append("AND tblChildren.NeighborhoodKey =@0", this.NeighborhoodKey)
+                    .Append("GROUP BY tblChildren.NeighborhoodKey");
+
+                return db.ExecuteScalar<string>(sql);
+            }
+        }
     }
 }

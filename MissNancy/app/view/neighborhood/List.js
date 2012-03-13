@@ -25,7 +25,7 @@ Ext.define('KCCVBS.view.neighborhood.List', {
         this.columns = [{
             header: 'Neighborhood',
             dataIndex: 'NeighborhoodDisplay',
-            width: 200
+            width: 230
         }, {
             header: 'Type',
             dataIndex: 'TypeDisplay',
@@ -33,11 +33,11 @@ Ext.define('KCCVBS.view.neighborhood.List', {
         }, {
             header: 'Route',
             dataIndex: 'RouteDisplay',
-            width: 75
+            width: 50
         }, {
             header: 'Bus',
             dataIndex: 'BusDisplay',
-            width: 150
+            width: 50
         }, {
             xtype: 'numbercolumn',
             align: 'right',
@@ -49,6 +49,15 @@ Ext.define('KCCVBS.view.neighborhood.List', {
             xtype: 'columnactive',
             dataIndex: 'Active',
             width: 50
+        }];
+
+        this.dockedItems = [{
+            xtype: 'pagingtoolbar',
+            pageSize: 5,
+            store: 'Neighborhoods',
+            dock: 'bottom',
+            displayInfo: true,
+            emptyMsg: 'No data to display'
         }];
 
         this.callParent(arguments);

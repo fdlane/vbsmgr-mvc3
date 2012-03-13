@@ -1,7 +1,7 @@
-Ext.define('KCCVBS.view.workertype.List', {
+Ext.define('KCCVBS.view.neighborhoodtype.List', {
     extend: 'Ext.grid.Panel',
-    alias: 'widget.workertypelist',
-    store: 'WorkerTypes',
+    alias: 'widget.neighborhoodtypelist',
+    store: 'NeighborhoodTypes',
     layout: 'fit',
     header: false,
     autoScroll: true,
@@ -23,8 +23,8 @@ Ext.define('KCCVBS.view.workertype.List', {
         }];
 
         this.columns = [{
-            header: 'Worker Type',
-            dataIndex: 'WorkerTypeDisplay',
+            header: 'NeighborHood Type',
+            dataIndex: 'TypeDisplay',
             width: 150
         }, {
             xtype: 'columnactive',

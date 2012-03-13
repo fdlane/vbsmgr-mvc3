@@ -1,10 +1,10 @@
-Ext.define('KCCVBS.view.workertype.Edit', {
+Ext.define('KCCVBS.view.neighborhoodtype.Edit', {
     extend: 'Ext.window.Window',
-    alias: 'widget.workertypeedit',
+    alias: 'widget.neighborhoodtypeedit',
 
     requires: ['Ext.form.Panel'],
 
-    title: 'Worker Type Add/Edit',
+    title: 'Neighborhood Type Add/Edit',
     layout: 'fit',
     autoShow: true,
     autoheight: true,
@@ -20,8 +20,8 @@ Ext.define('KCCVBS.view.workertype.Edit', {
 
             items: [{
                 xtype: 'textfield',
-                name: 'WorkerTypeKey',
-                fieldLabel: 'Worker Type Key',
+                name: 'NeighborhoodTypeKey',
+                fieldLabel: 'Neighborhood Type Key',
                 hidden: true
             }, {
                 xtype: 'checkbox',
@@ -29,7 +29,7 @@ Ext.define('KCCVBS.view.workertype.Edit', {
                 fieldLabel: 'Active'
             }, {
                 xtype: 'textfield',
-                name: 'WorkerTypeDisplay',
+                name: 'TypeDisplay',
                 fieldLabel: 'Display'
             }, {
                 xtype: 'textareafield',
@@ -43,7 +43,8 @@ Ext.define('KCCVBS.view.workertype.Edit', {
         this.buttons = [{
             text: 'New',
             action: 'new'
-        }, { xtype: 'tbfill'
+        }, {
+            xtype: 'tbfill'
         }, {
             text: 'Save',
             action: 'save'

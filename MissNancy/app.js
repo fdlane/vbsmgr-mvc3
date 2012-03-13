@@ -12,6 +12,7 @@ Ext.application({
                     'Children',
                     'Buses',
                     'Neighborhoods',
+                    'NeighborhoodTypes',
                     'Routes',
                     'Ages',
                     'Locations',

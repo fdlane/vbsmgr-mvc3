@@ -1,16 +1,13 @@
-Ext.define('KCCVBS.store.Neighborhoods', {
+Ext.define('KCCVBS.store.NeighborhoodTypes', {
     extend: 'Ext.data.Store',
-    model: 'KCCVBS.model.Neighborhood',
+    model: 'KCCVBS.model.NeighborhoodType',
     autoLoad: true,
     paramsAsHash: true,
     proxy: {
-        extraParams: {
-            activeOnly: true
-        },
         reader: {
             totalProperty: 'total',
             successProperty: 'success',
-            idProperty: 'NeighborhoodKey',
+            idProperty: 'NeighborhoodTypeKey',
             root: 'data',
             messageProperty: 'message'
         },
@@ -24,10 +21,10 @@ Ext.define('KCCVBS.store.Neighborhoods', {
         },
         type: 'ajax',
         api: {
-            read: '/Neighborhood/GetPaged',
-            create: '/Neighborhood/Create',
-            update: '/Neighborhood/Update',
-            destroy: '/Neighborhood/Delete'
+            read: '/NeighborhoodType/Get',
+            create: '/NeighborhoodType/Create',
+            update: '/NeighborhoodType/Update',
+            destroy: '/NeighborhoodType/Delete'
         },
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'

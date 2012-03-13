@@ -65,6 +65,7 @@
     <Compile Include="Controllers\ClassesController.cs" />
     <Compile Include="Controllers\AgesController.cs" />
     <Compile Include="Controllers\AgeController.cs" />
+    <Compile Include="Controllers\NeighborhoodTypeController.cs" />
     <Compile Include="Controllers\WorkerTypeController.cs" />
     <Compile Include="Controllers\RouteController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
@@ -100,6 +101,7 @@
     <Content Include="app\controller\Children.js" />
     <Content Include="app\controller\Buses.js" />
     <Content Include="app\controller\Ages.js" />
+    <Content Include="app\controller\NeighborhoodTypes.js" />
     <Content Include="app\controller\Reports.js" />
     <Content Include="app\controller\WorkerTypes.js" />
     <Content Include="app\controller\Locations.js" />
@@ -114,6 +116,7 @@
     <Content Include="app\model\Buses.js" />
     <Content Include="app\model\BusWorkerDetails.js" />
     <Content Include="app\model\Age.js" />
+    <Content Include="app\model\NeighborhoodType.js" />
     <Content Include="app\model\WorkerType.js" />
     <Content Include="app\model\Route.js" />
     <Content Include="app\model\Neighborhood.js" />
@@ -126,6 +129,7 @@
     <Content Include="app\store\Children.js" />
     <Content Include="app\store\Buses.js" />
     <Content Include="app\store\BusWorkerDetails.js" />
+    <Content Include="app\store\NeighborhoodTypes.js" />
     <Content Include="app\store\NeighborhoodsCombo.js" />
     <Content Include="app\store\GradesCompleted.js" />
     <Content Include="app\store\WorkersCombo.js" />
@@ -144,6 +148,8 @@
     <Content Include="app\view\children\List.js" />
     <Content Include="app\view\classes\Edit.js" />
     <Content Include="app\view\classes\List.js" />
+    <Content Include="app\view\neighborhoodtype\Edit.js" />
+    <Content Include="app\view\neighborhoodtype\List.js" />
     <Content Include="app\view\report\BusRoster.js" />
     <Content Include="app\view\shared\ColumnActive.js" />
     <Content Include="app\view\shared\ColumnAttendance.js" />

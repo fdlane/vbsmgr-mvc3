@@ -12,51 +12,62 @@ Ext.define('KCCVBS.view.neighborhood.Edit', {
     modal: true,
 
     initComponent: function () {
-        this.items = [
-                        {
-                            xtype: 'form',
-                            padding: '5 5 0 5',
-                            border: false,
-                            style: 'background-color: #fff;',
+        this.items = [{
+            xtype: 'form',
+            padding: '5 5 0 5',
+            border: false,
+            style: 'background-color: #fff;',
 
-                            items: [
-                            {
-                                xtype: 'textfield',
-                                name: 'NeighborhoodKey',
-                                fieldLabel: 'Neighborhood Key',
-                                hidden: true
-                            }, {
-                                xtype: 'checkbox',
-                                name: 'Active',
-                                fieldLabel: 'Active'
-                            }, {
-                                xtype: 'textfield',
-                                name: 'NeighborhoodDisplay',
-                                fieldLabel: 'Display'
-                            }, {
-                                xtype: 'textfield',
-                                name: 'NeighborhoodType',
-                                fieldLabel: 'Type'
-                            }, {
-                                xtype: 'textfield',
-                                name: 'RouteKey',
-                                fieldLabel: 'Route'
-                            }, {
-                                xtype: 'textareafield',
-                                name: 'Notes',
-                                fieldLabel: 'Notes',
-                                grow: true,
-                                anchor: '99%'
-                            }
+            items: [{
+                xtype: 'textfield',
+                name: 'NeighborhoodKey',
+                fieldLabel: 'Neighborhood Key',
+                hidden: true
+            }, {
+                xtype: 'checkbox',
+                name: 'Active',
+                fieldLabel: 'Active'
+            }, {
+                itemId: 'fistInput',  // using this to denote the first field for focus
+                xtype: 'textfield',
+                name: 'NeighborhoodDisplay',
+                fieldLabel: 'Display'
+            }, {
+                xtype: 'combo',
+                name: 'NeighborhoodTypeKey',
+                fieldLabel: 'Type',
+                emptyText: 'Please select...',
+                store: 'NeighborhoodTypes',
+                displayField: 'TypeDisplay',
+                valueField: 'NeighborhoodTypeKey',
+                forceSelection: true,
+                queryMode: 'local',
+                selectOnFocus: true
+            }, {
+                xtype: 'combo',
+                name: 'RouteKey',
+                fieldLabel: 'Route',
+                emptyText: 'Please select...',
+                store: 'Routes',
+                displayField: 'RouteDisplay',
+                valueField: 'RouteKey',
+                forceSelection: true,
+                queryMode: 'local',
+                selectOnFocus: true
+            }, {
+                xtype: 'textareafield',
+                name: 'Notes',
+                fieldLabel: 'Notes',
+                grow: true,
+                anchor: '99%'
+            }]
+        }];
 
-                   ]
-                        }
-        ];
-
-        this.buttons = [
-        {
+        this.buttons = [{
             text: 'New',
             action: 'new'
+        }, {
+            xtype: 'tbfill'
         }, {
             text: 'Save',
             action: 'save'
@@ -64,8 +75,7 @@ Ext.define('KCCVBS.view.neighborhood.Edit', {
             text: 'Cancel',
             scope: this,
             handler: this.close
-        }
-        ];
+        }];
 
         this.callParent(arguments);
     }

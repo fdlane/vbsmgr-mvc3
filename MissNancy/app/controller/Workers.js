@@ -50,6 +50,7 @@ Ext.define('KCCVBS.controller.Workers', {
         tabs.setActiveTab(tab);
 
     },
+
     createItem: function (button) {
 
         // if user press New on the edit form, save the current record first
@@ -67,6 +68,7 @@ Ext.define('KCCVBS.controller.Workers', {
         edit.query('#fistInput')[0].focus(true, 10);
 
     },
+
     editItem: function (grid, record) {
         var edit = Ext.create('KCCVBS.view.workers.Edit').show();
         edit.down('form').loadRecord(record);
@@ -92,6 +94,7 @@ Ext.define('KCCVBS.controller.Workers', {
         win.close();
         this.getWorkersStore().sync();
     },
+
     deleteItem: function (button) {
         Ext.MessageBox.confirm('Delete Worker', 'Are you sure you want to delete', function (confirmButton) {
             if (confirmButton == 'yes') {

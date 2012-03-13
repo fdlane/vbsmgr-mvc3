@@ -1,31 +1,31 @@
-Ext.define('KCCVBS.controller.WorkerTypes', {
+Ext.define('KCCVBS.controller.NeighborhoodTypes', {
     extend: 'Ext.app.Controller',
 
-    stores: ['WorkerTypes'],
+    stores: ['NeighborhoodTypes'],
 
-    models: ['WorkerType'],
+    models: ['NeighborhoodType'],
 
-    views: ['workertype.List', 'workertype.Edit'],
+    views: ['neighborhoodtype.List', 'neighborhoodtype.Edit'],
 
     refs: [
         {
             ref: 'panel',
-            selector: 'workertypelist'
+            selector: 'neighborhoodtypelist'
         }
     ],
 
     init: function () {
         this.control({
-            'workertypelist dataview': {
+            'neighborhoodtypelist dataview': {
                 itemdblclick: this.editItem
             },
-            'workertypeedit button[action=save]': {
+            'neighborhoodtypeedit button[action=save]': {
                 click: this.updateItem
             },
-            'workertypelist button[action=new]': {
+            'neighborhoodtypelist button[action=new]': {
                 click: this.createItem
             },
-            'workertypelist button[action=delete]': {
+            'neighborhoodtypelist button[action=delete]': {
                 click: this.deleteItem
             }
         });
@@ -34,12 +34,12 @@ Ext.define('KCCVBS.controller.WorkerTypes', {
     displayList: function () {
 
         var tabs = Ext.getCmp('center');
-        var tab = tabs.down('#WorkerTypes');
+        var tab = tabs.down('#NeighborhoodTypes');
         if (!tab) {
             tab = tabs.add({
-                id: 'WorkerTypes',
-                title: 'Worker Types',
-                xtype: 'workertypelist',
+                id: 'NeighborhoodTypes',
+                title: 'Neighborhood Types',
+                xtype: 'neighborhoodtypelist',
                 closable: true
             });
         }
@@ -49,16 +49,17 @@ Ext.define('KCCVBS.controller.WorkerTypes', {
     },
 
     createItem: function () {
-       
-        var edit = Ext.create('KCCVBS.view.workertype.Edit').show();
-        var record = Ext.create('KCCVBS.model.WorkerType');
+
+        var edit = Ext.create('KCCVBS.view.neighborhoodtype.Edit').show();
+        var record = Ext.create('KCCVBS.model.NeighborhoodType');
         record.set('Active', true);
 
         edit.down('form').loadRecord(record);
     },
 
     editItem: function (grid, record) {
-        var edit = Ext.create('KCCVBS.view.workertype.Edit').show();
+
+        var edit = Ext.create('KCCVBS.view.neighborhoodtype.Edit').show();
 
         edit.down('form').loadRecord(record);
     },
@@ -71,11 +72,11 @@ Ext.define('KCCVBS.controller.WorkerTypes', {
 
         record.set(values);
         win.close();
-        this.getWorkerTypesStore().sync();
+        this.getNeighborhoodTypesStore().sync();
     },
 
     deleteItem: function (button) {
-        Ext.MessageBox.confirm('Delete Worker Type', 'Are you sure you want to delete', function (confirmButton) {
+        Ext.MessageBox.confirm('Delete Neighborhood Type', 'Are you sure you want to delete', function (confirmButton) {
             if (confirmButton == 'yes') {
                 var grid = button.up('panel');
                 var store = grid.getStore();

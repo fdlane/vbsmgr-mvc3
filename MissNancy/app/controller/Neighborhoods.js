@@ -19,6 +19,9 @@ Ext.define('KCCVBS.controller.Neighborhoods', {
             'neighborhoodlist dataview': {
                 itemdblclick: this.editItem
             },
+            'neighborhoodedit button[action=newFromEdit]': {
+                click: this.createItem
+            },
             'neighborhoodedit button[action=save]': {
                 click: this.updateItem
             },
@@ -44,16 +47,24 @@ Ext.define('KCCVBS.controller.Neighborhoods', {
         }
 
         tabs.setActiveTab(tab);
-        
+
     },
 
-    createItem: function () {
-        console.log('neighborhood createItem clicked');
+    createItem: function (button) {
+
+        // if user press New on the edit form, save the current record first
+        if (button.action == 'newFromEdit') {
+            this.updateItem(button);
+        }
+
         var edit = Ext.create('KCCVBS.view.neighborhood.Edit').show();
         var record = Ext.create('KCCVBS.model.Neighborhood');
         record.set('Active', true);
 
         edit.down('form').loadRecord(record);
+
+        //set focus to speed data entry
+        edit.query('#fistInput')[0].focus(true, 10);
     },
 
     editItem: function (grid, record) {
@@ -64,14 +75,24 @@ Ext.define('KCCVBS.controller.Neighborhoods', {
 
     updateItem: function (button) {
         var win = button.up('window'),
-            form = win.down('form'),
+            form = win.down('form').getForm(),
             record = form.getRecord(),
             values = form.getValues();
 
+        if (!form.isValid()) {
+            return;
+        };
+
         record.set(values);
+        // check if this is a newly created record and insert into the store
+        if (record.phantom) {
+            this.getNeighborhoodsStore().insert(0, record);
+        }
+
         win.close();
-        this.getBusesStore().sync();
+        this.getNeighborhoodsStore().sync();
     },
+
     deleteItem: function (button) {
         Ext.MessageBox.confirm('Delete Neighborhood', 'Are you sure you want to delete', function (confirmButton) {
             if (confirmButton == 'yes') {
