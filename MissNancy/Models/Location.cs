@@ -8,23 +8,15 @@ using PetaPoco;
 namespace MissNancy.Data
 {
     public partial class Location : MissNancyDB.Record<Location>
-    {
-        private Database db;
-
-        public Location()
+    {  
+        public static IList<Location> Get(Boolean activeOnly)
         {
-            db = MissNancyDB.GetInstance();
-        }
-
-        public IList<Location> Get(Boolean activeOnly)
-        {
-            var data = db.Query<Location>("WHERE (abs(Active) = 1) OR (abs(Active) = @0) ORDER BY LocationDisplay", activeOnly).ToList();
+            var data = repo.Query<Location>("WHERE (abs(Active) = 1) OR (abs(Active) = @0) ORDER BY LocationDisplay", activeOnly).ToList();
             return data;
         }
-        public Page<Location> GetPaged(int page, int limit, Boolean activeOnly)
+        public static Page<Location> GetPaged(int page, int limit, Boolean activeOnly)
         {
-
-            var data = db.Page<Location>(page, limit, "WHERE (abs(Active) = 1) OR (abs(Active) = @0) ORDER BY LocationDisplay", activeOnly);
+            var data = repo.Page<Location>(page, limit, "WHERE (abs(Active) = 1) OR (abs(Active) = @0) ORDER BY LocationDisplay", activeOnly);
             return data;
         }
     }

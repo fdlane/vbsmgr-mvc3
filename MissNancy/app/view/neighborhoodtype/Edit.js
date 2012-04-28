@@ -28,6 +28,7 @@ Ext.define('KCCVBS.view.neighborhoodtype.Edit', {
                 name: 'Active',
                 fieldLabel: 'Active'
             }, {
+                itemId: 'fistInput',  // using this to denote the first field for focus
                 xtype: 'textfield',
                 name: 'TypeDisplay',
                 fieldLabel: 'Display'
@@ -42,7 +43,7 @@ Ext.define('KCCVBS.view.neighborhoodtype.Edit', {
 
         this.buttons = [{
             text: 'New',
-            action: 'new'
+            action: 'newFromEdit'
         }, {
             xtype: 'tbfill'
         }, {

@@ -19,6 +19,9 @@ Ext.define('KCCVBS.controller.NeighborhoodTypes', {
             'neighborhoodtypelist dataview': {
                 itemdblclick: this.editItem
             },
+            'neighborhoodtypeedit button[action=newFromEdit]': {
+                click: this.createItem
+            },
             'neighborhoodtypeedit button[action=save]': {
                 click: this.updateItem
             },
@@ -48,13 +51,22 @@ Ext.define('KCCVBS.controller.NeighborhoodTypes', {
 
     },
 
-    createItem: function () {
+    createItem: function (button) {
+
+        // if user press New on the edit form, save the current record first
+        if (button.action == 'newFromEdit') {
+            this.updateItem(button);
+        }
 
         var edit = Ext.create('KCCVBS.view.neighborhoodtype.Edit').show();
         var record = Ext.create('KCCVBS.model.NeighborhoodType');
         record.set('Active', true);
 
         edit.down('form').loadRecord(record);
+
+        //set focus to speed data entry
+        edit.query('#fistInput')[0].focus(true, 10);
+
     },
 
     editItem: function (grid, record) {
@@ -66,12 +78,23 @@ Ext.define('KCCVBS.controller.NeighborhoodTypes', {
 
     updateItem: function (button) {
         var win = button.up('window'),
-            form = win.down('form'),
+            form = win.down('form').getForm(),
             record = form.getRecord(),
             values = form.getValues();
 
+        if (!form.isValid()) {
+            return;
+        };
+
         record.set(values);
+
+        // check if this is a newly created record and insert into the store
+        if (record.phantom) {
+            this.getNeighborhoodTypesStore().insert(0, record);
+        }
+
         win.close();
+
         this.getNeighborhoodTypesStore().sync();
     },
 

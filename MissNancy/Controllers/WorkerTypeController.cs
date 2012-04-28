@@ -9,10 +9,9 @@ namespace MissNancy.Controllers
 {
     public class WorkerTypeController : Controller
     {
-        public JsonResult Get(int? start, int? limit)
+        public JsonResult Get(Boolean activeOnly)
         {
-            var db = new PetaPoco.Database("MissNancy");
-            var data = db.Query<WorkerType>("WHERE Active <>0");
+            var data = WorkerType.Get(activeOnly);
 
             return Json(new
             {
@@ -29,7 +28,7 @@ namespace MissNancy.Controllers
 
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = WorkerType.repo)
                 {
                     foreach (var item in data)
                     {
@@ -59,7 +58,7 @@ namespace MissNancy.Controllers
             string message = "no record found";
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = WorkerType.repo)
                 {
                     foreach (var item in data)
                     {
@@ -91,7 +90,7 @@ namespace MissNancy.Controllers
 
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = WorkerType.repo)
                 {
                     foreach (var item in data)
                     {

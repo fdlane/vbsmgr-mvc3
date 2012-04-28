@@ -28,15 +28,14 @@ Ext.define('KCCVBS.view.user.Edit', {
     width: 280,
 
     initComponent: function () {
-        this.items = [
-        {
+        this.items = [{
             xtype: 'form',
             padding: '5 5 0 5',
             border: false,
             style: 'background-color: #fff;',
 
-            items: [
-            {
+            items: [{
+                itemId: 'fistInput',  // using this to denote the first field for focus
                 xtype: 'textfield',
                 name: 'Name',
                 fieldLabel: 'Name'
@@ -45,22 +44,17 @@ Ext.define('KCCVBS.view.user.Edit', {
                 xtype: 'textfield',
                 name: 'Email',
                 fieldLabel: 'Email'
-            }
-                ]
-        }
-        ];
+            }]
+        }];
 
-        this.buttons = [
-        {
+        this.buttons = [{
             text: 'Save',
             action: 'save'
-        },
-        {
+        }, {
             text: 'Cancel',
             scope: this,
             handler: this.close
-        }
-        ];
+        }];
 
         this.callParent(arguments);
     }

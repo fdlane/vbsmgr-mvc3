@@ -4,6 +4,9 @@ Ext.define('KCCVBS.store.WorkerTypes', {
     autoLoad: true,
     paramsAsHash: true,
     proxy: {
+        extraParams: {
+            activeOnly: true
+        },
         reader: {
             totalProperty: 'total',
             successProperty: 'success',

@@ -11,10 +11,10 @@ using PetaPoco;
 namespace MissNancy.Tests
 {
     [TestClass]
-    public class BusTest
+    public class NeighborhoodTypeTest
     {
         [TestMethod]
-        public void GetPagedBusesActiveOnlyTrue()
+        public void GetPagedNeighborhoodType()
         {
             // Arrange
             int page = 1;
@@ -22,25 +22,23 @@ namespace MissNancy.Tests
             Boolean activeOnly = true;
 
             // Act
-            var data = new Bus().GetPaged(page, limit, activeOnly);
+            var data =  NeighborhoodType.GetPaged(null, page, limit, activeOnly);
 
             // Assert
             Assert.AreNotEqual(0, data.TotalItems);
         }
 
         [TestMethod]
-        public void GetBusesActiveOnlyFalse()
+        public void GetByIdNeighborhoodType()
         {
             // Arrange
-            var bus = new Bus();
-            int page = 1;
-            int limit = 25;
-            Boolean activeOnly = false;
+            string key = "1";
+
             // Act
-            var data = bus.GetPaged(page, limit, activeOnly);
+            var data =  NeighborhoodType.GetById(key);
 
             // Assert
-            Assert.AreNotEqual(0, data.TotalItems);
+            Assert.AreEqual(1, data.NeighborhoodTypeKey);
         }
     }
 }

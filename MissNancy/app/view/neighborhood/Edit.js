@@ -65,7 +65,7 @@ Ext.define('KCCVBS.view.neighborhood.Edit', {
 
         this.buttons = [{
             text: 'New',
-            action: 'new'
+            action: 'newFromEdit'
         }, {
             xtype: 'tbfill'
         }, {

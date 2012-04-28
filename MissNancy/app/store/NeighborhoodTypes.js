@@ -4,6 +4,9 @@ Ext.define('KCCVBS.store.NeighborhoodTypes', {
     autoLoad: true,
     paramsAsHash: true,
     proxy: {
+        extraParams: {
+            activeOnly: true
+        },
         reader: {
             totalProperty: 'total',
             successProperty: 'success',
@@ -21,7 +24,7 @@ Ext.define('KCCVBS.store.NeighborhoodTypes', {
         },
         type: 'ajax',
         api: {
-            read: '/NeighborhoodType/Get',
+            read: '/NeighborhoodType/GetPaged',
             create: '/NeighborhoodType/Create',
             update: '/NeighborhoodType/Update',
             destroy: '/NeighborhoodType/Delete'

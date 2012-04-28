@@ -28,6 +28,7 @@ Ext.define('KCCVBS.view.workertype.Edit', {
                 name: 'Active',
                 fieldLabel: 'Active'
             }, {
+                itemId: 'fistInput',  // using this to denote the first field for focus
                 xtype: 'textfield',
                 name: 'WorkerTypeDisplay',
                 fieldLabel: 'Display'
@@ -42,8 +43,9 @@ Ext.define('KCCVBS.view.workertype.Edit', {
 
         this.buttons = [{
             text: 'New',
-            action: 'new'
-        }, { xtype: 'tbfill'
+            action: 'newFromEdit'
+        }, {
+            xtype: 'tbfill'
         }, {
             text: 'Save',
             action: 'save'

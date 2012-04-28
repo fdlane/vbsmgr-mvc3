@@ -19,7 +19,10 @@ Ext.define('KCCVBS.controller.Locations', {
             'locationlist dataview': {
                 itemdblclick: this.editItem
             },
-            'locatonedit button[action=save]': {
+            'locationedit button[action=newFromEdit]': {
+                click: this.createItem
+            },
+            'locationedit button[action=save]': {
                 click: this.updateItem
             },
             'locationlist button[action=new]': {
@@ -47,13 +50,21 @@ Ext.define('KCCVBS.controller.Locations', {
 
     },
 
-    createItem: function () {
-        console.log('location createItem clicked');
+    createItem: function (button) {
+
+        // if user press New on the edit form, save the current record first
+        if (button.action == 'newFromEdit') {
+            this.updateItem(button);
+        }
+
         var edit = Ext.create('KCCVBS.view.location.Edit').show();
         var record = Ext.create('KCCVBS.model.Locations');
         record.set('Active', true);
 
         edit.down('form').loadRecord(record);
+
+        //set focus to speed data entry
+        edit.query('#fistInput')[0].focus(true, 10);
     },
 
     editItem: function (grid, record) {
@@ -64,14 +75,28 @@ Ext.define('KCCVBS.controller.Locations', {
 
     updateItem: function (button) {
         var win = button.up('window'),
-            form = win.down('form'),
+            form = win.down('form').getForm(),
             record = form.getRecord(),
             values = form.getValues();
 
+        if (!form.isValid()) {
+            return;
+        };
+
+        console.log(values);
+
         record.set(values);
+
+        // check if this is a newly created record and insert into the store
+        if (record.phantom) {
+            this.getLocationsStore().insert(0, record);
+        }
+
         win.close();
+
         this.getLocationsStore().sync();
     },
+
     deleteItem: function (button) {
         Ext.MessageBox.confirm('Delete Location', 'Are you sure you want to delete', function (confirmButton) {
             if (confirmButton == 'yes') {

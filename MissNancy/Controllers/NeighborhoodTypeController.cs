@@ -9,16 +9,26 @@ namespace MissNancy.Controllers
 {
     public class NeighborhoodTypeController : Controller
     {
-        public JsonResult Get(int? start, int? limit)
+        public JsonResult GetPaged(String key, String query, int page, int limit, Boolean activeOnly)
         {
-            var db = new PetaPoco.Database("MissNancy");
-            var data = db.Query<NeighborhoodType>("WHERE Active <>0");
-
-            return Json(new
+            if (null != key)
             {
-                total = data.Count(),
-                data = data,
-            }, JsonRequestBehavior.AllowGet);
+                var data = NeighborhoodType.Single(key);
+                return Json(new
+                {
+                    data = data,
+                }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                var data =  NeighborhoodType.GetPaged(query, page, limit, activeOnly);
+
+                return Json(new
+                {
+                    total = data.TotalItems,
+                    data = data.Items,
+                }, JsonRequestBehavior.AllowGet);
+            }
         }
 
         [HttpPost]
@@ -29,7 +39,7 @@ namespace MissNancy.Controllers
 
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = NeighborhoodType.repo)
                 {
                     foreach (var item in data)
                     {
@@ -59,7 +69,7 @@ namespace MissNancy.Controllers
             string message = "no record found";
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = NeighborhoodType.repo)
                 {
                     foreach (var item in data)
                     {
@@ -91,7 +101,7 @@ namespace MissNancy.Controllers
 
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = NeighborhoodType.repo)
                 {
                     foreach (var item in data)
                     {

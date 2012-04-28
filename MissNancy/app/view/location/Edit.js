@@ -12,14 +12,13 @@ Ext.define('KCCVBS.view.location.Edit', {
     modal: true,
 
     initComponent: function () {
-        this.items = [
-                        {
-                            xtype: 'form',
-                            padding: '5 5 0 5',
-                            border: false,
-                            style: 'background-color: #fff;',
+        this.items = [{
+            xtype: 'form',
+            padding: '5 5 0 5',
+            border: false,
+            style: 'background-color: #fff;',
 
-                            items: [
+            items: [
                             {
                                 xtype: 'textfield',
                                 name: 'LocatonKey',
@@ -30,6 +29,7 @@ Ext.define('KCCVBS.view.location.Edit', {
                                 name: 'Active',
                                 fieldLabel: 'Active'
                             }, {
+                                itemId: 'fistInput',  // using this to denote the first field for focus
                                 xtype: 'textfield',
                                 name: 'LocationDisplay',
                                 fieldLabel: 'Display'
@@ -41,13 +41,12 @@ Ext.define('KCCVBS.view.location.Edit', {
                                 anchor: '99%'
                             }
                         ]
-                        }
+        }
         ];
 
-        this.buttons = [
-        {
+        this.buttons = [{
             text: 'New',
-            action: 'new'
+            action: 'newFromEdit'
         }, {
             xtype: 'tbfill'
         }, {
@@ -57,8 +56,7 @@ Ext.define('KCCVBS.view.location.Edit', {
             text: 'Cancel',
             scope: this,
             handler: this.close
-        }
-        ];
+        }];
 
         this.callParent(arguments);
     }

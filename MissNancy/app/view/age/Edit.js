@@ -30,6 +30,7 @@ Ext.define('KCCVBS.view.age.Edit', {
                                 name: 'Active',
                                 fieldLabel: 'Active'
                             }, {
+                                itemId: 'fistInput',  // using this to denote the first field for focus
                                 xtype: 'textfield',
                                 name: 'Age',
                                 fieldLabel: 'Display'
@@ -52,7 +53,7 @@ Ext.define('KCCVBS.view.age.Edit', {
         this.buttons = [
         {
             text: 'New',
-            action: 'new'
+            action: 'newFromEdit'
         }, {
             text: 'Save',
             action: 'save'

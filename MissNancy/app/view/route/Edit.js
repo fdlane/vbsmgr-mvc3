@@ -12,65 +12,60 @@ Ext.define('KCCVBS.view.route.Edit', {
     modal: true,
 
     initComponent: function () {
-        this.items = [
-                        {
-                            xtype: 'form',
-                            padding: '5 5 0 5',
-                            border: false,
-                            style: 'background-color: #fff;',
+        this.items = [{
+            xtype: 'form',
+            padding: '5 5 0 5',
+            border: false,
+            style: 'background-color: #fff;',
 
-                            items: [
-                            {
-                                xtype: 'textfield',
-                                name: 'RouteKey',
-                                fieldLabel: 'Route Key',
-                                hidden: true
-                            }, {
-                                xtype: 'checkbox',
-                                name: 'Active',
-                                fieldLabel: 'Active'
-                            }, {
-                                xtype: 'textfield',
-                                name: 'RouteDisplay',
-                                fieldLabel: 'Display'
-                            }, {
-                                xtype: 'textfield',
-                                name: 'RouteCode',
-                                fieldLabel: 'Route Code'
-                            }, {
-                                xtype: 'combo',
-                                name: 'BusCaptianKey',
-                                fieldLabel: 'Bus Captain',
-                                emptyText: 'Please select...',
-                                store: 'Ages',
-                                displayField: 'LocationDisplay',
-                                valueField: 'LocationKey',
-                                forceSelection: true,
-                                queryMode: 'local'
-                            }, {
-                                xtype: 'combo',
-                                name: 'BusKey',
-                                fieldLabel: 'Bus Assigned',
-                                emptyText: 'Please select...',
-                                store: 'Ages',
-                                displayField: 'LocationDisplay',
-                                valueField: 'LocationKey',
-                                forceSelection: true,
-                                queryMode: 'local'
-                            }, {
-                                xtype: 'textareafield',
-                                name: 'Notes',
-                                fieldLabel: 'Notes',
-                                grow: true,
-                                anchor: '99%'
-                            }
+            items: [{
+                xtype: 'textfield',
+                name: 'RouteKey',
+                fieldLabel: 'Route Key',
+                hidden: true
+            }, {
+                xtype: 'checkbox',
+                name: 'Active',
+                fieldLabel: 'Active'
+            }, {
+                itemId: 'fistInput',  // using this to denote the first field for focus
+                xtype: 'textfield',
+                name: 'RouteDisplay',
+                fieldLabel: 'Display'
+            }, {
+                xtype: 'textfield',
+                name: 'RouteCode',
+                fieldLabel: 'Route Code'
+            }, {
+                xtype: 'combo',
+                name: 'BusCaptianKey',
+                fieldLabel: 'Bus Captain',
+                emptyText: 'Please select...',
+                store: 'Ages',
+                displayField: 'LocationDisplay',
+                valueField: 'LocationKey',
+                forceSelection: true,
+                queryMode: 'local'
+            }, {
+                xtype: 'combo',
+                name: 'BusKey',
+                fieldLabel: 'Bus Assigned',
+                emptyText: 'Please select...',
+                store: 'Ages',
+                displayField: 'LocationDisplay',
+                valueField: 'LocationKey',
+                forceSelection: true,
+                queryMode: 'local'
+            }, {
+                xtype: 'textareafield',
+                name: 'Notes',
+                fieldLabel: 'Notes',
+                grow: true,
+                anchor: '99%'
+            }]
+        }];
 
-                   ]
-                        }
-        ];
-
-        this.buttons = [
-        {
+        this.buttons = [{
             text: 'New',
             action: 'new'
         }, {
@@ -80,8 +75,7 @@ Ext.define('KCCVBS.view.route.Edit', {
             text: 'Cancel',
             scope: this,
             handler: this.close
-        }
-        ];
+        }];
 
         this.callParent(arguments);
     }

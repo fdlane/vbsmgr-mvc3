@@ -82,6 +82,8 @@
     <Compile Include="Models\Bus.cs" />
     <Compile Include="Models\Children.cs" />
     <Compile Include="Models\Ages.cs" />
+    <Compile Include="Models\WokerType.cs" />
+    <Compile Include="Models\NeighborhoodType.cs" />
     <Compile Include="Models\Neighborhood.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Worker.cs" />
