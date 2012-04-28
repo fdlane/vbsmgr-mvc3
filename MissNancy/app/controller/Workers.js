@@ -60,7 +60,12 @@ Ext.define('KCCVBS.controller.Workers', {
 
         var edit = Ext.create('KCCVBS.view.workers.Edit').show();
         var record = Ext.create('KCCVBS.model.Workers');
-        record.set('Active', true);
+        record.set({
+            Active: true,
+            City: "Knoxville",
+            State: "TN",
+            Zip: "37923"
+        });
 
         edit.down('form').loadRecord(record);
 
