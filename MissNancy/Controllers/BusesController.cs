@@ -11,7 +11,7 @@ namespace MissNancy.Controllers
     {
         public JsonResult GetPaged(int page, int limit, Boolean activeOnly)
         {
-            var data = new Bus().GetPaged(page, limit, activeOnly);
+            var data = Bus.GetPaged(page, limit, activeOnly);
 
             return Json(new
             {
@@ -20,10 +20,9 @@ namespace MissNancy.Controllers
             }, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult GetWorkers(int? busKey)
+        public JsonResult GetWorkers(int busKey)
         {
-            var db = new PetaPoco.Database("MissNancy");
-            var workers = db.Query<BusWorkerDetail>("SELECT tblBusWorkerDetails.BusWorkerKey, tblBusWorkerDetails.BusKey, tblBusWorkerDetails.WorkerKey, tblBusWorkerDetails.CreateDate, tblBusWorkerDetails.CreatedBy, tblBusWorkerDetails.EditDate, tblBusWorkerDetails.EditedBy, tblWorkers.DisplayName, tblWorkers.Phone, tblWorkers.Mobile FROM tblBusWorkerDetails INNER JOIN tblWorkers ON tblBusWorkerDetails.WorkerKey = tblWorkers.WorkerKey WHERE tblBusWorkerDetails.BusKey = @0", busKey);
+            var workers = BusWorkerDetail.GetWorkers(busKey);
 
             return Json(new
             {
@@ -70,7 +69,7 @@ namespace MissNancy.Controllers
             string message = "no record found";
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = Bus.repo)
                 {
                     foreach (var item in data)
                     {
@@ -124,14 +123,13 @@ namespace MissNancy.Controllers
 
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = Bus.repo)
                 {
                     foreach (var item in data)
                     {
                         item.EditDate = DateTime.Now;
                         item.Active = false;
                         db.Save("tblBuses", "BusKey", item);
-
 
                         db.Delete<BusWorkerDetail>("WHERE BusKey = @0", item.BusKey);
                     }
@@ -155,7 +153,7 @@ namespace MissNancy.Controllers
 
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = Bus.repo)
                 {
                     foreach (var item in data)
                     {

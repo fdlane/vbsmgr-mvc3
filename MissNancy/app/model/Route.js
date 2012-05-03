@@ -4,14 +4,21 @@ Ext.define('KCCVBS.model.Route', {
     fields: [
                 'RouteKey',
                 'Active',
-                'BusCaptianKey',
+                'BusCaptainKey',
                 'BusKey',
                 'RouteCode',
-                'RouteDisplay',                
+                'RouteDisplay',
                 'Notes',
                 'CreateDate',
                 'CreatedBy',
                 'EditDate',
-                'EditedBy'
+                'EditedBy',
+                'BusNumber',
+                'BusDriver',
+                'BusMobileNum',
+                'BusCaptain',
+                'CaptainPhone',
+                'BusCapacity',
+                'Current'
             ]
 });

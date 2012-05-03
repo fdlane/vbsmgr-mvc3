@@ -56,6 +56,7 @@ Ext.define('KCCVBS.controller.Classes', {
         tabs.setActiveTab(tab);
 
     },  
+
     createItem: function (button) {
 
         // if user press New on the edit form, save the current record first
@@ -76,6 +77,7 @@ Ext.define('KCCVBS.controller.Classes', {
         edit.query('#fistInput')[0].focus(true, 10);
 
     },
+
     editItem: function (grid, record) {
 
         var edit = Ext.create('KCCVBS.view.classes.Edit').show();
@@ -97,6 +99,7 @@ Ext.define('KCCVBS.controller.Classes', {
         edit.down('form').loadRecord(record);
 
     },
+
     updateItem: function (button) {
         var win = button.up('window'),
             form = win.down('form').getForm(),
@@ -127,9 +130,10 @@ Ext.define('KCCVBS.controller.Classes', {
 
         win.close();
 
-        // save to the server and refresh so grid picks up foreignkey displays
+        // save to the server and refresh with 'load()' so grid picks up foreignkey displays
         this.getClassesStore().sync().load();
     },
+
     deleteItem: function (button) {
         Ext.MessageBox.confirm('Delete Selected', 'Are you sure you want to delete', function (confirmButton) {
             if (confirmButton == 'yes') {
@@ -144,6 +148,7 @@ Ext.define('KCCVBS.controller.Classes', {
 
         });
     },
+
     createWorkerDetails: function (combo) {
         var grid = combo.up('panel'),
             store = grid.getStore();
@@ -162,6 +167,7 @@ Ext.define('KCCVBS.controller.Classes', {
         // var editor = grid.getPlugin('workerCellEditing').startEditByPosition({ row: 0, column: 1 });
 
     },
+
     deleteWorkerDetail: function (button) {
         Ext.MessageBox.confirm('Unassign Worker', 'Are you sure you want to unassign Worker(s)?', function (confirmButton) {
             if (confirmButton == 'yes') {

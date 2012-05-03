@@ -129,6 +129,7 @@ Ext.define('KCCVBS.controller.Buses', {
         // save to the server and refresh so grid picks up foreignkey displays
         this.getBusesStore().sync().load();
     },
+
     deleteItem: function (button) {
         Ext.MessageBox.confirm('Delete Selected', 'Are you sure you want to delete', function (confirmButton) {
             if (confirmButton == 'yes') {
@@ -143,6 +144,7 @@ Ext.define('KCCVBS.controller.Buses', {
 
         });
     },
+
     createWorkerDetails: function (combo) {
         var grid = combo.up('panel'),
             store = grid.getStore();
@@ -161,6 +163,7 @@ Ext.define('KCCVBS.controller.Buses', {
         // var editor = grid.getPlugin('workerCellEditing').startEditByPosition({ row: 0, column: 1 });
 
     },
+
     deleteWorkerDetail: function (button) {
         Ext.MessageBox.confirm('Unassign Worker', 'Are you sure you want to unassign Worker(s)?', function (confirmButton) {
             if (confirmButton == 'yes') {

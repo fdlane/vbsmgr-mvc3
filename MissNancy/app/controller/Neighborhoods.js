@@ -1,7 +1,7 @@
 Ext.define('KCCVBS.controller.Neighborhoods', {
     extend: 'Ext.app.Controller',
 
-    stores: ['Neighborhoods'],
+    stores: ['Neighborhoods', 'NeighborhoodFiltered'],
 
     models: ['Neighborhood'],
 
@@ -74,6 +74,7 @@ Ext.define('KCCVBS.controller.Neighborhoods', {
     },
 
     updateItem: function (button) {
+
         var win = button.up('window'),
             form = win.down('form').getForm(),
             record = form.getRecord(),
@@ -83,14 +84,50 @@ Ext.define('KCCVBS.controller.Neighborhoods', {
             return;
         };
 
-        record.set(values);
+        var store = this.getNeighborhoodsStore();
+
         // check if this is a newly created record and insert into the store
         if (record.phantom) {
-            this.getNeighborhoodsStore().insert(0, record);
+            store.insert(0, record);
+            // save to the server 
+            store.sync();
+        } else {
+            // Note: record may be from a 'filtered' store and not the default store 
+            // if the record did not originate from the default 'Neighborhoods' store,
+            // try to get the record from the default store and update it's record, IF found          
+            if (record.stores[0].storeId !== "Neighborhoods") {
+                recDefaultStore = store.getById(record.data.NeighborhoodKey);
+                //if the record IS currently in the store (because of paging), update the default store
+                if (recDefaultStore) {
+                    recDefaultStore.set(values);
+                    // save to the server and reload the default store
+                    store.sync({
+                        success: function () {
+                            store.load();
+                        },
+                        scope: this
+                    });
+                } else {
+                    // record was not found in default store, so just update the 'filtered' stored
+                    record.set(values);
+                    //sync the filtered store to save to server and reload the default store
+                    this.getNeighborhoodFilteredStore().sync({
+                        success: function () {
+                            store.load();
+                        },
+                        scope: this
+                    });
+                }
+            } else {
+                //record was from the default store 
+                record.set(values);
+
+                // save to the server 
+                store.sync();
+            }
         }
 
         win.close();
-        this.getNeighborhoodsStore().sync();
     },
 
     deleteItem: function (button) {
@@ -104,7 +141,6 @@ Ext.define('KCCVBS.controller.Neighborhoods', {
 
                 store.sync();
             }
-
         });
     }
 });

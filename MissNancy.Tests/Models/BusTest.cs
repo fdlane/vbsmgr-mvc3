@@ -22,7 +22,7 @@ namespace MissNancy.Tests
             Boolean activeOnly = true;
 
             // Act
-            var data = new Bus().GetPaged(page, limit, activeOnly);
+            var data = Bus.GetPaged(page, limit, activeOnly);
 
             // Assert
             Assert.AreNotEqual(0, data.TotalItems);
@@ -31,13 +31,12 @@ namespace MissNancy.Tests
         [TestMethod]
         public void GetBusesActiveOnlyFalse()
         {
-            // Arrange
-            var bus = new Bus();
+            // Arrange            
             int page = 1;
             int limit = 25;
             Boolean activeOnly = false;
             // Act
-            var data = bus.GetPaged(page, limit, activeOnly);
+            var data = Bus.GetPaged(page, limit, activeOnly);
 
             // Assert
             Assert.AreNotEqual(0, data.TotalItems);

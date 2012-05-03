@@ -4,30 +4,24 @@ using System.Linq;
 using System.Web;
 using MissNancy.Data;
 using PetaPoco;
+using MissNancy.Models;
 
 namespace MissNancy.Data
 {
     public partial class Neighborhood : MissNancyDB.Record<Neighborhood>
     {
-        private Database db;
-
-        public Neighborhood()
+        public static IList<Neighborhood> Get(Boolean activeOnly)
         {
-            db = MissNancyDB.GetInstance();
-        }
-
-        public IList<Neighborhood> Get(Boolean activeOnly)
-        {
-            var data = db.Query<Neighborhood>("SELECT * FROM tblNeighborhoods WHERE (abs(Active) = 1) OR (abs(Active) = @0) ORDER BY NeighborhoodDisplay", activeOnly).ToList();
+            var data = repo.Query<Neighborhood>("SELECT * FROM tblNeighborhoods WHERE (abs(Active) = 1) OR (abs(Active) = @0) ORDER BY NeighborhoodDisplay", activeOnly).ToList();
             return data;
         }
 
-        public Neighborhood GetById(string key)
+        public static Neighborhood GetById(string key)
         {
-            return db.SingleOrDefault<Neighborhood>("SELECT * FROM tblNeighborhoods WHERE NeighborhoodKey = @0", key);
+            return repo.SingleOrDefault<Neighborhood>("SELECT * FROM tblNeighborhoods WHERE NeighborhoodKey = @0", key);
         }
 
-        public Page<Neighborhood> GetPaged(string query, int page, int limit, Boolean activeOnly)
+        public static Page<Neighborhood> GetPaged(string query, int page, int limit, Boolean activeOnly)
         {
             var sql = PetaPoco.Sql.Builder
                    .Append("WHERE (abs(Active) = 1) OR (abs(Active) = @0)", activeOnly)
@@ -42,7 +36,32 @@ namespace MissNancy.Data
                         .Append("ORDER BY NeighborhoodDisplay");
             }
 
-            var data = db.Page<Neighborhood>(page, limit, sql);
+            var data = repo.Page<Neighborhood>(page, limit, sql);
+
+            return data;
+        }
+
+        public static Page<Neighborhood> GetPaged(int page, int limit, List<ExtJsFilter> filters, Boolean activeOnly)
+        {
+            var sql = PetaPoco.Sql.Builder
+                   .Append("WHERE (abs(Active) = 1) OR (abs(Active) = @0)", activeOnly)
+                   .Append("ORDER BY NeighborhoodDisplay");
+
+            if (filters.Count > 0)
+            {
+                sql = PetaPoco.Sql.Builder.Append("WHERE ((abs(Active) = 1 OR abs(Active) = @0)", activeOnly);
+
+                foreach (var filter in filters)
+                {
+                    string criteria = String.Format("AND ({0} = @0))", filter.property);
+
+                    sql.Append(criteria, Convert.ToInt16(filter.value));
+                }
+
+                sql.Append("ORDER BY NeighborhoodDisplay");
+            }
+
+            var data = repo.Page<Neighborhood>(page, limit, sql);
 
             return data;
         }
@@ -57,7 +76,7 @@ namespace MissNancy.Data
                     .Append("SELECT TypeDisplay FROM tblNeighborhoodTypes ")
                     .Append("WHERE NeighborhoodTypeKey=@0", this.NeighborhoodTypeKey);
 
-                return db.ExecuteScalar<string>(sql);
+                return repo.ExecuteScalar<string>(sql);
             }
         }
 
@@ -71,7 +90,7 @@ namespace MissNancy.Data
                     .Append("SELECT RouteDisplay FROM tblRoutes ")
                     .Append("WHERE RouteKey=@0", this.RouteKey);
 
-                return db.ExecuteScalar<string>(sql);
+                return repo.ExecuteScalar<string>(sql);
             }
         }
 
@@ -88,7 +107,7 @@ namespace MissNancy.Data
                     .Append("tblBuses ON tblRoutes.BusKey = tblBuses.BusKey")
                     .Append("WHERE tblRoutes.RouteKey = @0", this.RouteKey);
 
-                return db.ExecuteScalar<string>(sql);
+                return repo.ExecuteScalar<string>(sql);
             }
         }
 
@@ -105,7 +124,7 @@ namespace MissNancy.Data
                     .Append("AND tblChildren.NeighborhoodKey =@0", this.NeighborhoodKey)
                     .Append("GROUP BY tblChildren.NeighborhoodKey");
 
-                return db.ExecuteScalar<string>(sql);
+                return repo.ExecuteScalar<string>(sql);
             }
         }
     }

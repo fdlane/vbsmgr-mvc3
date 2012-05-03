@@ -33,41 +33,52 @@ Ext.define('KCCVBS.view.route.Edit', {
                 name: 'RouteDisplay',
                 fieldLabel: 'Display'
             }, {
-                xtype: 'textfield',
-                name: 'RouteCode',
-                fieldLabel: 'Route Code'
-            }, {
                 xtype: 'combo',
-                name: 'BusCaptianKey',
+                name: 'BusCaptainKey',
                 fieldLabel: 'Bus Captain',
-                emptyText: 'Please select...',
-                store: 'Ages',
-                displayField: 'LocationDisplay',
-                valueField: 'LocationKey',
+                emptyText: 'Type Last Name...',
+                store: 'WorkersCombo',
+                displayField: 'DisplayName',
+                valueField: 'WorkerKey',
+                queryMode: 'remote',
+                minChars: 2,
+                hideTrigger: true,
                 forceSelection: true,
-                queryMode: 'local'
+                selectOnFocus: true,
+                typeAhead: true
             }, {
                 xtype: 'combo',
                 name: 'BusKey',
                 fieldLabel: 'Bus Assigned',
                 emptyText: 'Please select...',
-                store: 'Ages',
-                displayField: 'LocationDisplay',
-                valueField: 'LocationKey',
+                store: 'Buses',
+                displayField: 'RouteDisplay',
+                valueField: 'BusKey',
                 forceSelection: true,
-                queryMode: 'local'
+                queryMode: 'local',
+                allowBlank: false,
+                editable: false,
+                typeAhead: true
             }, {
                 xtype: 'textareafield',
                 name: 'Notes',
                 fieldLabel: 'Notes',
                 grow: true,
                 anchor: '99%'
+            },  {
+                xtype: 'neighborhoodsublist',
+                name: 'NeighborhoodSubList',
+                fieldLabel: 'Neighborhoods',
+                height: 200,
+                padding: '5px'
             }]
         }];
 
         this.buttons = [{
             text: 'New',
-            action: 'new'
+            action: 'newFromEdit'
+        }, {
+            xtype: 'tbfill'
         }, {
             text: 'Save',
             action: 'save'

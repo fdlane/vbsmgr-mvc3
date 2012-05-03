@@ -9,22 +9,14 @@ namespace MissNancy.Data
 {
     public partial class Ages : MissNancyDB.Record<Ages>
     {
-        private Database db;
-
-        public Ages()
+        public static IList<Ages> Get(Boolean activeOnly)
         {
-            db = MissNancyDB.GetInstance();
-        }
-
-        public IList<Ages> Get(Boolean activeOnly)
-        {
-            var data = db.Query<Ages>("WHERE (abs(Active) = 1) OR (abs(Active) = @0) ORDER BY Age", activeOnly).ToList();
+            var data = repo.Query<Ages>("WHERE (abs(Active) = 1) OR (abs(Active) = @0) ORDER BY Age", activeOnly).ToList();
             return data;
         }
         public Page<Ages> GetPaged(int page, int limit, Boolean activeOnly)
         {
-
-            var data = db.Page<Ages>(page, limit, "WHERE (abs(Active) = 1) OR (abs(Active) = @0) ORDER BY Age", activeOnly);
+            var data = repo.Page<Ages>(page, limit, "WHERE (abs(Active) = 1) OR (abs(Active) = @0) ORDER BY Age", activeOnly);
             return data;
         }
     }

@@ -9,19 +9,10 @@ namespace MissNancy.Data
 {
     public partial class Classes : MissNancyDB.Record<Classes>
     {
-
-        private Database db;
-
-        public Classes()
-        {
-            db = MissNancyDB.GetInstance();
-        }
-
-   
-        public Page<Classes> GetPaged(int page, int limit, Boolean activeOnly)
+        public static Page<Classes> GetPaged(int page, int limit, Boolean activeOnly)
         {
 
-            var data = db.Page<Classes>(page, limit, "WHERE (abs(Active) = 1) OR (abs(Active) = @0) ORDER BY ClassDisplay", activeOnly);
+            var data = repo.Page<Classes>(page, limit, "WHERE (abs(Active) = 1) OR (abs(Active) = @0) ORDER BY ClassDisplay", activeOnly);
             return data;
         }
 
@@ -31,7 +22,7 @@ namespace MissNancy.Data
         {
             get
             {
-                return MissNancyDB.GetInstance().ExecuteScalar<string>("SELECT DisplayName FROM tblWorkers WHERE WorkerKey=@0", this.MasterTeacherKey);
+                return repo.ExecuteScalar<string>("SELECT DisplayName FROM tblWorkers WHERE WorkerKey=@0", this.MasterTeacherKey);
             }
         }
 
@@ -41,7 +32,7 @@ namespace MissNancy.Data
         {
             get
             {
-                return MissNancyDB.GetInstance().ExecuteScalar<string>("SELECT LocationDisplay FROM tblLocations WHERE LocationKey=@0", this.LocationKey);
+                return repo.ExecuteScalar<string>("SELECT LocationDisplay FROM tblLocations WHERE LocationKey=@0", this.LocationKey);
             }
         }
 
@@ -51,7 +42,7 @@ namespace MissNancy.Data
         {
             get
             {
-                return MissNancyDB.GetInstance().ExecuteScalar<string>("SELECT Age FROM tblAges WHERE AgeKey=@0", this.AgeKey);
+                return repo.ExecuteScalar<string>("SELECT Age FROM tblAges WHERE AgeKey=@0", this.AgeKey);
             }
         }
 
@@ -61,7 +52,7 @@ namespace MissNancy.Data
         {
             get
             {
-                return MissNancyDB.GetInstance().ExecuteScalar<string>("SELECT Phone FROM tblWorkers WHERE WorkerKey=@0", this.MasterTeacherKey);
+                return repo.ExecuteScalar<string>("SELECT Phone FROM tblWorkers WHERE WorkerKey=@0", this.MasterTeacherKey);
             }
         }
 
@@ -71,12 +62,12 @@ namespace MissNancy.Data
         {
             get
             {
-                return MissNancyDB.GetInstance().ExecuteScalar<string>("SELECT Count(tblChildren.ChildrenKey) FROM tblChildren GROUP BY ClassKey HAVING (((ClassKey)=@0));", this.ClassKey);
+                return repo.ExecuteScalar<string>("SELECT Count(tblChildren.ChildrenKey) FROM tblChildren GROUP BY ClassKey HAVING (((ClassKey)=@0));", this.ClassKey);
             }
         }
 
         [PetaPoco.ResultColumn]
         public IList<ClassWorkerDetail> ClassWorkerDetails { get; set; }
-        
+
     }
 }

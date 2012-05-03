@@ -1,18 +1,21 @@
-Ext.define('KCCVBS.store.Routes', {
+Ext.define('KCCVBS.store.NeighborhoodFiltered', {
     extend: 'Ext.data.Store',
-    model: 'KCCVBS.model.Route',
-    autoLoad: true,
-    paramsAsHash: true,
+    model: 'KCCVBS.model.Neighborhood',
+    autoLoad: false,
+    remoteFilter: true,
     proxy: {
+        // this is to get active only records
         extraParams: {
             activeOnly: true
         },
         reader: {
+            type: 'json',
             totalProperty: 'total',
             successProperty: 'success',
-            idProperty: 'RouteKey',
+            idProperty: 'NeighborhoodKey',
             root: 'data',
             messageProperty: 'message'
+
         },
         writer: {
             type: 'json',
@@ -24,10 +27,10 @@ Ext.define('KCCVBS.store.Routes', {
         },
         type: 'ajax',
         api: {
-            read: '/Route/GetPaged',
-            create: '/Route/Create',
-            update: '/Route/Update',
-            destroy: '/Route/Delete'
+            read: '/Neighborhood/GetFiltered',
+            create: '/Neighborhood/Create',
+            update: '/Neighborhood/Update',
+            destroy: '/Neighborhood/Delete'
         },
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'

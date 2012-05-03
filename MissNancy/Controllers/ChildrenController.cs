@@ -9,10 +9,9 @@ namespace MissNancy.Controllers
 {
     public class ChildrenController : Controller
     {
-
         public JsonResult GetPaged(int page, int limit, Boolean activeOnly)
         {
-            var data = new Children().GetPaged(page, limit, activeOnly);
+            var data = Children.GetPaged(page, limit, activeOnly);
 
             return Json(new
             {
@@ -29,7 +28,7 @@ namespace MissNancy.Controllers
 
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = Children.repo)
                 {
                     foreach (var item in data)
                     {
@@ -59,7 +58,7 @@ namespace MissNancy.Controllers
             string message = "no record found";
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = Children.repo)
                 {
                     foreach (var item in data)
                     {
@@ -90,7 +89,7 @@ namespace MissNancy.Controllers
 
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = Children.repo)
                 {
                     foreach (var item in data)
                     {

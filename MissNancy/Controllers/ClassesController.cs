@@ -9,40 +9,10 @@ namespace MissNancy.Controllers
 {
     public class ClassesController : Controller
     {
-        //
-        // GET: /Classes/
-
-        public ActionResult Index()
-        {
-            var db = new PetaPoco.Database("MissNancy");
-            var classes = db.Query<Classes>("WHERE Active <> 0");
-
-            return View(classes);
-        }
-
-        public ActionResult IndexExt()
-        {
-            var db = new PetaPoco.Database("MissNancy");
-            var classes = db.Query<Classes>("WHERE Active <> 0");
-
-            return View(classes);
-        }
-
-        public JsonResult Get(int? start, int? limit)
-        {
-            var db = new PetaPoco.Database("MissNancy");
-            var classes = db.Query<Classes>("WHERE Active <> 0");
-
-            return Json(new
-            {
-                total = classes.Count(),
-                data = classes,
-            }, JsonRequestBehavior.AllowGet);
-        }
 
         public JsonResult GetPaged(int page, int limit, Boolean activeOnly)
         {
-            var data = new Classes().GetPaged(page, limit, activeOnly);
+            var data = Classes.GetPaged(page, limit, activeOnly);
 
             return Json(new
             {
@@ -51,10 +21,9 @@ namespace MissNancy.Controllers
             }, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult GetWorkers(int? classKey)
+        public JsonResult GetWorkers(int classKey)
         {
-            var db = new PetaPoco.Database("MissNancy");
-            var workers = db.Query<ClassWorkerDetail>("SELECT tblClassWorkerDetails.ClassWorkerKey, tblClassWorkerDetails.ClassKey, tblClassWorkerDetails.WorkerKey, tblClassWorkerDetails.CreateDate, tblClassWorkerDetails.CreatedBy, tblClassWorkerDetails.EditDate, tblClassWorkerDetails.EditedBy, tblWorkers.DisplayName, tblWorkers.Phone, tblWorkers.Mobile FROM tblClassWorkerDetails INNER JOIN tblWorkers ON tblClassWorkerDetails.WorkerKey = tblWorkers.WorkerKey WHERE tblClassWorkerDetails.ClassKey = @0", classKey);
+            var workers = ClassWorkerDetail.GetWorkers(classKey);
 
             return Json(new
             {
@@ -70,18 +39,12 @@ namespace MissNancy.Controllers
             string message = "no record found";
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = Classes.repo)
                 {
                     foreach (var item in data)
                     {
                         var rec = db.SingleOrDefault<Classes>("WHERE ClassKey = @0", item.ClassKey);
 
-                        //rec.Active = item.Active;
-                        //rec.AgeKey = item.AgeKey;
-                        //rec.LocationKey = item.LocationKey;
-                        //rec.MasterTeacherKey = item.MasterTeacherKey;
-                        //rec.ClassDisplay = item.ClassDisplay;
-                        //rec.Notes = item.Notes;
                         rec = item;
                         rec.EditDate = DateTime.Now;
                         db.Save("tblClasses", "ClassKey", rec);
@@ -122,39 +85,6 @@ namespace MissNancy.Controllers
             });
         }
 
-        public JsonResult Load()
-        {
-            var db = new PetaPoco.Database("MissNancy");
-            var classes = db.Query<Classes>("WHERE Active <> 0");
-
-            return Json(new
-            {
-                total = classes.Count(),
-                data = classes,
-            }, JsonRequestBehavior.AllowGet);
-        }
-        //
-        // GET: /Classes/Details/5
-
-        public ActionResult Details(int id)
-        {
-            var db = new PetaPoco.Database("MissNancy");
-            var myClass = db.SingleOrDefault<Classes>("SELECT * FROM tblClasses WHERE ClassKey = @0", id);
-
-            return View(myClass);
-        }
-
-        //
-        // GET: /Classes/Create
-
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Classes/Create
-
         [HttpPost]
         public JsonResult Create(List<Classes> data)
         {
@@ -163,7 +93,7 @@ namespace MissNancy.Controllers
 
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = Classes.repo)
                 {
                     foreach (var item in data)
                     {
@@ -196,40 +126,6 @@ namespace MissNancy.Controllers
 
         }
 
-        //
-        // GET: /Classes/Edit/5
-
-        public ActionResult Edit(int id)
-        {
-            var db = new PetaPoco.Database("MissNancy");
-            var myClass = db.SingleOrDefault<Classes>("SELECT * FROM tblClasses WHERE ClassKey = @0", id);
-
-            return View(myClass);
-        }
-
-        //
-        // POST: /Classes/Edit/5
-
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            var db = new PetaPoco.Database("MissNancy");
-            var myClass = db.SingleOrDefault<Classes>("SELECT * FROM tblClasses WHERE ClassKey = @0", id);
-
-            try
-            {
-                UpdateModel(myClass, collection.ToValueProvider());
-                db.Save("tblClasses", "ClassKey", myClass);
-
-                return RedirectToAction("Index");
-            }
-            catch (Exception e)
-            {
-                return View(myClass);
-            }
-
-        }
-
         public JsonResult Delete(IList<Classes> data)
         {
             bool success = false;
@@ -237,7 +133,7 @@ namespace MissNancy.Controllers
 
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = Classes.repo)
                 {
                     foreach (var item in data)
                     {
@@ -268,7 +164,7 @@ namespace MissNancy.Controllers
 
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = ClassWorkerDetail.repo)
                 {
                     foreach (var item in data)
                     {

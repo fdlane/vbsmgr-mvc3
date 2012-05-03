@@ -4,18 +4,40 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MissNancy.Data;
+using MissNancy.Models;
+using System.IO;
+using System.Text;
+
+using Newtonsoft.Json;
 
 namespace MissNancy.Controllers
 {
     public class NeighborhoodController : Controller
     {
-        public JsonResult GetPaged(String key, String query, int page, int limit, Boolean activeOnly)
-        {   
+        public JsonResult GetFiltered(int page, int start, int limit, string filter, Boolean activeOnly)
+        {
+
+            var filters = JsonConvert.DeserializeObject<List<ExtJsFilter>>(
+                filter, new JsonSerializerSettings { });
+
+            var data = Neighborhood.GetPaged(page, limit, filters, activeOnly);
+
+            return Json(new
+            {
+                total = data.TotalItems,
+                data = data.Items,
+            }, JsonRequestBehavior.AllowGet);
+
+        }
+
+
+        public JsonResult GetPaged(List<ExtJsFilter> filter, String key, String query, int page, int limit, Boolean activeOnly)
+        {
             // TODO look into this approach http://haacked.com/archive/2008/08/29/how-a-method-becomes-an-action.aspx
             //  ok, this may be weird, but can't overload these methods
             if (null != key)
             {
-                var data = new Neighborhood().GetById(key);
+                var data = Neighborhood.GetById(key);
                 return Json(new
                 {
                     data = data,
@@ -23,7 +45,7 @@ namespace MissNancy.Controllers
             }
             else
             {
-                var data = new Neighborhood().GetPaged(query, page, limit, activeOnly);
+                var data = Neighborhood.GetPaged(query, page, limit, activeOnly);
 
                 return Json(new
                 {
@@ -31,18 +53,6 @@ namespace MissNancy.Controllers
                     data = data.Items,
                 }, JsonRequestBehavior.AllowGet);
             }
-        }
-
-        public JsonResult Get(int? start, int? limit)
-        {
-            var db = new PetaPoco.Database("MissNancy");
-            var data = db.Query<Neighborhood>("WHERE Active <>0");
-
-            return Json(new
-            {
-                total = data.Count(),
-                data = data,
-            }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

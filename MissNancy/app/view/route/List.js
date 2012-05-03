@@ -11,7 +11,7 @@ Ext.define('KCCVBS.view.route.List', {
         this.selModel = Ext.create('Ext.selection.CheckboxModel', {
             checkOnly: true
         });
-               
+
         this.tbar = [{
             iconCls: 'new-item',
             text: 'New',
@@ -28,7 +28,7 @@ Ext.define('KCCVBS.view.route.List', {
             width: 150
         }, {
             header: 'Bus #',
-            dataIndex: 'BusKey',
+            dataIndex: 'BusNumber',
             width: 75
         }, {
             header: 'Bus Driver',
@@ -36,16 +36,23 @@ Ext.define('KCCVBS.view.route.List', {
             width: 150
         }, {
             header: 'Driver Phone',
-            dataIndex: 'BusKey',
+            dataIndex: 'BusMobileNum',
             width: 100
         }, {
             header: 'Captian',
-            dataIndex: 'BusCaptainKey',
+            dataIndex: 'BusCaptain',
             width: 150
         }, {
             header: 'Captian Phone',
-            dataIndex: 'BusKey',
+            dataIndex: 'CaptainPhone',
             width: 100
+        }, {
+            xtype: 'numbercolumn',
+            align: 'right',
+            format: '0',
+            header: 'Capacity',
+            dataIndex: 'BusCapacity',
+            width: 60
         }, {
             xtype: 'numbercolumn',
             align: 'right',

@@ -9,17 +9,17 @@ namespace MissNancy.Controllers
 {
     public class RouteController : Controller
     {
-        public JsonResult Get(int? start, int? limit)
+        public JsonResult GetPaged(int page, int limit, Boolean activeOnly)
         {
-            var db = new PetaPoco.Database("MissNancy");
-            var data = db.Query<Route>("WHERE Active <>0");
+            var data = Route.GetPaged(page, limit, activeOnly);
 
             return Json(new
             {
-                total = data.Count(),
-                data = data,
+                total = data.TotalItems,
+                data = data.Items,
             }, JsonRequestBehavior.AllowGet);
         }
+
 
         [HttpPost]
         public JsonResult Create(List<Route> data)
@@ -29,7 +29,7 @@ namespace MissNancy.Controllers
 
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = Route.repo)
                 {
                     foreach (var item in data)
                     {
@@ -59,7 +59,7 @@ namespace MissNancy.Controllers
             string message = "no record found";
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = Route.repo)
                 {
                     foreach (var item in data)
                     {

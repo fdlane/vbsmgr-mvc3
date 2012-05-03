@@ -11,7 +11,7 @@ namespace MissNancy.Controllers
     {
         public JsonResult Get(Boolean activeOnly)
         {
-            var data = new Ages().Get(activeOnly);
+            var data = Ages.Get(activeOnly);
 
             return Json(new
             {
@@ -28,7 +28,7 @@ namespace MissNancy.Controllers
 
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = Ages.repo)
                 {
                     foreach (var item in data)
                     {
@@ -58,7 +58,7 @@ namespace MissNancy.Controllers
             string message = "no record found";
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = Ages.repo)
                 {
                     foreach (var item in data)
                     {
@@ -90,7 +90,7 @@ namespace MissNancy.Controllers
 
             if (data != null)
             {
-                using (var db = new PetaPoco.Database("MissNancy"))
+                using (var db = Ages.repo)
                 {
                     foreach (var item in data)
                     {

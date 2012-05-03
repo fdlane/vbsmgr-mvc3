@@ -9,20 +9,13 @@ namespace MissNancy.Data
 {
     public partial class Worker : MissNancyDB.Record<Worker>
     {
-        private Database db;
-
-        public Worker()
+        public static IList<Worker> Get(Boolean activeOnly)
         {
-            db = MissNancyDB.GetInstance();
-        }
-
-        public IList<Worker> Get(Boolean activeOnly)
-        {
-            var data = db.Query<Worker>("SELECT * FROM tblWorkers WHERE (abs(Active) = 1) OR (abs(Active) = @0) ORDER BY DisplayName", activeOnly).ToList();
+            var data = repo.Query<Worker>("SELECT * FROM tblWorkers WHERE (abs(Active) = 1) OR (abs(Active) = @0) ORDER BY DisplayName", activeOnly).ToList();
             return data;
         }
 
-        public Page<Worker> GetPaged(string query, int page, int limit, Boolean activeOnly)
+        public static Page<Worker> GetPaged(string query, int page, int limit, Boolean activeOnly)
         {
             var sql = PetaPoco.Sql.Builder
                    .Append("WHERE (abs(Active) = 1) OR (abs(Active) = @0)", activeOnly)
@@ -37,7 +30,7 @@ namespace MissNancy.Data
                         .Append("ORDER BY DisplayName");
             }
 
-            var data = db.Page<Worker>(page, limit, sql);
+            var data = repo.Page<Worker>(page, limit, sql);
 
             return data;
         }

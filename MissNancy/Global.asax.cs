@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using MissNancy.Models;
+using MissNancy.Helpers;
 
 namespace MissNancy
 {
@@ -27,6 +29,16 @@ namespace MissNancy
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
 
+            //routes.MapRoute(
+            //    "Neighborhood",
+            //    "Neighborhood/{filter}",
+            //     new
+            //     {
+            //         controller = "Neighborhood",
+            //         action = "GetPaged2",
+            //         filter = UrlParameter.Optional
+            //     });
+
         }
 
         protected void Application_Start()
@@ -35,6 +47,9 @@ namespace MissNancy
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            //ModelBinders.Binders.Add(typeof(ExtJsFilter), new ExtJsFilterModelBinder());
+        
         }
     }
 }

@@ -9,17 +9,9 @@ namespace MissNancy.Data
 {
     public partial class Children : MissNancyDB.Record<Children>
     {
-
-        private Database db;
-
-        public Children()
+        public static Page<Children> GetPaged(int page, int limit, Boolean activeOnly)
         {
-            db = MissNancyDB.GetInstance();
-        }
-
-        public Page<Children> GetPaged(int page, int limit, Boolean activeOnly)
-        {
-            var data = db.Page<Children>(page, limit, "WHERE (abs(Active) = 1) OR (abs(Active) = @0)", activeOnly);
+            var data = repo.Page<Children>(page, limit, "WHERE (abs(Active) = 1) OR (abs(Active) = @0) ORDER BY LastName, FirstName", activeOnly);
             return data;
         }
     }
