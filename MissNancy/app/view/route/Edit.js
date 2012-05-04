@@ -8,7 +8,7 @@ Ext.define('KCCVBS.view.route.Edit', {
     layout: 'fit',
     autoShow: true,
     autoheight: true,
-    width: 600,
+    width: 595,
     modal: true,
 
     initComponent: function () {
@@ -16,7 +16,7 @@ Ext.define('KCCVBS.view.route.Edit', {
             xtype: 'form',
             padding: '5 5 0 5',
             border: false,
-            style: 'background-color: #fff;',
+            style: 'background-color: #fff; ',
 
             items: [{
                 xtype: 'textfield',
@@ -65,7 +65,7 @@ Ext.define('KCCVBS.view.route.Edit', {
                 fieldLabel: 'Notes',
                 grow: true,
                 anchor: '99%'
-            },  {
+            }, {
                 xtype: 'neighborhoodsublist',
                 name: 'NeighborhoodSubList',
                 fieldLabel: 'Neighborhoods',

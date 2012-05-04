@@ -96,11 +96,11 @@ Ext.define('KCCVBS.controller.Neighborhoods', {
             // if the record did not originate from the default 'Neighborhoods' store,
             // try to get the record from the default store and update it's record, IF found          
             if (record.stores[0].storeId !== "Neighborhoods") {
-                recDefaultStore = store.getById(record.data.NeighborhoodKey);
+                recFromDefaultStore = store.getById(record.data.NeighborhoodKey);
                 //if the record IS currently in the store (because of paging), update the default store
-                if (recDefaultStore) {
-                    recDefaultStore.set(values);
-                    // save to the server and reload the default store
+                if (recFromDefaultStore) {
+                    recFromDefaultStore.set(values);
+                    // save to the server and the reload the default store
                     store.sync({
                         success: function () {
                             store.load();

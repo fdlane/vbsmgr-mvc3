@@ -4,7 +4,8 @@ Ext.define('KCCVBS.view.neighborhood.SubList', {
     store: 'NeighborhoodFiltered',
     layout: 'fit',
     header: false,
-    autoScroll: true,
+    overflowX: 'hidden',
+    overflowY: 'auto',
 
     initComponent: function () {
 

@@ -19,6 +19,9 @@ Ext.define('KCCVBS.controller.Ages', {
             'agelist dataview': {
                 itemdblclick: this.editItem
             },
+            'ageedit button[action=newFromEdit]': {
+                click: this.createItem
+            },
             'ageedit button[action=save]': {
                 click: this.updateItem
             },
@@ -44,11 +47,15 @@ Ext.define('KCCVBS.controller.Ages', {
         }
 
         tabs.setActiveTab(tab);
-        
+
     },
 
-    createItem: function () {
-        console.log('age createItem clicked');
+    createItem: function (button) {
+        // if user press New on the edit form, save the current record first
+        if (button.action == 'newFromEdit') {
+            this.updateItem(button);
+        }
+
         var edit = Ext.create('KCCVBS.view.age.Edit').show();
         var record = Ext.create('KCCVBS.model.Age');
         record.set('Active', true);
@@ -63,15 +70,28 @@ Ext.define('KCCVBS.controller.Ages', {
     },
 
     updateItem: function (button) {
+        console.log('button', button);
         var win = button.up('window'),
-            form = win.down('form'),
+            form = win.down('form').getForm(),
             record = form.getRecord(),
             values = form.getValues();
 
+        if (!form.isValid()) {
+            return;
+        };
+
         record.set(values);
+
+        // check if this is a newly created record and insert into the store
+        if (record.phantom) {
+            this.getAgesStore().insert(0, record);
+        }
+
         win.close();
+
         this.getAgesStore().sync();
     },
+
     deleteItem: function (button) {
         Ext.MessageBox.confirm('Delete Age', 'Are you sure you want to delete', function (confirmButton) {
             if (confirmButton == 'yes') {

@@ -13,93 +13,109 @@ Ext.define('KCCVBS.view.workers.List', {
         });
 
 
-        this.tbar = [
-                {
-                    iconCls: 'new-item',
-                    text: 'New',
-                    action: 'new'
+        this.tbar = [{
+            iconCls: 'new-item',
+            text: 'New',
+            action: 'new'
+        }, {
+            iconCls: 'delete-item',
+            text: 'Delete',
+            action: 'delete'
+        }, {
+            xtype: 'splitbutton',
+            text: 'More',
+            menu: {
+                xtype: 'menu',
+                plain: false,
+                items: [{
+                    text: 'Mark as attended Monday',
+                    action: 'Monday',
+                    group: 'attendance'
                 }, {
-                    iconCls: 'delete-item',
-                    text: 'Delete',
-                    action: 'delete'
+                    text: 'Mark as attended Tuesday',
+                    action: 'Tuesday',
+                    group: 'attendance'
                 }, {
-                    xtype: 'splitbutton',
-                    text: 'More',
-                    menu: {
-                        xtype: 'menu',
-                        plain: false,
-                        items: [
-                                { text: 'Mark as attended Monday', action: 'monday' },
-                                { text: 'Mark as attended Tuesday', action: 'tuesday' },
-                                { text: 'Mark as attended Wednesday', action: 'wednesday' },
-                                { text: 'Mark as attended Thursday', action: 'thursday' },
-                                { text: 'Mark as attended Friday', action: 'friday' },
-                                { text: 'Mark as attended Saturday', action: 'saturday' },
-                                { text: 'Mark as attended Sunday', action: 'sunday' }
-                            ]
-                    }
-                }
-            ];
+                    text: 'Mark as attended Wednesday',
+                    action: 'Wednesday',
+                    group: 'attendance'
+                }, {
+                    text: 'Mark as attended Thursday',
+                    action: 'Thursday', 
+                    group: 'attendance'
+                }, {
+                    text: 'Mark as attended Friday',
+                    action: 'Friday',
+                    group: 'attendance'
+                }, {
+                    text: 'Mark as attended Saturday',
+                    action: 'Saturday',
+                    group: 'attendance'
+                }, {
+                    text: 'Mark as attended Sunday',
+                    action: 'Sunday',
+                    group: 'attendance'
+                }]
+            }
+        }];
 
-        this.columns = [
-                {
-                    header: 'Display Name',
-                    dataIndex: 'DisplayName',
-                    width: 150
-                }, {
-                    header: 'Phone',
-                    dataIndex: 'Phone',
-                    width: 100
-                }, {
-                    header: 'Mobile',
-                    dataIndex: 'Mobile',
-                    width: 100
-                }, {
-                    xtype: 'columnattendance',
-                    header: 'M',
-                    dataIndex: 'Monday',
-                    width: 30
-                }, {
-                    xtype: 'columnattendance',
-                    header: 'T',
-                    dataIndex: 'Tuesday',
-                    width: 30
-                }, {
-                    xtype: 'columnattendance',
-                    header: 'W',
-                    dataIndex: 'Wednesday',
-                    width: 30
-                }, {
-                    xtype: 'columnattendance',
-                    header: 'T',
-                    dataIndex: 'Thursday',
-                    width: 30
-                }, {
-                    xtype: 'columnattendance',
-                    header: 'F',
-                    dataIndex: 'Friday',
-                    width: 30
-                }, {
-                    xtype: 'columnattendance',
-                    header: 'S',
-                    dataIndex: 'Saturday',
-                    width: 30
-                }, {
-                    xtype: 'columnattendance',
-                    header: 'S',
-                    dataIndex: 'Sunday',
-                    width: 30
-                }, {
-                    xtype: 'columnattendance',
-                    header: 'Type',
-                    dataIndex: 'WorkerTypeDisplay',
-                    width: 150
-                }, {
-                    xtype: 'columnactive',
-                    dataIndex: 'Active',
-                    width: 50
-                }
-        ];
+        this.columns = [{
+            header: 'Display Name',
+            dataIndex: 'DisplayName',
+            width: 150
+        }, {
+            header: 'Phone',
+            dataIndex: 'Phone',
+            width: 100
+        }, {
+            header: 'Mobile',
+            dataIndex: 'Mobile',
+            width: 100
+        }, {
+            xtype: 'columnattendance',
+            header: 'M',
+            dataIndex: 'Monday',
+            width: 30
+        }, {
+            xtype: 'columnattendance',
+            header: 'T',
+            dataIndex: 'Tuesday',
+            width: 30
+        }, {
+            xtype: 'columnattendance',
+            header: 'W',
+            dataIndex: 'Wednesday',
+            width: 30
+        }, {
+            xtype: 'columnattendance',
+            header: 'T',
+            dataIndex: 'Thursday',
+            width: 30
+        }, {
+            xtype: 'columnattendance',
+            header: 'F',
+            dataIndex: 'Friday',
+            width: 30
+        }, {
+            xtype: 'columnattendance',
+            header: 'S',
+            dataIndex: 'Saturday',
+            width: 30
+        }, {
+            xtype: 'columnattendance',
+            header: 'S',
+            dataIndex: 'Sunday',
+            width: 30
+        }, {
+            xtype: 'columnattendance',
+            header: 'Type',
+            dataIndex: 'WorkerTypeDisplay',
+            width: 150
+        }, {
+            xtype: 'columnactive',
+            dataIndex: 'Active',
+            width: 50
+        }];
 
         this.dockedItems = [{
             xtype: 'pagingtoolbar',
@@ -108,8 +124,7 @@ Ext.define('KCCVBS.view.workers.List', {
             dock: 'bottom',
             displayInfo: true,
             emptyMsg: 'No data to display'
-        }
-       ];
+        }];
 
         this.callParent(arguments);
     }

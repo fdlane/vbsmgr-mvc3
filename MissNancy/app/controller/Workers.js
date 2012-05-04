@@ -30,6 +30,9 @@ Ext.define('KCCVBS.controller.Workers', {
             },
             'workerslist button[action=delete]': {
                 click: this.deleteItem
+            },
+            'workerslist menuitem[group="attendance"]': {
+                click: this.takeAttendance
             }
         });
     },
@@ -113,6 +116,19 @@ Ext.define('KCCVBS.controller.Workers', {
             }
 
         });
+    },
+
+    takeAttendance: function (button) {
+
+        var grid = button.up('workerslist');
+        var store = grid.getStore();
+
+        Ext.each(grid.getView().getSelectionModel().getSelection(), function (record) {
+            var values = Ext.JSON.decode(Ext.String.format("{{0}:true}", button.action));
+            record.set(values);
+        });
+
+        store.sync().load();
     }
 });
 

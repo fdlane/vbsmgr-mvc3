@@ -4,6 +4,10 @@ Ext.define('KCCVBS.store.Ages', {
     autoLoad: true,
     paramsAsHash: true,
     proxy: {
+        // this is to get active only records
+        extraParams: {
+            activeOnly: true
+        },
         reader: {
             totalProperty: 'total',
             successProperty: 'success',
@@ -21,10 +25,10 @@ Ext.define('KCCVBS.store.Ages', {
         },
         type: 'ajax',
         api: {
-            read: '/Ages/Get',
-            create: '/Ages/Create',
-            update: '/Ages/Update',
-            destroy: '/Ages/Delete'
+            read: '/Age/Get',
+            create: '/Age/Create',
+            update: '/Age/Update',
+            destroy: '/Age/Delete'
         },
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'

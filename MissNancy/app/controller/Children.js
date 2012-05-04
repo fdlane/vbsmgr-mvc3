@@ -30,6 +30,9 @@ Ext.define('KCCVBS.controller.Children', {
             },
             'childrenlist button[action=delete]': {
                 click: this.deleteItem
+            },
+            'childrenlist menuitem[group="attendance"]': {
+                click: this.takeAttendance
             }
         });
     },
@@ -88,7 +91,7 @@ Ext.define('KCCVBS.controller.Children', {
             form = win.down('form').getForm(),
             record = form.getRecord(),
             values = form.getValues();
-
+        console.log("values", values);
         if (!form.isValid()) {
             return;
         };
@@ -119,6 +122,20 @@ Ext.define('KCCVBS.controller.Children', {
             }
 
         });
+    },
+
+    takeAttendance: function (button) {
+
+        var grid = button.up('childrenlist');
+        var store = grid.getStore();
+
+        Ext.each(grid.getView().getSelectionModel().getSelection(), function (record) {
+            var values = Ext.JSON.decode(Ext.String.format("{{0}:true}", button.action));
+            record.set(values);
+        });
+
+        store.sync().load();
     }
+
 });
 
