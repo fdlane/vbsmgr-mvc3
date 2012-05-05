@@ -66,7 +66,7 @@ Ext.define('KCCVBS.view.classes.Edit', {
                 fieldLabel: 'Master Teacher',
                 emptyText: 'Type Last Name...',
                 store: 'WorkersCombo',
-                displayField: 'DisplayName',
+                displayField: 'WorkerDisplayName',
                 valueField: 'WorkerKey',
                 queryMode: 'remote',
                 minChars: 2,

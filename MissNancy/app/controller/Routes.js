@@ -80,7 +80,7 @@ Ext.define('KCCVBS.controller.Routes', {
         this.getWorkersComboStore().loadData([
                 {
                     WorkerKey: record.data.BusCaptainKey,
-                    DisplayName: record.data.BusCaptain
+                    WorkerDisplayName: record.data.BusCaptain  || ''
                 }
             ], false);
 

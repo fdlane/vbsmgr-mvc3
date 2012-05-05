@@ -55,7 +55,7 @@ Ext.define('KCCVBS.controller.Classes', {
 
         tabs.setActiveTab(tab);
 
-    },  
+    },
 
     createItem: function (button) {
 
@@ -86,7 +86,7 @@ Ext.define('KCCVBS.controller.Classes', {
         this.getWorkersComboStore().loadData([
                 {
                     WorkerKey: record.data.MasterTeacherKey,
-                    DisplayName: record.data.MasterTeacher
+                    WorkerDisplayName: record.data.MasterTeacher
                 }
             ], false);
 
@@ -131,7 +131,13 @@ Ext.define('KCCVBS.controller.Classes', {
         win.close();
 
         // save to the server and refresh with 'load()' so grid picks up foreignkey displays
-        this.getClassesStore().sync().load();
+        this.getClassesStore().sync(
+            {
+                scope: this,
+                success: function () {
+                    this.getClassesStore().load();
+                }
+            });
     },
 
     deleteItem: function (button) {
@@ -157,7 +163,7 @@ Ext.define('KCCVBS.controller.Classes', {
 
         store.insert(0, {
             WorkerKey: record.data.WorkerKey,
-            DisplayName: record.data.DisplayName,
+            WorkerDisplayName: record.data.WorkerDisplayName,
             Phone: record.data.Phone,
             Mobile: record.data.Mobile
         });

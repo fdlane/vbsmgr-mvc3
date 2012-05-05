@@ -40,7 +40,7 @@ namespace MissNancy.Data
             get
             {
                 var sql = PetaPoco.Sql.Builder
-                    .Append("SELECT DisplayName FROM tblWorkers ")
+                    .Append("SELECT tblWorkers.LastName + ', ' + tblWorkers.FirstName FROM tblWorkers ")
                     .Append("WHERE WorkerKey=@0", this.BusDriverKey);
 
                 return repo.ExecuteScalar<string>(sql);
@@ -54,7 +54,7 @@ namespace MissNancy.Data
             get
             {
                 var sql = PetaPoco.Sql.Builder
-                    .Append("SELECT tblWorkers.DisplayName FROM tblBuses INNER JOIN ")
+                    .Append("SELECT tblWorkers.LastName + ', ' + tblWorkers.FirstName FROM tblBuses INNER JOIN ")
                     .Append("tblRoutes ON tblBuses.BusKey = tblRoutes.BusKey INNER JOIN")
                     .Append("tblWorkers ON tblRoutes.BusCaptainKey = tblWorkers.WorkerKey")
                     .Append("WHERE tblBuses.BusKey=@0", this.BusKey);
@@ -89,11 +89,11 @@ namespace MissNancy.Data
                     .Append("SELECT tblBusWorkerDetails.BusWorkerKey, tblBusWorkerDetails.BusKey,")
                     .Append("tblBusWorkerDetails.WorkerKey, tblBusWorkerDetails.CreateDate,")
                     .Append("tblBusWorkerDetails.CreatedBy, tblBusWorkerDetails.EditDate,")
-                    .Append("tblBusWorkerDetails.EditedBy, tblWorkers.DisplayName, tblWorkers.Phone, tblWorkers.Mobile")
+                    .Append("tblBusWorkerDetails.EditedBy, tblWorkers.LastName, tblWorkers.FirstName, tblWorkers.Phone, tblWorkers.Mobile")
                     .Append("FROM tblBusWorkerDetails")
                     .Append("INNER JOIN tblWorkers ON tblBusWorkerDetails.WorkerKey = tblWorkers.WorkerKey")
                     .Append("WHERE tblBusWorkerDetails.BusKey = @0", busKey)
-                    .Append("ORDER BY tblWorkers.DisplayName");
+                    .Append("ORDER BY tblWorkers.LastName, tblWorkers.FirstName");
 
             var workers = repo.Query<BusWorkerDetail>(sql).ToList();
 

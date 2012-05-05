@@ -134,7 +134,7 @@ Ext.define('KCCVBS.controller.Children', {
             record.set(values);
         });
 
-        store.sync().load();
+        store.sync();
     }
 
 });

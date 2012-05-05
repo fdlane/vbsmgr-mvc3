@@ -6,7 +6,8 @@ Ext.define('KCCVBS.model.Workers', {
                 'Active',
                 'WorkerTypeKey',
                 'WorkerType',
-                'DisplayName',
+                'FirstName',
+                'LastName',
                 'Title',
                 'Address1',
                 'Address2',
@@ -29,6 +30,8 @@ Ext.define('KCCVBS.model.Workers', {
                 'CreateDate',
                 'CreatedBy',
                 'EditDate',
-                'EditedBy'
+                'EditedBy',
+                'WorkerDisplayName',
+                'WorkerTypeDisplay'
             ]
 });

@@ -76,7 +76,7 @@ Ext.define('KCCVBS.view.children.List', {
             width: 50
         }, {
             header: 'Route',
-            dataIndex: 'Route',
+            dataIndex: 'RouteDisplay',
             width: 50
         }, {
             header: 'Class',

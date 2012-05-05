@@ -20,7 +20,7 @@ Ext.define('KCCVBS.view.buses.BusWorkerDetailsList', {
             name: 'WorkerKey',
             emptyText: "Start typing Worker's Last Name here",
             store: Ext.create('KCCVBS.store.WorkersCombo'),
-            displayField: 'DisplayName',
+            displayField: 'WorkerDisplayName',
             valueField: 'WorkerKey',
             queryMode: 'remote',
             minChars: 2,
@@ -41,7 +41,7 @@ Ext.define('KCCVBS.view.buses.BusWorkerDetailsList', {
 
         this.columns = [{
             header: 'Bus Worker',
-            dataIndex: 'DisplayName',
+            dataIndex: 'WorkerDisplayName',
             flex: 1
         }, {
             header: 'Phone',

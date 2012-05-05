@@ -41,7 +41,7 @@ Ext.define('KCCVBS.view.workers.List', {
                     group: 'attendance'
                 }, {
                     text: 'Mark as attended Thursday',
-                    action: 'Thursday', 
+                    action: 'Thursday',
                     group: 'attendance'
                 }, {
                     text: 'Mark as attended Friday',
@@ -60,9 +60,13 @@ Ext.define('KCCVBS.view.workers.List', {
         }];
 
         this.columns = [{
-            header: 'Display Name',
-            dataIndex: 'DisplayName',
-            width: 150
+            header: 'Last Name',
+            dataIndex: 'LastName',
+            width: 100
+        }, {
+            header: 'First Name',
+            dataIndex: 'FirstName',
+            width: 100
         }, {
             header: 'Phone',
             dataIndex: 'Phone',
@@ -107,7 +111,6 @@ Ext.define('KCCVBS.view.workers.List', {
             dataIndex: 'Sunday',
             width: 30
         }, {
-            xtype: 'columnattendance',
             header: 'Type',
             dataIndex: 'WorkerTypeDisplay',
             width: 150

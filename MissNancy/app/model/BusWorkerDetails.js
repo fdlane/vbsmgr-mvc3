@@ -9,8 +9,8 @@ Ext.define('KCCVBS.model.BusWorkerDetails', {
                 'CreatedBy',
                 'EditDate',
                 'EditedBy',
-                'DisplayName',
                 'Phone',
-                'Mobile'
+                'Mobile',
+                'WorkerDisplayName'
             ]
 });

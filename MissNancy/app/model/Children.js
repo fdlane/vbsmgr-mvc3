@@ -34,6 +34,8 @@ Ext.define('KCCVBS.model.Children', {
                 'CreateDate',
                 'CreatedBy',
                 'EditDate',
-                'EditedBy'
+                'EditedBy',
+                'ClassDisplay',
+                'RouteDisplay'
             ]
 });

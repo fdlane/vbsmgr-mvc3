@@ -50,7 +50,7 @@ Ext.define('KCCVBS.view.buses.Edit', {
                 fieldLabel: 'Bus Driver',
                 emptyText: 'Type Last Name...',
                 store: 'WorkersCombo',
-                displayField: 'DisplayName',
+                displayField: 'WorkerDisplayName',
                 valueField: 'WorkerKey',
                 queryMode: 'remote',
                 minChars: 2,

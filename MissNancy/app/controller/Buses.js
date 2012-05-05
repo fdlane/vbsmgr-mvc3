@@ -30,7 +30,7 @@ Ext.define('KCCVBS.controller.Buses', {
             },
             'buseslist button[action=delete]': {
                 click: this.deleteItem
-            },         
+            },
             'busworkerdetailslist button[action=delete]': {
                 click: this.deleteWorkerDetail
             },
@@ -79,11 +79,11 @@ Ext.define('KCCVBS.controller.Buses', {
     editItem: function (grid, record) {
         var edit = Ext.create('KCCVBS.view.buses.Edit').show();
 
-        //load the combo store with the current master teacher, so the loadRecord works
+        //load the combo store with the current worker from the grid, so the loadRecord works
         this.getWorkersComboStore().loadData([
                 {
                     WorkerKey: record.data.BusDriverKey,
-                    DisplayName: record.data.BusDriver
+                    WorkerDisplayName: record.data.BusDriver
                 }
             ], false);
 
@@ -112,7 +112,7 @@ Ext.define('KCCVBS.controller.Buses', {
         var store = this.getBusWorkerDetailsStore();
         var busWorkerDetails = [];
 
-        var workers = store.getRange();    
+        var workers = store.getRange();
         for (var i = 0; i < workers.length; i++) {
             busWorkerDetails.push(workers[i].data);
         }
@@ -126,8 +126,14 @@ Ext.define('KCCVBS.controller.Buses', {
 
         win.close();
 
-        // save to the server and refresh so grid picks up foreignkey displays
-        this.getBusesStore().sync().load();
+        // save to the server and reload after success so grid picks up foreignkey displays
+        this.getBusesStore().sync(
+            {
+                scope: this,
+                success: function () {
+                    this.getBusesStore().load();
+                }
+            });
     },
 
     deleteItem: function (button) {
@@ -153,7 +159,7 @@ Ext.define('KCCVBS.controller.Buses', {
 
         store.insert(0, {
             WorkerKey: record.data.WorkerKey,
-            DisplayName: record.data.DisplayName,
+            WorkerDisplayName: record.data.WorkerDisplayName,
             Phone: record.data.Phone,
             Mobile: record.data.Mobile
         });

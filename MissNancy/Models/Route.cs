@@ -30,7 +30,7 @@ namespace MissNancy.Data
             get
             {
                 var sql = PetaPoco.Sql.Builder
-                    .Append("SELECT tblWorkers.DisplayName")
+                    .Append("SELECT tblWorkers.LastName + ', ' + tblWorkers.FirstName")
                     .Append("FROM tblRoutes INNER JOIN")
                     .Append("tblBuses ON tblRoutes.BusKey = tblBuses.BusKey INNER JOIN")
                     .Append("tblWorkers ON tblBuses.BusDriverKey = tblWorkers.WorkerKey")
@@ -54,7 +54,7 @@ namespace MissNancy.Data
         {
             get
             {
-                return repo.ExecuteScalar<string>("SELECT DisplayName FROM tblWorkers WHERE WorkerKey=@0", this.BusCaptainKey);
+                return repo.ExecuteScalar<string>("SELECT tblWorkers.LastName + ', ' + tblWorkers.FirstName FROM tblWorkers WHERE WorkerKey=@0", this.BusCaptainKey);
             }
         }
 

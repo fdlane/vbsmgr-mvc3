@@ -195,6 +195,36 @@ namespace MissNancy.Data
 		string _WorkerType;
 
         [Column] 
+		public string FirstName 
+		{ 
+			get
+			{
+				return _FirstName;
+			}
+			set
+			{
+				_FirstName = value;
+				MarkColumnModified("FirstName");
+			}
+		}
+		string _FirstName;
+
+        [Column] 
+		public string LastName 
+		{ 
+			get
+			{
+				return _LastName;
+			}
+			set
+			{
+				_LastName = value;
+				MarkColumnModified("LastName");
+			}
+		}
+		string _LastName;
+
+        [Column] 
 		public string DisplayName 
 		{ 
 			get
@@ -1433,6 +1463,7 @@ namespace MissNancy.Data
 	}
     
 	[TableName("tblChildren")]
+	[PrimaryKey("ChildrenKey")]
 	[ExplicitColumns]
     public partial class Children : MissNancyDB.Record<Children>  
     {

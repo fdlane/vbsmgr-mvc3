@@ -15,11 +15,11 @@ namespace MissNancy.Data
                     .Append("tblBusWorkerDetails.BusKey, tblBusWorkerDetails.WorkerKey,")
                     .Append("tblBusWorkerDetails.CreateDate, tblBusWorkerDetails.CreatedBy, ")
                     .Append("tblBusWorkerDetails.EditDate, tblBusWorkerDetails.EditedBy,")
-                    .Append("tblWorkers.DisplayName, tblWorkers.Phone, tblWorkers.Mobile")
+                    .Append("tblWorkers.LastName, tblWorkers.FirstName, tblWorkers.Phone, tblWorkers.Mobile")
                     .Append("FROM tblBusWorkerDetails INNER JOIN tblWorkers ON ")
                     .Append("tblBusWorkerDetails.WorkerKey = tblWorkers.WorkerKey")
                     .Append("WHERE tblBusWorkerDetails.BusKey = @0", busKey)
-                    .Append("ORDER BY tblWorkers.DisplayName");
+                    .Append("ORDER BY tblWorkers.LastName, tblWorkers.FirstName");
 
             var data = repo.Query<BusWorkerDetail>(sql).ToList();
 
@@ -28,7 +28,20 @@ namespace MissNancy.Data
 
         // The Worker's Name
         [PetaPoco.ResultColumn]
-        public string DisplayName { get; set; }
+        public string WorkerDisplayName
+        {
+            get
+            {
+                return this.LastName + ", " + this.FirstName;
+            }
+        }
+
+        [PetaPoco.ResultColumn]
+        public string FirstName { get; set; }
+
+        [PetaPoco.ResultColumn]
+        public string LastName { get; set; }
+
 
         // The Worker's Phone
         [PetaPoco.ResultColumn]

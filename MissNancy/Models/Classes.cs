@@ -22,7 +22,7 @@ namespace MissNancy.Data
         {
             get
             {
-                return repo.ExecuteScalar<string>("SELECT DisplayName FROM tblWorkers WHERE WorkerKey=@0", this.MasterTeacherKey);
+                return repo.ExecuteScalar<string>("SELECT LastName + ', ' + FirstName FROM tblWorkers WHERE WorkerKey=@0", this.MasterTeacherKey);
             }
         }
 

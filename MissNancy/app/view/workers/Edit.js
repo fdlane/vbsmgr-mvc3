@@ -40,9 +40,20 @@ Ext.define('KCCVBS.view.workers.Edit', {
                 queryMode: 'local',
                 selectOnFocus: true
             }, {
-                xtype: 'textfield',
-                name: 'DisplayName',
-                fieldLabel: 'Display Name'
+                xtype: 'fieldcontainer',
+                fieldLabel: 'First/Last Name',
+                layout: 'hbox',
+                items: [{
+                    xtype: 'textfield',
+                    name: 'FirstName',
+                    width: 150
+                }, {
+                    xtype: 'splitter'
+                }, {
+                    xtype: 'textfield',
+                    name: 'LastName',
+                    flex: 1
+                }]
             }, {
                 xtype: 'textfield',
                 name: 'Title',

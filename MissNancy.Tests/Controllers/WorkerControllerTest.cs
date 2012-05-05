@@ -32,5 +32,40 @@ namespace MissNancy.Tests.Controllers
 
         }
 
+        [TestMethod]
+        public void Worker_tempSplitDisplayName()
+        {
+            // Arrange
+            WorkerController controller = new WorkerController();
+
+            // Act
+            var result = controller.tempSplitDisplayName() as JsonResult;
+
+            //assert     
+            dynamic data = result.Data;
+
+            Assert.IsTrue(data.success);
+
+            // Assert.AreEqual("Adam", data.People[0].Name);  
+
+        }
+
+        [TestMethod]
+        public void Worker_tempFuzzDisplayName()
+        {
+            // Arrange
+            WorkerController controller = new WorkerController();
+
+            // Act
+            var result = controller.tempFuzzSplitDisplayName() as JsonResult;
+
+            //assert     
+            dynamic data = result.Data;
+
+            Assert.IsTrue(data.success);
+
+            // Assert.AreEqual("Adam", data.People[0].Name);  
+
+        }
     }
 }
