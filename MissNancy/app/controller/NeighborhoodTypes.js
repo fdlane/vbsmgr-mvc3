@@ -7,12 +7,10 @@ Ext.define('KCCVBS.controller.NeighborhoodTypes', {
 
     views: ['neighborhoodtype.List', 'neighborhoodtype.Edit'],
 
-    refs: [
-        {
-            ref: 'panel',
-            selector: 'neighborhoodtypelist'
-        }
-    ],
+    refs: [{
+        ref: 'panel',
+        selector: 'neighborhoodtypelist'
+    }],
 
     init: function () {
         this.control({
@@ -30,6 +28,9 @@ Ext.define('KCCVBS.controller.NeighborhoodTypes', {
             },
             'neighborhoodtypelist button[action=delete]': {
                 click: this.deleteItem
+            },
+            'neighborhoodtypelist checkbox[action=showActive]': {
+                change: this.showActive
             }
         });
     },
@@ -111,6 +112,10 @@ Ext.define('KCCVBS.controller.NeighborhoodTypes', {
             }
 
         });
+    },
+
+    showActive: function (checkbox, newValue, oldValue, eOpts) {
+        this.getNeighborhoodTypesStore().load({ params: { activeOnly: newValue} });
     }
 });
 

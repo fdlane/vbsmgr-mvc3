@@ -7,12 +7,10 @@ Ext.define('KCCVBS.controller.WorkerTypes', {
 
     views: ['workertype.List', 'workertype.Edit'],
 
-    refs: [
-        {
-            ref: 'panel',
-            selector: 'workertypelist'
-        }
-    ],
+    refs: [{
+        ref: 'panel',
+        selector: 'workertypelist'
+    }],
 
     init: function () {
         this.control({
@@ -30,6 +28,9 @@ Ext.define('KCCVBS.controller.WorkerTypes', {
             },
             'workertypelist button[action=delete]': {
                 click: this.deleteItem
+            },
+            'workertypelist checkbox[action=showActive]': {
+                change: this.showActive
             }
         });
     },
@@ -108,6 +109,10 @@ Ext.define('KCCVBS.controller.WorkerTypes', {
             }
 
         });
+    },
+
+    showActive: function (checkbox, newValue, oldValue, eOpts) {
+        this.getWorkerTypesStore().load({ params: { activeOnly: newValue} });
     }
 });
 

@@ -36,6 +36,9 @@ Ext.define('KCCVBS.controller.Buses', {
             },
             'busworkerdetailslist combo[action=new]': {
                 select: this.createWorkerDetails
+            },
+            'buseslist checkbox[action=showActive]': {
+                change: this.showActive
             }
         });
     },
@@ -182,6 +185,10 @@ Ext.define('KCCVBS.controller.Buses', {
                 store.sync();
             }
         });
+    },
+
+    showActive: function (checkbox, newValue, oldValue, eOpts) {
+        this.getBusesStore().load({ params: { activeOnly: newValue} });
     }
 });
 

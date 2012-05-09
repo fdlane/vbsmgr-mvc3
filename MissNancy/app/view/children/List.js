@@ -56,6 +56,17 @@ Ext.define('KCCVBS.view.children.List', {
                     group: 'attendance'
                 }]
             }
+        }, {
+            xtype: 'tbspacer',
+            width: 50
+        }, {
+            xtype: 'checkbox',
+            name: 'Active',
+            fieldLabel: 'Show Active Items Only...',
+            labelWidth: 130,
+            labelSeparator: '',
+            checked: true,
+            action: 'showActive'
         }];
 
         this.columns = [{

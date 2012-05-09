@@ -15,52 +15,59 @@ Ext.define('KCCVBS.view.classes.List', {
             checkOnly: true
         });
 
-        this.tbar = [
-                {
-                    iconCls: 'new-item',
-                    text: 'New',
-                    action: 'new'
-                }, {
-                    iconCls: 'delete-item',
-                    text: 'Delete',
-                    action: 'delete'
-                }
-            ];
+        this.tbar = [{
+            iconCls: 'new-item',
+            text: 'New',
+            action: 'new'
+        }, {
+            iconCls: 'delete-item',
+            text: 'Delete',
+            action: 'delete'
+        }, {
+            xtype: 'tbspacer',
+            width: 50
+        }, {
+            xtype: 'checkbox',
+            name: 'Active',
+            fieldLabel: 'Show Active Items Only...',
+            labelWidth: 130,
+            labelSeparator: '',
+            checked: true,
+            action: 'showActive'
+        }];
 
-        this.columns = [
-            {
-                header: 'Class',
-                dataIndex: 'ClassDisplay',
-                width: 150
-            }, {
-                header: 'Master Teacher',
-                dataIndex: 'MasterTeacher',
-                width: 150
-            }, {
-                header: 'Location',
-                dataIndex: 'Location',
-                width: 150
-            }, {
-                header: 'Ages',
-                dataIndex: 'Ages',
-                width: 50
-            }, {
-                header: 'Phone',
-                dataIndex: 'Phone',
-                width: 100
-            }, {
-                xtype: 'numbercolumn',
-                align: 'right',
-                format: '0',
-                header: 'Current',
-                dataIndex: 'Current',
-                width: 60
-            }, {
-                xtype: 'columnactive',
-                dataIndex: 'Active',
-                width: 50
-            }
-        ];
+        this.columns = [{
+            header: 'Class',
+            dataIndex: 'ClassDisplay',
+            width: 150
+        }, {
+            header: 'Master Teacher',
+            dataIndex: 'MasterTeacher',
+            width: 150
+        }, {
+            header: 'Location',
+            dataIndex: 'Location',
+            width: 150
+        }, {
+            header: 'Ages',
+            dataIndex: 'Ages',
+            width: 50
+        }, {
+            header: 'Phone',
+            dataIndex: 'Phone',
+            width: 100
+        }, {
+            xtype: 'numbercolumn',
+            align: 'right',
+            format: '0',
+            header: 'Current',
+            dataIndex: 'Current',
+            width: 60
+        }, {
+            xtype: 'columnactive',
+            dataIndex: 'Active',
+            width: 50
+        }];
 
         this.callParent(arguments);
     }

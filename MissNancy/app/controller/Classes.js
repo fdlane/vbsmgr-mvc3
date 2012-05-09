@@ -37,6 +37,9 @@ Ext.define('KCCVBS.controller.Classes', {
             },
             'classworkerdetailslist combo[action=new]': {
                 select: this.createWorkerDetails
+            },
+            'classeslist checkbox[action=showActive]': {
+                change: this.showActive
             }
         });
     },
@@ -186,6 +189,10 @@ Ext.define('KCCVBS.controller.Classes', {
                 store.sync();
             }
         });
+    },
+
+    showActive: function (checkbox, newValue, oldValue, eOpts) {
+        this.getClassesStore().load({ params: { activeOnly: newValue} });
     }
 });
 

@@ -12,7 +12,6 @@ Ext.define('KCCVBS.view.workers.List', {
             checkOnly: true
         });
 
-
         this.tbar = [{
             iconCls: 'new-item',
             text: 'New',
@@ -57,6 +56,17 @@ Ext.define('KCCVBS.view.workers.List', {
                     group: 'attendance'
                 }]
             }
+        }, {
+            xtype: 'tbspacer',
+            width: 50
+        }, {
+            xtype: 'checkbox',
+            name: 'Active',
+            fieldLabel: 'Show Active Items Only...',
+            labelWidth: 130,
+            labelSeparator: '',
+            checked: true,
+            action: 'showActive'
         }];
 
         this.columns = [{

@@ -20,6 +20,17 @@ Ext.define('KCCVBS.view.neighborhoodtype.List', {
             iconCls: 'delete-item',
             text: 'Delete',
             action: 'delete'
+        }, {
+            xtype: 'tbspacer',
+            width: 50
+        }, {
+            xtype: 'checkbox',
+            name: 'Active',
+            fieldLabel: 'Show Active Items Only...',
+            labelWidth: 130,
+            labelSeparator: '',
+            checked: true,
+            action: 'showActive'
         }];
 
         this.columns = [{

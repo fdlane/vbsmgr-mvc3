@@ -12,29 +12,36 @@ Ext.define('KCCVBS.view.location.List', {
             checkOnly: true
         });
 
-        this.tbar = [
-                        {
-                            iconCls: 'new-item',
-                            text: 'New',
-                            action: 'new'
-                        }, {
-                            iconCls: 'delete-item',
-                            text: 'Delete',
-                            action: 'delete'
-                        }
-                    ];
+        this.tbar = [{
+            iconCls: 'new-item',
+            text: 'New',
+            action: 'new'
+        }, {
+            iconCls: 'delete-item',
+            text: 'Delete',
+            action: 'delete'
+        }, {
+            xtype: 'tbspacer',
+            width: 50
+        }, {
+            xtype: 'checkbox',
+            name: 'Active',
+            fieldLabel: 'Show Active Items Only...',
+            labelWidth: 130,
+            labelSeparator: '',
+            checked: true,
+            action: 'showActive'
+        }];
 
-        this.columns = [
-                        {
-                            header: 'Location',
-                            dataIndex: 'LocationDisplay',
-                            width: 150
-                        }, {
-                            xtype: 'columnactive',
-                            dataIndex: 'Active',
-                            width: 50
-                        }
-                    ];
+        this.columns = [{
+            header: 'Location',
+            dataIndex: 'LocationDisplay',
+            width: 150
+        }, {
+            xtype: 'columnactive',
+            dataIndex: 'Active',
+            width: 50
+        }];
 
         this.callParent(arguments);
     }

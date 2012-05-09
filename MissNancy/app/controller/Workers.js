@@ -33,6 +33,9 @@ Ext.define('KCCVBS.controller.Workers', {
             },
             'workerslist menuitem[group="attendance"]': {
                 click: this.takeAttendance
+            },
+            'workerslist checkbox[action=showActive]': {
+                change: this.showActive
             }
         });
     },
@@ -129,6 +132,10 @@ Ext.define('KCCVBS.controller.Workers', {
         });
 
         store.sync().load();
+    },
+
+    showActive: function (checkbox, newValue, oldValue, eOpts) {
+        this.getWorkersStore().load({ params: { activeOnly: newValue} });
     }
 });
 

@@ -30,6 +30,9 @@ Ext.define('KCCVBS.controller.Locations', {
             },
             'locationlist button[action=delete]': {
                 click: this.deleteItem
+            },
+            'locationlist checkbox[action=showActive]': {
+                change: this.showActive
             }
         });
     },
@@ -110,6 +113,10 @@ Ext.define('KCCVBS.controller.Locations', {
             }
 
         });
+    },
+
+    showActive: function (checkbox, newValue, oldValue, eOpts) {
+        this.getLocationsStore().load({ params: { activeOnly: newValue} });
     }
 });
 

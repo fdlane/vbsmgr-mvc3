@@ -30,6 +30,9 @@ Ext.define('KCCVBS.controller.Ages', {
             },
             'agelist button[action=delete]': {
                 click: this.deleteItem
+            },
+            'agelist checkbox[action=showActive]': {
+                change: this.showActive
             }
         });
     },
@@ -105,6 +108,10 @@ Ext.define('KCCVBS.controller.Ages', {
             }
 
         });
+    },
+
+    showActive: function (checkbox, newValue, oldValue, eOpts) {
+        this.getAgesStore().load({ params: { activeOnly: newValue} });
     }
 });
 

@@ -30,6 +30,9 @@ Ext.define('KCCVBS.controller.Neighborhoods', {
             },
             'neighborhoodlist button[action=delete]': {
                 click: this.deleteItem
+            },
+            'neighborhoodlist checkbox[action=showActive]': {
+                change: this.showActive
             }
         });
     },
@@ -142,6 +145,10 @@ Ext.define('KCCVBS.controller.Neighborhoods', {
                 store.sync();
             }
         });
+    },
+
+    showActive: function (checkbox, newValue, oldValue, eOpts) {
+        this.getNeighborhoodsStore().load({ params: { activeOnly: newValue} });
     }
 });
 

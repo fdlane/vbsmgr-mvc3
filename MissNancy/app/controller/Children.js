@@ -33,6 +33,9 @@ Ext.define('KCCVBS.controller.Children', {
             },
             'childrenlist menuitem[group="attendance"]': {
                 click: this.takeAttendance
+            },
+            'childrenlist checkbox[action=showActive]': {
+                change: this.showActive
             }
         });
     },
@@ -135,7 +138,10 @@ Ext.define('KCCVBS.controller.Children', {
         });
 
         store.sync();
-    }
+    },
 
+    showActive: function (checkbox, newValue, oldValue, eOpts) {
+        this.getChildrenStore().load({ params: { activeOnly: newValue} });
+    }       
 });
 

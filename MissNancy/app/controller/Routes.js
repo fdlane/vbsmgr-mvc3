@@ -33,8 +33,11 @@ Ext.define('KCCVBS.controller.Routes', {
             },
             'neighborhoodsublist dataview': {
                 itemdblclick: this.application.getController('Neighborhoods').editItem
-
+            },
+            'routelist checkbox[action=showActive]': {
+                change: this.showActive
             }
+
         });
     },
 
@@ -134,6 +137,10 @@ Ext.define('KCCVBS.controller.Routes', {
             }
 
         });
+    },
+
+    showActive: function (checkbox, newValue, oldValue, eOpts) {
+        this.getRoutesStore().load({ params: { activeOnly: newValue} });
     }
 });
 
