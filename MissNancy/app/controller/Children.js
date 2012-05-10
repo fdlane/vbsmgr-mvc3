@@ -2,7 +2,7 @@ Ext.define('KCCVBS.controller.Children', {
     extend: 'Ext.app.Controller',
 
     stores: ['Children', 'Ages', 'NeighborhoodsCombo', 'GradesCompleted'],
-
+    
     models: ['Children', 'Neighborhood'],
 
     views: ['children.List', 'children.Edit'],
