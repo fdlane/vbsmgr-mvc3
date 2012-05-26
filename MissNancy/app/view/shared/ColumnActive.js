@@ -6,9 +6,9 @@ Ext.define('KCCVBS.view.shared.ColumnActive', {
 
     renderer: function (value) {
         if (value) {
-            return '<div><img src="../Content/icons/bullet_green.png"></div>';
+            return '<div><img src="./Content/icons/bullet_green.png"></div>';
         } else {
-            return '<div><img src="../Content/icons/bullet_red.png"></div>';
+            return '<div><img src="./Content/icons/bullet_red.png"></div>';
         }
     }
 });

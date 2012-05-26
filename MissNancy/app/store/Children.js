@@ -25,10 +25,10 @@ Ext.define('KCCVBS.store.Children', {
         },
         type: 'ajax',
         api: {
-            read: '/Children/GetPaged',
-            create: '/Children/Create',
-            update: '/Children/Update',
-            destroy: '/Children/Delete'
+            read: './Children/GetPaged',
+            create: './Children/Create',
+            update: './Children/Update',
+            destroy: './Children/Delete'
         },
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'

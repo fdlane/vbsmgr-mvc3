@@ -53,10 +53,10 @@ Ext.define('KCCVBS.store.Users', {
         },
         type: 'ajax',
         api: {
-            read: '/UserInfo/Get',
-            create: '/UserInfo/Create',
-            update: '/UserInfo/Update',
-            destroy: '/UserInfo/Delete'
+            read: './UserInfo/Get',
+            create: './UserInfo/Create',
+            update: './UserInfo/Update',
+            destroy: './UserInfo/Delete'
         },
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'

@@ -24,10 +24,10 @@ Ext.define('KCCVBS.store.Locations', {
         },
         type: 'ajax',
         api: {
-            read: '/Location/Get',
-            create: '/Location/Create',
-            update: '/Location/Update',
-            destroy: '/Location/Delete'
+            read: './Location/Get',
+            create: './Location/Create',
+            update: './Location/Update',
+            destroy: './Location/Delete'
         },
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'

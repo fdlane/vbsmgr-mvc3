@@ -24,10 +24,10 @@ Ext.define('KCCVBS.store.Neighborhoods', {
         },
         type: 'ajax',
         api: {
-            read: '/Neighborhood/GetPaged',
-            create: '/Neighborhood/Create',
-            update: '/Neighborhood/Update',
-            destroy: '/Neighborhood/Delete'
+            read: './Neighborhood/GetPaged',
+            create: './Neighborhood/Create',
+            update: './Neighborhood/Update',
+            destroy: './Neighborhood/Delete'
         },
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'

@@ -10,7 +10,7 @@ Ext.define('KCCVBS.view.Viewport', {
     layout: 'border',
     items: [{
         region: 'north',
-        html: Html = "<div id='header' style='height:32px;'><a style='float:right;margin-right:10px;' href='http://www.knoxvillechristiancenter.org/' target='_blank'><img style='margin-top: 4px;' src='/Content/icons/i_heart_vbs_opt.png'/></a><div class='api-title'>Giant Vacation Bible School (Beta)</div></div>",
+        html: Html = "<div id='header' style='height:32px;'><a style='float:right;margin-right:10px;' href='http://www.knoxvillechristiancenter.org/' target='_blank'><img style='margin-top: 4px;' src='./Content/icons/i_heart_vbs_opt.png'/></a><div class='api-title'>Giant Vacation Bible School (Beta)</div></div>",
         autoHeight: true,
         border: false,
         margins: '0 0 5 0'

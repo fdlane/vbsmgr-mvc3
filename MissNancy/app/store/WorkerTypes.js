@@ -24,10 +24,10 @@ Ext.define('KCCVBS.store.WorkerTypes', {
         },
         type: 'ajax',
         api: {
-            read: '/WorkerType/Get',
-            create: '/WorkerType/Create',
-            update: '/WorkerType/Update',
-            destroy: '/WorkerType/Delete'
+            read: './WorkerType/Get',
+            create: './WorkerType/Create',
+            update: './WorkerType/Update',
+            destroy: './WorkerType/Delete'
         },
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'

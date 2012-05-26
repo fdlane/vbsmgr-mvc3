@@ -24,7 +24,7 @@ Ext.define('KCCVBS.store.WorkersCombo', {
         },
         type: 'ajax',
         api: {
-            read: '/Worker/GetPaged'
+            read: './Worker/GetPaged'
         },
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'

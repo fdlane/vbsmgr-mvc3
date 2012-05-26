@@ -24,10 +24,10 @@ Ext.define('KCCVBS.store.Classes', {
         },
         type: 'ajax',
         api: {
-            read: '/Classes/GetPaged',
-            create: '/Classes/Create',
-            update: '/Classes/Update',
-            destroy: '/Classes/Delete'
+            read: './Classes/GetPaged',
+            create: './Classes/Create',
+            update: './Classes/Update',
+            destroy: './Classes/Delete'
         },
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'

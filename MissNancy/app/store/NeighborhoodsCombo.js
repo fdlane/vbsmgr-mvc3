@@ -24,7 +24,7 @@ Ext.define('KCCVBS.store.NeighborhoodsCombo', {
         },
         type: 'ajax',
         api: {
-            read: '/Neighborhood/GetPaged'
+            read: './Neighborhood/GetPaged'
         },
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'

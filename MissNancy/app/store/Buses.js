@@ -25,10 +25,10 @@ Ext.define('KCCVBS.store.Buses', {
         },
         type: 'ajax',
         api: {
-            read: '/Buses/GetPaged',
-            create: '/Buses/Create',
-            update: '/Buses/Update',
-            destroy: '/Buses/Delete'
+            read: './Buses/GetPaged',
+            create: './Buses/Create',
+            update: './Buses/Update',
+            destroy: './Buses/Delete'
         },
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'

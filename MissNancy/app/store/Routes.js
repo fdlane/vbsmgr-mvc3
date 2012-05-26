@@ -24,10 +24,10 @@ Ext.define('KCCVBS.store.Routes', {
         },
         type: 'ajax',
         api: {
-            read: '/Route/GetPaged',
-            create: '/Route/Create',
-            update: '/Route/Update',
-            destroy: '/Route/Delete'
+            read: './Route/GetPaged',
+            create: './Route/Create',
+            update: './Route/Update',
+            destroy: './Route/Delete'
         },
         headers: {
             'Content-Type': 'application/json; charset=UTF-8'
