@@ -109,10 +109,13 @@ Ext.define('KCCVBS.view.children.Edit', {
                         name: 'GradeCompleted',
                         fieldLabel: 'Grade Completed',
                         emptyText: 'Please select...',
-                        store: 'GradesCompleted',
+                        store: new KCCVBS.store.GradesCompleted(),
                         displayField: 'value',
+                        valueField: 'value',
                         forceSelection: true,
-                        queryMode: 'local'
+                        queryMode: 'local',
+                        typeAhead: true,
+                        minChars: 2
                     }, {
                         xtype: 'splitter'
                     }, {

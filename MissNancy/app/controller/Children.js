@@ -94,7 +94,7 @@ Ext.define('KCCVBS.controller.Children', {
             form = win.down('form').getForm(),
             record = form.getRecord(),
             values = form.getValues();
-        console.log("values", values);
+       
         if (!form.isValid()) {
             return;
         };
