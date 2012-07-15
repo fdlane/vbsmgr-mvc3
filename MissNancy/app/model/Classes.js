@@ -2,7 +2,7 @@ Ext.define('KCCVBS.model.Classes', {
     extend: 'Ext.data.Model',
     idProperty: 'ClassKey',
     fields: [
-                'ClassKey',
+               { name: 'ClassKey', type: 'integer' },
                 'Active',
                 'boolean',
                 'AgeKey',

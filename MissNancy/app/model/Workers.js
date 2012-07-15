@@ -2,7 +2,7 @@ Ext.define('KCCVBS.model.Workers', {
     extend: 'Ext.data.Model',
     idProperty: 'WorkerKey',
     fields: [
-                'WorkerKey',
+               { name: 'WorkerKey', type: 'integer' },
                 'Active',
                 'WorkerTypeKey',
                 'WorkerType',

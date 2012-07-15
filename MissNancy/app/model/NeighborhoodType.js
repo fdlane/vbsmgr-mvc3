@@ -2,7 +2,7 @@ Ext.define('KCCVBS.model.NeighborhoodType', {
     extend: 'Ext.data.Model',
     idProperty: 'NeighborhoodTypeKey',
     fields: [
-                'NeighborhoodTypeKey',
+               { name: 'NeighborhoodTypeKey', type: 'integer' },
                 'Active',
                 'TypeDisplay',
                 'Notes',

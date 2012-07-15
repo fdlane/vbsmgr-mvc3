@@ -102,8 +102,6 @@ namespace MissNancy.Controllers
                         rec = item;
                         rec.EditDate = DateTime.Now;
                         db.Save("tblNeighborhoods", "NeighborhoodKey", rec);
-                        item = rec;
-
                     }
 
                     success = true;

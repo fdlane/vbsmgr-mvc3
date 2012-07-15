@@ -2,7 +2,7 @@ Ext.define('KCCVBS.model.Locations', {
     extend: 'Ext.data.Model',
     idProperty: 'LocationsKey',
     fields: [
-             'LocationKey',
+             { name: 'LocationKey', type: 'integer' },
              'Active',
              'LocationDisplay',
              'Notes',

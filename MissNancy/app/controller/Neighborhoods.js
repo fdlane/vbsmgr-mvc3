@@ -87,11 +87,16 @@ Ext.define('KCCVBS.controller.Neighborhoods', {
             return;
         };
 
+        //set the values from the Form to the record
+        record.set(values);
+
         var store = this.getNeighborhoodsStore();
 
         // check if this is a newly created record and insert into the store
-        if (record.phantom) {
+        if (record.phantom) {       
+            //inserts the new record in the first position of the store
             store.insert(0, record);
+
             // save to the server 
             store.sync();
         } else {
@@ -104,12 +109,7 @@ Ext.define('KCCVBS.controller.Neighborhoods', {
                 if (recFromDefaultStore) {
                     recFromDefaultStore.set(values);
                     // save to the server and the reload the default store
-                    store.sync({
-                        success: function () {
-                            store.load();
-                        },
-                        scope: this
-                    });
+                    store.sync();
                 } else {
                     // record was not found in default store, so just update the 'filtered' stored
                     record.set(values);

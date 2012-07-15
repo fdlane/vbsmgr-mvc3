@@ -2,7 +2,7 @@ Ext.define('KCCVBS.model.Children', {
     extend: 'Ext.data.Model',
     idProperty: 'ChildrenKey',
     fields: [
-                'ChildrenKey',
+               { name: 'ChildrenKey', type: 'integer' },
                 'Active',
                 'NeighborhoodKey',
                 'AgeKey',
