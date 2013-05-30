@@ -14,27 +14,27 @@ namespace MissNancy.Tests
     [TestClass]
     public class NeighborhoodTest
     {
-        [TestMethod]
-        public void GetPagedFilteredNeighborhood()
-        {
-            // Arrange
-            int page = 1;
-            int limit = 25;
-            List<ExtJsFilter> filters = new List<ExtJsFilter>();
+        //[TestMethod]
+        //public void GetPagedFilteredNeighborhood()
+        //{
+        //    // Arrange
+        //    int page = 1;
+        //    int limit = 25;
+        //    List<ExtJsFilter> filters = new List<ExtJsFilter>();
 
-            ExtJsFilter filter = new ExtJsFilter();
+        //    ExtJsFilter filter = new ExtJsFilter();
 
-            filter.property = "RouteKey";
-            filter.value = 18;
+        //    filter.property = "RouteKey";
+        //    filter.value = 18;
 
-            filters.Add(filter);
+        //    filters.Add(filter);
 
-            // Act
-            var neighborhoods = Neighborhood.GetPaged(page, limit, filters, true);
+        //    // Act
+        //    var neighborhoods = Neighborhood.GetPaged(page, limit, filters, true);
 
 
-            // Assert
-            Assert.AreNotEqual(0, neighborhoods.TotalItems);
-        }
+        //    // Assert
+        //    Assert.AreNotEqual(0, neighborhoods.TotalItems);
+        //}
     }
 }

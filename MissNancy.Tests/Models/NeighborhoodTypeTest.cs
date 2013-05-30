@@ -13,32 +13,32 @@ namespace MissNancy.Tests
     [TestClass]
     public class NeighborhoodTypeTest
     {
-        [TestMethod]
-        public void GetPagedNeighborhoodType()
-        {
-            // Arrange
-            int page = 1;
-            int limit = 25;
-            Boolean activeOnly = true;
+        //[TestMethod]
+        //public void GetPagedNeighborhoodType()
+        //{
+        //    // Arrange
+        //    int page = 1;
+        //    int limit = 25;
+        //    Boolean activeOnly = true;
 
-            // Act
-            var data =  NeighborhoodType.GetPaged(null, page, limit, activeOnly);
+        //    // Act
+        //    var data =  NeighborhoodType.GetPaged(null, page, limit, activeOnly);
 
-            // Assert
-            Assert.AreNotEqual(0, data.TotalItems);
-        }
+        //    // Assert
+        //    Assert.AreNotEqual(0, data.TotalItems);
+        //}
 
-        [TestMethod]
-        public void GetByIdNeighborhoodType()
-        {
-            // Arrange
-            string key = "1";
+        //[TestMethod]
+        //public void GetByIdNeighborhoodType()
+        //{
+        //    // Arrange
+        //    string key = "1";
 
-            // Act
-            var data =  NeighborhoodType.GetById(key);
+        //    // Act
+        //    var data =  NeighborhoodType.GetById(key);
 
-            // Assert
-            Assert.AreEqual(1, data.NeighborhoodTypeKey);
-        }
+        //    // Assert
+        //    Assert.AreEqual(1, data.NeighborhoodTypeKey);
+        //}
     }
 }
