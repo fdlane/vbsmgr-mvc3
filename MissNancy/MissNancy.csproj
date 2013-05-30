@@ -401,10 +401,10 @@
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="appTester.js" />
-    <Content Include="extjs\ext-all-debug-w-comments.js" />
-    <Content Include="extjs\ext-all-debug.js" />
-    <Content Include="extjs\ext-all.js" />
-    <Content Include="extjs\ext.js" />
+    <None Include="extjs\ext-all-debug-w-comments.js" />
+    <None Include="extjs\ext-all-debug.js" />
+    <None Include="extjs\ext-all.js" />
+    <None Include="extjs\ext.js" />
     <Content Include="extjs\resources\css\ext-all-access-debug.css" />
     <Content Include="extjs\resources\css\ext-all-access.css" />
     <Content Include="extjs\resources\css\ext-all-debug.css" />
